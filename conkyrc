@@ -1,0 +1,168 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# #
+# 
+# double_buffer yes
+# alignment middle_middle
+# background no
+# border_width 1
+# cpu_avg_samples 2
+# default_color white
+# default_outline_color white
+# default_shade_color white
+# draw_borders no
+# draw_graph_borders yes
+# draw_outline no
+# draw_shades no
+# use_xft yes
+# xftfont DejaVu Sans Mono:size=12
+# gap_x 5
+# gap_y 60
+# minimum_size 5 5
+# net_avg_samples 2
+# no_buffers yes
+# out_to_console no
+# out_to_stderr no
+# extra_newline no
+# own_window yes
+# own_window_class Conky
+# own_window_type normal
+
+
+
+# Conky settings #
+background no
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+#imlib_cache_size 0
+
+temperature_unit celsius
+
+# Window specifications #
+
+own_window yes
+own_window_type panel
+#own_window_type normal
+own_window_class Conky
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 200 250
+maximum_width 100
+
+alignment middle_left
+gap_x 0
+gap_y 0
+
+# Graphics settings #
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftfont Caviar Dreams:size=8
+xftalpha 0.5
+
+uppercase no
+
+temperature_unit celsius
+
+
+default_color 657b83
+
+# Lua Load  #
+lua_load ~/.lua/scripts/clock_rings.lua
+lua_draw_hook_pre clock_rings
+
+TEXT
+${voffset 0}${color 268bd2}${font Caviar Dreams:size=10}${time %A}${font}${voffset -0}${alignr 20}${color 657b83}${font Caviar Dreams:size=20}${time %e}${font}
+${color 657b83}${voffset -15}${color 657b83}${font Caviar Dreams:size=18}${time %b}${font}${voffset -3}
+${voffset 0}${font Caviar Dreams:size=12}${color 268bd2}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LQBK temperature temperature 30}°C${font}
+#${image ~/.conky/debian-logo.png -p 68,120 -s 60x60}
+${voffset 173}
+
+${color 657b83}${goto 20}${voffset -5}${cpu cpu0}%
+${color 268bd2}${goto 20}CPU
+${color 657b83}${goto 20}${voffset 34}${memperc}%
+${color 268bd2}${goto 20}RAM
+# ${color 657b83}${goto 20}${voffset 34}${swapperc}%
+# ${color 268bd2}${goto 20}Swap
+${color 657b83}${goto 20}${voffset 34}${fs_used_perc /}%
+${color 268bd2}${goto 20}Disk
+${color 657b83}${goto 20}${voffset 34}${battery_percent}%
+#${color 268bd2}${goto 20}${battery_time}/${battery_status}
+${color 268bd2}${goto 20}Batt
+${color 657b83}${goto 20}${voffset 34}${downspeed wlan0}
+${color 657b83}${goto 20}${upspeed wlan0}
+${color 268bd2}${goto 20}${wireless_essid wlan0}${color 657b83}:${color 657b83} ${wireless_link_qual_perc wlan0}%
+# ${color 657b83}${font Caviar Dreams:size=8}Uptime: ${uptime_short}
+# ${color 657b83}${font Caviar Dreams:size=8}Processes: ${processes}
+# ${color 657b83}${font Caviar Dreams:size=8}Running: ${running_processes}
+# ${color 268bd2}${font Caviar Dreams:size=8}${alignr}${nodename}
+# ${color 268bd2}${font Caviar Dreams:size=8}${alignr}${pre_exec cat /etc/issue.net}  $machine
+# ${color 268bd2}${font Caviar Dreams:size=8}${alignr}Kernel: ${kernel}
+#TEXT
+#${scroll 16 $nodename - $sysname $kernel on $machine | }
+#$hr
+#${color grey}Uptime:$color $uptime
+#${color grey}Frequency (in MHz):$color $freq
+#${color grey}Frequency (in GHz):$color $freq_g
+#${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
+#${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
+#${color grey}CPU Usage:$color $cpu% ${cpubar 4}
+#${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
+#$hr
+#${color grey}File systems:
+ #/ $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
+#${color grey}Networking:
+#Up:$color ${upspeed wlan0} ${color grey} - Down:$color ${downspeed wlan0}
+
+
+#  ${if_match ${desktop_name} == 1}${color 268bd2}1${else}${color}1${endif} ${if_match ${desktop_name} == 2}${color 268bd2}2${else}${color}2${endif} ${if_match ${desktop_name} == 3}${color 268bd2}3${else}${color}3${endif} ${if_match ${desktop_name} == 4}${color 268bd2}4${else}${color}4${endif} ${if_match ${desktop_name} == 5}${color 268bd2}5${else}${color}5${endif} ${if_match ${desktop_name} == 6}${color 268bd2}6${else}${color}6${endif} ${if_match ${desktop_name} == 7}${color 268bd2}7${else}${color}7${endif} ${if_match ${desktop_name} == 8}${color 268bd2}8${else}${color}8${endif} ${if_match ${desktop_name} == 9}${color 268bd2}9${else}${color}9${endif}
+   ${if_match ${desktop_name}==1}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==2}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==3}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==4}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==5}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==6}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==7}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==8}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==9}${color 268bd2}●${else}${color}●${endif}
+${color 268bd2} #$hr
+
+
+  ${color 657b83}${top name 1}${goto 60}${top cpu 1}%
+  ${color 657b83}${top name 2}${goto 60}${top cpu 2}%
+  ${color 657b83}${top name 3}${goto 60}${top cpu 3}%
+  ${color 657b83}${top name 4}${goto 60}${top cpu 4}%
+
+
+  ${battery}
+  ${battery_time}

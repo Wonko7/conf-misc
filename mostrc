@@ -1,0 +1,5 @@
+setkey "up" "k"
+setkey "down" "j"
+setkey goto_line ":g"
+setkey eob "G"
+setkey bob "g"

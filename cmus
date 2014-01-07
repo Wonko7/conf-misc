@@ -1,0 +1,4 @@
+set  auto_reshuffle=true
+set  repeat=true
+set  shuffle=true
+set  set_term_title=false
