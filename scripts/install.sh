@@ -6,6 +6,7 @@ ln -s ~/conf/zsh/zshrc ~/.zshrc
 ln -s ~/conf/git/gitconfig ~/.gitconfig
 ln -s ~/conf/misc/ackrc ~/.ackrc
 ln -s ~/conf/misc/mostrc ~/.mostrc
+ln -s ~/conf/misc/tmux.conf ~/.tmux.conf
 ln -s ~/conf/misc/vimperatorrc ~/.vimperatorrc
 
 ln -s ~/conf/xmonad ~/.xmonad

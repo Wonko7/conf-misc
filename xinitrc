@@ -48,7 +48,8 @@ source ~/conf/misc/amixer.sh
 #feh --bg-scale wallpapers/Wallpaper_Dec_2009_by_zedi0us.jpg
 #feh --bg-scale img/wallpapers/fclub.jpg
 #feh --bg-scale wallpapers/kermit_wide.jpg
-feh --bg-scale wallpapers/Doctor-who-wallpaper-1366x768-doctor-who-weeping-angel.jpg
+#feh --bg-scale wallpapers/Doctor-who-wallpaper-1366x768-doctor-who-weeping-angel.jpg
+feh --bg-scale wallpapers/TV\ Show_Doctor\ Who_415064.jpg
 urxvtd&
 xcompmgr -cCtF -t-5 -l-5 -r4.2 -o.55 -F -D20&
 xmodmap ~/conf/misc/xmodmap.dvorak&
@@ -59,5 +60,5 @@ conky&
 #xscreensaver&
 #xbindkeys&
 #gnome-power-manager&
-dbus-launch gnome-session& # Fixme: find out if this is really needed. firefox complains on ubuntu
+#dbus-launch gnome-session& # this triggers infinite gnome sessions. really awesome.
 dbus-launch --exit-with-session xmonad
