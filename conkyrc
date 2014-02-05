@@ -74,8 +74,10 @@ own_window yes
 own_window_type panel
 #own_window_type normal
 own_window_class Conky
-own_window_transparent yes
+#own_window_transparent yes
 own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+own_window_argb_visual yes
+own_window_argb_value yes
 
 border_inner_margin 0
 border_outer_margin 0
@@ -127,9 +129,9 @@ ${color 268bd2}${goto 20}Disk
 ${color 657b83}${goto 20}${voffset 34}${battery_percent}%
 #${color 268bd2}${goto 20}${battery_time}/${battery_status}
 ${color 268bd2}${goto 20}Batt
-${color 657b83}${goto 20}${voffset 34}${downspeed wlan0}
-${color 657b83}${goto 20}${upspeed wlan0}
-${color 268bd2}${goto 20}${wireless_essid wlan0}${color 657b83}:${color 657b83} ${wireless_link_qual_perc wlan0}%
+${color 657b83}${goto 20}${voffset 34}${downspeed wlp2s0}
+${color 657b83}${goto 20}${upspeed wlp2s0}
+${color 268bd2}${goto 20}${wireless_essid wlp2s0}${color 657b83}:${color 657b83} ${wireless_link_qual_perc wlp2s0}%
 # ${color 657b83}${font Caviar Dreams:size=8}Uptime: ${uptime_short}
 # ${color 657b83}${font Caviar Dreams:size=8}Processes: ${processes}
 # ${color 657b83}${font Caviar Dreams:size=8}Running: ${running_processes}
