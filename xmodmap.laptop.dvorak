@@ -29,12 +29,11 @@
 
 !keycode 64  = Alt_L Alt_L Alt_L Alt_L
 !keycode 108 = Alt_R Alt_R Alt_R Alt_R
-!! keycode 64  = Super_L Super_L Super_L Super_L
-!! keycode 108 = Super_R Super_R Super_R Super_R
-!! keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
-!! keycode 105 = Mode_switch Mode_switch Mode_switch Mode_switch
-keycode 135 =  Mode_switch Mode_switch Mode_switch Mode_switch
+keycode 64  = Super_L Super_L Super_L Super_L
+keycode 108 = Super_R Super_R Super_R Super_R
 keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
+keycode 105 = Mode_switch Mode_switch Mode_switch Mode_switch
+!keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
 !keycode 134 = Mode_switch Mode_switch Mode_switch Mode_switch
 
 !keycode 66  = Control_R Control_R Control_R Control_R
