@@ -110,9 +110,11 @@ lua_load ~/.lua/scripts/clock_rings.lua
 lua_draw_hook_pre clock_rings
 
 TEXT
-${voffset 0}${color 268bd2}${font Caviar Dreams:size=10}${time %A}${font}${voffset -0}${alignr 20}${color 657b83}${font Caviar Dreams:size=20}${time %e}${font}
+
+
+${voffset 0}${color 268bd2}${font Caviar Dreams:size=10}${time %a}${font}${voffset -0}${alignr 40}${color 657b83}${font Caviar Dreams:size=20}${time %e}${font}
 ${color 657b83}${voffset -15}${color 657b83}${font Caviar Dreams:size=18}${time %b}${font}${voffset -3}
-${voffset 0}${font Caviar Dreams:size=12}${color 268bd2}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LQBK temperature temperature 30}°C${font}
+${voffset 0}${font Caviar Dreams:size=12}${color 268bd2}${alignr 25}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LQBK temperature temperature 30}°C${font}
 #${image ~/.conky/debian-logo.png -p 68,120 -s 60x60}
 ${voffset 173}
 
@@ -154,7 +156,7 @@ ${color 268bd2}${goto 20}${wireless_essid wlan0}${color 657b83}:${color 657b83} 
 
 
 #  ${if_match ${desktop_name} == 1}${color 268bd2}1${else}${color}1${endif} ${if_match ${desktop_name} == 2}${color 268bd2}2${else}${color}2${endif} ${if_match ${desktop_name} == 3}${color 268bd2}3${else}${color}3${endif} ${if_match ${desktop_name} == 4}${color 268bd2}4${else}${color}4${endif} ${if_match ${desktop_name} == 5}${color 268bd2}5${else}${color}5${endif} ${if_match ${desktop_name} == 6}${color 268bd2}6${else}${color}6${endif} ${if_match ${desktop_name} == 7}${color 268bd2}7${else}${color}7${endif} ${if_match ${desktop_name} == 8}${color 268bd2}8${else}${color}8${endif} ${if_match ${desktop_name} == 9}${color 268bd2}9${else}${color}9${endif}
-   ${if_match ${desktop_name}==1}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==2}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==3}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==4}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==5}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==6}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==7}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==8}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==9}${color 268bd2}●${else}${color}●${endif}
+  ${if_match ${desktop_name}==1}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==2}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==3}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==4}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==5}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==6}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==7}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==8}${color 268bd2}●${else}${color}●${endif}${if_match ${desktop_name}==9}${color 268bd2}●${else}${color}●${endif}
 ${color 268bd2} #$hr
 
 
