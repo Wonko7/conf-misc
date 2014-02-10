@@ -20,3 +20,4 @@ EOF
 :noremap k 3k
 :noremap < <C-o>
 :noremap > <C-i>
+:noremap <BS> <F11>

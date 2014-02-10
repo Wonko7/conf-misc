@@ -50,46 +50,38 @@
 #"xterm"
 #  control + b:2
 
+## "systemctl hibernate" 
+##   control+alt+Delete
+## 
+## "systemctl suspend"
+##   control+alt+BackSpace
 
-"/root/bin/keyboard-backlight up"
-  XF86KbdBrightnessUp
-
-"/root/bin/keyboard-backlight down"
-  XF86KbdBrightnessDown
-
-#" /root/bin/hibernate"
-"systemctl hibernate" 
-  control+alt+Delete
-
-"systemctl suspend"
-  control+alt+BackSpace
-
-"amixer -q set Master 3%- unmute"
+"qdbus org.kde.kmix /Mixer0 org.kde.KMix.decreaseVolume Master:0"
   XF86AudioLowerVolume
 
-"amixer -q set Master 3%+ unmute"
+"dbus org.kde.kmix /Mixer0 org.kde.KMix.increaseVolume Master:0"
   XF86AudioRaiseVolume
 
-"amixer -q set Master toggle"
+"qdbus org.kde.kmix /Mixer0 org.kde.KMix.toggleMute Master:0"
   XF86AudioMute
 
-"/root/bin/fan up"
-  XF86MonBrightnessUp
+## "/root/bin/fan up"
+##   XF86MonBrightnessUp
+## 
+## "/root/bin/fan down"
+##   XF86MonBrightnessDown
 
-"/root/bin/fan down"
-  XF86MonBrightnessDown
-
-#"exaile -t"
-"~/conf/scripts/music-play.sh play"
-  XF86AudioPlay
-
-#"exaile -p"
-"~/conf/scripts/music-play.sh prev"
-  XF86AudioPrev
-
-#"exaile -n"
-"~/conf/scripts/music-play.sh next"
-  XF86AudioNext
+## #"exaile -t"
+## "~/conf/scripts/music-play.sh play"
+##   XF86AudioPlay
+## 
+## #"exaile -p"
+## "~/conf/scripts/music-play.sh prev"
+##   XF86AudioPrev
+## 
+## #"exaile -n"
+## "~/conf/scripts/music-play.sh next"
+#3  XF86AudioNext
 
 # "cmus-remote -u; exaile -t"
 #   XF86AudioPlay

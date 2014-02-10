@@ -2,4 +2,5 @@
 
 conky&
 compton --config ~/.compton.conf&
-(sleep 10; killall conky; conky)
+#(sleep 10; killall conky; conky)
+(gpg-agent --daemon --sh&)
