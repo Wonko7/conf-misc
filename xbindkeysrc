@@ -56,13 +56,13 @@
 ## "systemctl suspend"
 ##   control+alt+BackSpace
 
-"qdbus org.kde.kmix /Mixer0 org.kde.KMix.decreaseVolume Master:0"
+"~/conf/misc/scripts/pulse.sh decrease"
   XF86AudioLowerVolume
 
-"dbus org.kde.kmix /Mixer0 org.kde.KMix.increaseVolume Master:0"
+"bash -c '~/conf/misc/scripts/pulse.sh increase'"
   XF86AudioRaiseVolume
 
-"qdbus org.kde.kmix /Mixer0 org.kde.KMix.toggleMute Master:0"
+"~/conf/misc/scripts/pulse.sh mute"
   XF86AudioMute
 
 ## "/root/bin/fan up"
