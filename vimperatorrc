@@ -18,6 +18,8 @@ EOF
 
 :noremap j 3j
 :noremap k 3k
-:noremap < <C-o>
-:noremap > <C-i>
+:noremap , <C-o>
+:noremap . <C-i>
+:noremap h gT
+:noremap l gt
 :noremap <BS> <F11>
