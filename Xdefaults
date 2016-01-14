@@ -1,29 +1,36 @@
-# URxvt*background:  #101010
-# URxvt*foreground:  #ffffff
-# URxvt*color0:      #000000
-# URxvt*color1:      #9e1828
-# URxvt*color2:      #aece92
-# URxvt*color3:      #968a38
-# URxvt*color4:      #414171
-# URxvt*color5:      #963c59
-# URxvt*color6:      #418179
-# URxvt*color7:      #bebebe
-# URxvt*color8:      #666666
-# URxvt*color9:      #cf6171
-# URxvt*color10:     #c5f779
-# URxvt*color11:     #fff796
-# URxvt*color12:     #4186be
-# URxvt*color13:     #cf9ebe
-# URxvt*color14:     #71bebe
-# URxvt*color15:     #ffffff
-*font: -*-terminus-bold-*-*-*-14-*-*-*-*-*-*-*
-#*font: xft:Droid Sans Mono Slashed:pixelsize=10:Regular
-URxvt.font: xft:Droid Sans Mono:pixelsize=12:Regular
-URxvt.boldFont: xft:Droid Sans Mono:pixelsize=12:Bold
-URxvt.italicFont: xft:Droid Sans Mono:pixelsize=12:Italic
-URxvt.boldItalicFont: xft:Droid Sans Mono:pixelsize=12:Bold:Italic
+!! URxvt*background:  #101010
+!! URxvt*foreground:  #ffffff
+!! URxvt*color0:      #000000
+!! URxvt*color1:      #9e1828
+!! URxvt*color2:      #aece92
+!! URxvt*color3:      #968a38
+!! URxvt*color4:      #414171
+!! URxvt*color5:      #963c59
+!! URxvt*color6:      #418179
+!! URxvt*color7:      #bebebe
+!! URxvt*color8:      #666666
+!! URxvt*color9:      #cf6171
+!! URxvt*color10:     #c5f779
+!! URxvt*color11:     #fff796
+!! URxvt*color12:     #4186be
+!! URxvt*color13:     #cf9ebe
+!! URxvt*color14:     #71bebe
+!! URxvt*color15:     #ffffff
+!!
+!!*font: -*-terminus-bold-*-*-*-14-*-*-*-*-*-*-*
+!!*font: xft:Droid Sans Mono Slashed:pixelsize=10:Regular
+!!
+!!URxvt.font: xft:Droid Sans Mono:pixelsize=12:Regular
+!!URxvt.boldFont: xft:Droid Sans Mono:pixelsize=10:Bold
+!!URxvt.italicFont: xft:Droid Sans Mono:pixelsize=10:Italic
+!!URxvt.boldItalicFont: xft:Droid Sans Mono:pixelsize=10:Bold:Italic
 
-URxvt*scrollBar: false
+URxvt.font: xft:Droid Sans Mono Slashed for Powerline:pixelsize=16:Regular
+URxvt.boldFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=12:Bold
+URxvt.italicFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=12:Italic
+URxvt.boldItalicFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=12:Bold:Italic
+
+URxvt*scrollBar: true
 URxvt*transparent: false
 URxvt*tintingType: false
 URxvt*tinting: #ffffff
@@ -78,6 +85,9 @@ URxvt*fadeColor: S_base03
 URxvt*cursorColor: S_base1
 URxvt*pointerColorBackground: S_base01
 URxvt*pointerColorForeground: S_base1
+
+! tmp:
+URxvt*borderColor: #002b36
 
 
 ! Dark

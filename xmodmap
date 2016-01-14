@@ -7,6 +7,7 @@
 !keycode 163 = Mode_switch Mode_switch Mode_switch Mode_switch
 !keycode 105 = Control_R Control_R Control_R Control_R
 !keycode 37 = Control_L Control_L Control_L Control_L
+!keycode 107 = Mode_switch Mode_switch Mode_switch Mode_switch
 
 !clear mod3
 !keysym Alt_R = Mode_switch

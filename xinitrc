@@ -54,6 +54,7 @@ urxvtd&
 xcompmgr -cCtF -t-5 -l-5 -r4.2 -o.55 -F -D20&
 xmodmap ~/conf/misc/xmodmap.dvorak&
 conky&
+seaf-cli start&
 #gnome-panel&
 #~/local/bin/gnome-gmail-notifier&
 #~/.dropbox-dist/dropboxd&
@@ -62,3 +63,4 @@ conky&
 #gnome-power-manager&
 #dbus-launch gnome-session& # this triggers infinite gnome sessions. really awesome.
 dbus-launch --exit-with-session xmonad
+export KDEWM=/usr/bin/xmonad

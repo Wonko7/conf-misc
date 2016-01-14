@@ -1,7 +1,6 @@
-!clear Lock
-!clear Control
-!keycode 66 = Control_L
-!add Control = Control_L
+clear lock
+keycode 66 = Control_L
+add     control = Control_L Control_R
 
 !type matrix: 163 = msg, not necessary
 !keycode 163 = Mode_switch Mode_switch Mode_switch Mode_switch
@@ -32,13 +31,14 @@
 keycode 64  = Super_L Super_L Super_L Super_L
 keycode 108 = Super_R Super_R Super_R Super_R
 keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
-keycode 105 = Mode_switch Mode_switch Mode_switch Mode_switch
+! keycode 105 = Mode_switch Mode_switch Mode_switch Mode_switch ! we can keep ctrl key here
+keycode 107 = Mode_switch Mode_switch Mode_switch Mode_switch
 !keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
-!keycode 134 = Mode_switch Mode_switch Mode_switch Mode_switch
+!keycode 134 = Mode_switch Mode_switch Mode_switch Mode_switch 
 
+! caps lockA
 !keycode 66  = Control_R Control_R Control_R Control_R
 
-!add lock = Control_L Control_R
 !add Mod3 = Mode_switch
 !add Mod1 = Super_L Super_R
 !add Mod3 = Alt_L Alt_R

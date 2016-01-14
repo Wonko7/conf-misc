@@ -15,6 +15,10 @@ Changelog:
 *v 2011mint -- reEdit despot77 (18.02.2011)
 ]]
 
+
+fg_col=0x268bd2
+fg_col=0xEEEEEE
+
 settings_table = {
     {
         -- Edit this table to customise your rings.
@@ -31,13 +35,13 @@ settings_table = {
         -- "bg_alpha" is the alpha value of the base ring.
         bg_alpha=0.1,
         -- "fg_colour" is the colour of the indicator part of the ring.
-        fg_colour=0x268bd2,
+        fg_colour=fg_col,
         -- "fg_alpha" is the alpha value of the indicator part of the ring.
         fg_alpha=0.2,
         -- "x" and "y" are the x and y coordinates of the centre of the ring, relative to the top left corner of the Conky window.
-        x=50, y=150,
+        x=60, y=200,
         -- "radius" is the radius of the ring.
-        radius=25,
+        radius=30,
         -- "thickness" is the thickness of the ring, centred around the radius.
         thickness=5,
         -- "start_angle" is the starting angle of the ring, in degrees, clockwise from top. Value can be either positive or negative.
@@ -51,10 +55,10 @@ settings_table = {
         max=60,
         bg_colour=0xffffff,
         bg_alpha=0.1,
-        fg_colour=0x268bd2,
+        fg_colour=fg_col,
         fg_alpha=0.4,
-        x=50, y=150,
-        radius=31, -- minutes
+        x=60, y=200,
+        radius=37, -- minutes
         thickness=5,
         start_angle=0,
         end_angle=360
@@ -65,10 +69,10 @@ settings_table = {
         max=60,
         bg_colour=0xffffff,
         bg_alpha=0.1,
-        fg_colour=0x268bd2,
+        fg_colour=fg_col,
         fg_alpha=0.6,
-        x=50, y=150,
-        radius=37,
+        x=60, y=200,
+        radius=44,
         thickness=5,
         start_angle=0,
         end_angle=360
@@ -109,7 +113,7 @@ settings_table = {
     --     bg_alpha=0.2,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
-    --     x=50, y=300,
+    --     x=60, y=300,
     --     radius=25,
     --     thickness=5,
     --     start_angle=-90,
@@ -121,10 +125,10 @@ settings_table = {
         max=100,
         bg_colour=0xffffff,
         bg_alpha=0.2,
-        fg_colour=0x268bd2,
+        fg_colour=fg_col,
         fg_alpha=0.8,
-        x=50, y=270,
-        radius=25,
+        x=60, y=370,
+        radius=30,
         thickness=5,
         start_angle=-90,
         end_angle=180
@@ -135,10 +139,24 @@ settings_table = {
         max=100,
         bg_colour=0xffffff,
         bg_alpha=0.2,
-        fg_colour=0x268bd2,
+        fg_colour=fg_col,
         fg_alpha=0.8,
-        x=50, y=330,
-        radius=25,
+        x=60, y=460,
+        radius=30,
+        thickness=5,
+        start_angle=-90,
+        end_angle=180
+    },
+    {
+        name='swapperc',
+        arg='',
+        max=100,
+        bg_colour=0xffffff,
+        bg_alpha=0.2,
+        fg_colour=fg_col,
+        fg_alpha=0.8,
+        x=60, y=460,
+        radius=24,
         thickness=5,
         start_angle=-90,
         end_angle=180
@@ -151,7 +169,7 @@ settings_table = {
     --     bg_alpha=0.2,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
-    --     x=50, y=370,
+    --     x=60, y=370,
     --     radius=25,
     --     thickness=5,
     --     start_angle=-90,
@@ -163,39 +181,39 @@ settings_table = {
         max=100,
         bg_colour=0xffffff,
         bg_alpha=0.2,
-        fg_colour=0x268bd2,
+        fg_colour=fg_col,
         fg_alpha=0.8,
-        x=50, y=390,
-        radius=25,
+        x=60, y=550,
+        radius=30,
         thickness=5,
         start_angle=-90,
         end_angle=180
     },
         {
         name='downspeedf',
-        arg='wlp2s0',
-        max=100,
+        arg='wlp4s0',
+        max=1800,
         bg_colour=0xffffff,
         bg_alpha=0.2,
-        fg_colour=0x339900,
+        fg_colour=fg_col,
         fg_alpha=0.8,
-        x=50, y=510,
-        radius=25,
-        thickness=4,
+        x=60, y=730,
+        radius=30,
+        thickness=5,
         start_angle=-90,
         end_angle=180
     },
         {
         name='upspeedf',
-	arg='wlp2s0',
-        max=100,
+	arg='wlp4s0',
+        max=1800,
         bg_colour=0xffffff,
         bg_alpha=0.2,
-        fg_colour=0xff6600,
+        fg_colour=fg_col,
         fg_alpha=0.8,
-        x=50, y=510,
-        radius=20,
-        thickness=4,
+        x=60, y=730,
+        radius=24,
+        thickness=5,
         start_angle=-90,
         end_angle=180
     },
@@ -205,10 +223,10 @@ settings_table = {
         max=100,
         bg_colour=0xffffff,
         bg_alpha=0.2,
-        fg_colour=0x268bd2,
+        fg_colour=fg_col,
         fg_alpha=0.8,
-        x=50, y=450,
-        radius=25,
+        x=60, y=640,
+        radius=30,
         thickness=5,
         start_angle=-90,
         end_angle=180
@@ -221,8 +239,8 @@ clock_r=38
 
 -- "clock_x" and "clock_y" are the coordinates of the centre of the clock, in pixels, from the top left of the Conky window.
 
-clock_x=50
-clock_y=150
+clock_x=60
+clock_y=200
 
 show_seconds=true
 
