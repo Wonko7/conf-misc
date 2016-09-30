@@ -1,28 +1,27 @@
-conky.config = {
 -- Conky, a system monitor, based on torsmo
-
+--
 -- Any original torsmo code is licensed under the BSD license
-
+--
 -- All code written since the fork of torsmo is licensed under the GPL
-
+--
 -- Please see COPYING for details
-
+--
 -- Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
 -- Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
 -- All rights reserved.
-
+--
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
-
+--
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
--- #
+-- --
 -- 
 -- double_buffer yes
 -- alignment middle_middle
@@ -52,83 +51,81 @@ conky.config = {
 
 
 
--- Conky settings #
-	background = false,
-	update_interval = 1,
+-- Conky settings --
+-- background no
 
-	cpu_avg_samples = 2,
-	net_avg_samples = 2,
+conky.config = {
+	update_interval =  1,
 
-	override_utf8_locale = true,
+	cpu_avg_samples =  2,
+	net_avg_samples =  2,
 
-	double_buffer = true,
-	no_buffers = true,
+	override_utf8_locale =  yes,
 
-	text_buffer_size = 2048,
---imlib_cache_size 0
+	double_buffer =  yes,
+	no_buffers =  yes,
+	own_window_argb_visual =  yes,
 
-	temperature_unit = 'celsius',
+	text_buffer_size =  2048,
+	--imlib_cache_size =  0,
 
--- Window specifications #
+	temperature_unit =  celsius,
 
-	own_window = true,
-	--own_window_type = 'panel',
-	own_window_type = 'panel',
---own_window_type normal
-	own_window_class = 'Conky',
-	own_window_transparent = yes,
-	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
-	own_window_argb_visual = true,
-	own_window_argb_value = 0,
+	-- Window =  specifications --,
 
-	border_inner_margin = 0,
-	border_outer_margin = 0,
+	own_window =  yes,
+	own_window_type =  panel,
+	--own_window_type =  normal,
+	own_window_class =  Conky,
+	--own_window_transparent =  yes,
+	own_window_hints =  undecorated,sticky,skip_taskbar,skip_pager,below,
+	own_window_argb_visual =  yes,
+	own_window_argb_value =  yes,
 
-	minimum_width = 200,
-	minimum_height = 10,
-	maximum_width = 150,
+	border_inner_margin =  0,
+	border_outer_margin =  0,
 
-	alignment = 'middle_left',
-	gap_x = 30,
-	gap_y = 0,
+	--minimum_size =  200 10,
+	maximum_width =  150,
 
--- Graphics settings #
-	draw_shades = true,
-	draw_outline = false,
-	draw_borders = false,
-	draw_graph_borders = false,
+	alignment =  middle_left,
+	gap_x =  0,
+	gap_y =  0,
 
--- Text settings #
-	use_xft = true,
-	font = 'Caviar Dreams:size=10',
-	xftalpha = 1.0,
+	-- Graphics =  settings --,
+	draw_shades =  yes,
+	draw_outline =  no,
+	draw_borders =  no,
+	draw_graph_borders =  no,
 
-	uppercase = false,
+	-- Text =  settings --,
+	use_xft =  yes,
+	xftfont =  "Caviar Dreams:size=10",
+	xftalpha =  0.5,
 
-	temperature_unit = 'celsius',
+	uppercase =  no,
 
-	top_name_width = 6,
+	temperature_unit =  celsius,
 
-	color1 = '#EEEEEE',
---color2 657b83
-	color2 = '#A5AbA3',
+	top_name_width =  6,
 
--- Lua Load  #
-	lua_load = '~/.lua/scripts/clock_rings.lua',
-	lua_draw_hook_pre = 'clock_rings',
+	color1 =  EEEEEE,
+	--color2 =  657b83,
+	color2 =  A5AbA3,
 
-};
+	-- Lua =  Load  --,
+	lua_load =  "~/.lua/scripts/clock_rings.lua",
+	lua_draw_hook_post = clock_rings,
+}
 
 conky.text = [[
 
 
   ${voffset 0}${color1}${font Caviar Dreams:size=18}${time %a}${font}${voffset -0}${alignr 32}${color2}${font Caviar Dreams:size=20}${time %e}${font}
   ${color2}${voffset -15}${color2}${font Caviar Dreams:size=18}${time %b}${font}${voffset -3}
-  #${voffset 0}${font Caviar Dreams:size=16}${color1}${alignr 10}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LFST temperature 30}°C${font}
-  ${voffset 0}${font Caviar Dreams:size=16}${color1}${alignr 10}${execi 300 ~/conf/misc/scripts/weather.sh "fr|strasbourg"}°C${font}
+  ${voffset 0}${font Caviar Dreams:size=16}${color1}${alignr 10}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LQBK temperature temperature 30}°C${font}
 #${image ~/.conky/debian-logo.png -p 68,120 -s 60x60}
-${voffset 270}
-# ${voffset 220} for plasma
+${voffset 220}
 
 ${color2}${goto 20}${voffset -5}${cpu cpu0}%
 ${color1}${goto 20}CPU
@@ -170,7 +167,7 @@ ${color2}${goto 20}${wireless_link_qual_perc wlp4s0}%
 
 
 #  ${if_match ${desktop_name} == 1}${color1}1${else}${color}1${endif} ${if_match ${desktop_name} == 2}${color1}2${else}${color}2${endif} ${if_match ${desktop_name} == 3}${color1}3${else}${color}3${endif} ${if_match ${desktop_name} == 4}${color1}4${else}${color}4${endif} ${if_match ${desktop_name} == 5}${color1}5${else}${color}5${endif} ${if_match ${desktop_name} == 6}${color1}6${else}${color}6${endif} ${if_match ${desktop_name} == 7}${color1}7${else}${color}7${endif} ${if_match ${desktop_name} == 8}${color1}8${else}${color}8${endif} ${if_match ${desktop_name} == 9}${color1}9${else}${color}9${endif}
-   ${if_match ${desktop_name}==1}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==2}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==3}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==4}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==5}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==6}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==7}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==8}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==9}${color1}●${else}${color2}●${endif}
+  ${if_match ${desktop_name}==1}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==2}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==3}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==4}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==5}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==6}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==7}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==8}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==9}${color1}●${else}${color2}●${endif}
 ${color1} #$hr
 
   MEM:
@@ -188,7 +185,4 @@ ${color1}
   ${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
   ${battery}
   ${battery_time}
-${font Mono:size=6}${color1}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/  //'}
-${font}
-#${font DejaVu Sans Mono:size=6}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/   //'}
-]];
+  ]]

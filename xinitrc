@@ -53,7 +53,7 @@ feh --bg-scale wallpapers/TV\ Show_Doctor\ Who_415064.jpg
 urxvtd&
 xcompmgr -cCtF -t-5 -l-5 -r4.2 -o.55 -F -D20&
 xmodmap ~/conf/misc/xmodmap.dvorak&
-conky&
+conky 2>&1 > ~/conky.log &
 seaf-cli start&
 #gnome-panel&
 #~/local/bin/gnome-gmail-notifier&
@@ -62,5 +62,8 @@ seaf-cli start&
 #xbindkeys&
 #gnome-power-manager&
 #dbus-launch gnome-session& # this triggers infinite gnome sessions. really awesome.
-dbus-launch --exit-with-session xmonad
-export KDEWM=/usr/bin/xmonad
+#dbus-launch --exit-with-session xmonad
+#export KDEWM=/usr/bin/xmonad
+touch ~/omg
+
+exec startlxde
