@@ -127,21 +127,21 @@ conky.text = [[
   #${voffset 0}${font Caviar Dreams:size=16}${color1}${alignr 10}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LFST temperature 30}°C${font}
   ${voffset 0}${font Caviar Dreams:size=16}${color1}${alignr 10}${execi 300 ~/conf/misc/scripts/weather.sh "fr|strasbourg"}°C${font}
 #${image ~/.conky/debian-logo.png -p 68,120 -s 60x60}
-${voffset 270}
+${voffset 260}
 # ${voffset 220} for plasma
 
 ${color2}${goto 20}${voffset -5}${cpu cpu0}%
 ${color1}${goto 20}CPU
-${color2}${goto 20}${voffset 52}${memperc}%
+${color2}${goto 20}${voffset 60}${memperc}%
 ${color1}${goto 20}RAM
 # ${color2}${goto 20}${voffset 60}${swapperc}%
 # ${color1}${goto 20}Swap
-${color2}${goto 20}${voffset 52}${fs_used_perc /}%
+${color2}${goto 20}${voffset 60}${fs_used_perc /}%
 ${color1}${goto 20}Disk
-${color2}${goto 20}${voffset 52}${battery_percent}%
+${color2}${goto 20}${voffset 60}${battery_percent}%
 #${color1}${goto 20}${battery_time}/${battery_status}
 ${color1}${goto 20}Batt
-${color2}${goto 20}${voffset 52}${downspeed wlp4s0}
+${color2}${goto 20}${voffset 60}${downspeed wlp4s0}
 ${color2}${goto 20}${upspeed wlp4s0}
 ${color1}${goto 20}${wireless_essid wlp4s0}${color2}
 #:${color2} ${wireless_link_qual_perc wlp4s0}%
@@ -188,7 +188,8 @@ ${color1}
   ${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
   ${battery}
   ${battery_time}
-${font Mono:size=6}${color1}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/  //'}
+
+${font DejaVu Sans Mono:size=7}${color1}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/  //'}
 ${font}
 #${font DejaVu Sans Mono:size=6}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/   //'}
 ]];

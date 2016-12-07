@@ -23,6 +23,7 @@ EOF
 :noremap h gT
 :noremap l gt
 :noremap <BS> <F11>
+:noremap c :stop<CR>
 
 
 
