@@ -10,12 +10,15 @@ compton --config ~/.compton.conf&
 feh --bg-fill ~/docs/wallpapers/iss/saturn1.jpg&
 #klipper&
 #qlipper&
-xscreensaver-command -lock&
+#xscreensaver-command -lock&
 dunst -config ~/.dunstrc&
-#while true; do
-#	if pgrep xscreensaver; then
-#		xscreensaver-command -lock&
-#		break;
-#	fi;
-#	sleep 0.5;
-#done
+xset b 0 0 0&
+xset r rate 400 30&
+unclutter -idle 1&
+while true; do
+	if pgrep xscreensaver; then
+		xscreensaver-command -lock&
+		break;
+	fi;
+	sleep 0.5;
+done

@@ -68,9 +68,16 @@ let prefs = {
   "custom.mode.normal.zoom_reset": "zz",
   "custom.mode.normal.search_tabs": "b",
   "custom.mode.normal.fullscreen_toggle": "<backspace>"
-}
+};
 
-Object.entries(prefs).forEach(([pref, value]) => vimfx.set(pref, value))
+//Object.entries(prefs).forEach(([pref, value]) => vimfx.set(pref, value))
+
+// ^ is better, v is for ff 45 (tbb)
+//
+Object.keys(prefs).forEach((pref) => {
+	const value = prefs[pref]
+	vimfx.set(pref, value)
+})
 
 // for safekeeping, vimium's:
 //

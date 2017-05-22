@@ -1,6 +1,6 @@
 ln -s ~/conf/vim/vimrc ~/.vimrc
 ln -s ~/conf/vim/gvimrc ~/.gvimrc
-ln -s ~/conf/vim/vim ~/.vim
+ln -s ~/conf/vim ~/.vim
 
 ln -s ~/conf/zsh/zshrc ~/.zshrc
 ln -s ~/conf/git/gitconfig ~/.gitconfig
@@ -27,4 +27,4 @@ ln -s ~/conf/misc/vimfx ~/.vimfx
 
 
 
-echo "don't forget xmodmap -> check if default is good. also, you may want xbindkeys. also, can't remember if I actually used xresources."
+echo "don't forget xmodmap -> check if default is good. also, you may want xbindkeys."
