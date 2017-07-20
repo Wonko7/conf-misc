@@ -189,7 +189,7 @@ ${color1}
   ${battery}
   ${battery_time}
 
-${font DejaVu Sans Mono:size=7}${color1}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/  //'}
+#${font DejaVu Sans Mono:size=7}${color1}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/  //'}
 ${font}
 #${font DejaVu Sans Mono:size=6}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/   //'}
 ]];

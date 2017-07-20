@@ -43,8 +43,9 @@
     timeout = 20
 
 [urgency_normal]
+    background = "#267bc2"
     #background = "#073642"
-    background = "#cb4b16"
+    #background = "#cb4b16"
     foreground = "#DDDDDD"
     timeout = 20
 
@@ -53,7 +54,18 @@
     foreground = "#DDDDDD"
     timeout = 20
 
+[alert_ok]
+    summary = "*#production*"
+	body = "*\[OK\]*"
+	background = "#117700"
+
+[alert_nok]
+    summary = "*#production*"
+	body = "*\[Alerting\]*"
+	background = "#ac322f"
+
 # [ignore]
 #     appname = "Spotify"
 #     summary = "*"
 #     format = ""
+    #summary = "*webhook*"
