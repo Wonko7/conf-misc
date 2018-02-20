@@ -43,7 +43,7 @@
     timeout = 20
 
 [urgency_normal]
-    background = "#267bc2"
+    background = "#268bd2"
     #background = "#073642"
     #background = "#cb4b16"
     foreground = "#DDDDDD"
@@ -60,12 +60,16 @@
 	background = "#117700"
 
 [alert_nok]
-    summary = "*#production*"
+    summary = "*Power low*"
 	body = "*\[Alerting\]*"
+	background = "#ac322f"
+
+[alert_nok2]
+    summary = "*#production*"
+	body = "*Apex*"
 	background = "#ac322f"
 
 # [ignore]
 #     appname = "Spotify"
 #     summary = "*"
 #     format = ""
-    #summary = "*webhook*"
