@@ -1,5 +1,6 @@
 [global]
-    font = Droid Sans Mono Slashed for Powerline 11
+    #font = Droid Sans Mono Slashed for Powerline 11
+    font = Fira Mono for Powerline 13
 
     sort = yes
     indicate_hidden = yes
@@ -27,7 +28,7 @@
     padding = 1
     horizontal_padding = 9
 
-    allow_markup = yes
+    markup = yes
     format = "<b>%s</b>\n%b"
 
 
@@ -38,7 +39,8 @@
 
 [urgency_low]
     #background = "#073642"
-    background = "#cb4b16"
+    #background = "#cb4b16"
+    background = "#268bd2"
     foreground = "#CCCCCC"
     timeout = 20
 
