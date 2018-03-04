@@ -1,6 +1,9 @@
+mkdir -p ~/.config
 ln -s ~/conf/vim/vimrc ~/.vimrc
 ln -s ~/conf/vim/gvimrc ~/.gvimrc
 ln -s ~/conf/vim ~/.vim
+ln -s ~/conf/vim ~/.config/nvim
+ln -s ~/conf/vim/vimrc ~/.config/nvim/init.vim
 
 ln -s ~/conf/zsh/zshrc ~/.zshrc
 ln -s ~/conf/git/gitconfig ~/.gitconfig
@@ -24,7 +27,7 @@ ln -s ~/conf/misc/xbindkeysrc ~/.bindkeysrc
 ln -s ~/conf/misc/fonts.conf ~/.fonts.conf
 ln -s ~/conf/misc/dunstrc ~/.dunstrc
 ln -s ~/conf/misc/vimfx ~/.vimfx
+ln -s ~/conf/misc/w3m ~/.w3m
 
 
-
-echo "don't forget xmodmap -> check if default is good. also, you may want xbindkeys."
+echo "don't forget xmodmap -> check if default is good"

@@ -1,5 +1,6 @@
 [global]
-    font = Droid Sans Mono Slashed for Powerline 11
+    #font = Droid Sans Mono Slashed for Powerline 11
+    font = Fira Mono for Powerline 13
 
     sort = yes
     indicate_hidden = yes
@@ -27,7 +28,7 @@
     padding = 1
     horizontal_padding = 9
 
-    allow_markup = yes
+    markup = yes
     format = "<b>%s</b>\n%b"
 
 
@@ -38,13 +39,15 @@
 
 [urgency_low]
     #background = "#073642"
-    background = "#cb4b16"
+    #background = "#cb4b16"
+    background = "#268bd2"
     foreground = "#CCCCCC"
     timeout = 20
 
 [urgency_normal]
+    background = "#268bd2"
     #background = "#073642"
-    background = "#cb4b16"
+    #background = "#cb4b16"
     foreground = "#DDDDDD"
     timeout = 20
 
@@ -52,6 +55,21 @@
     background = "#cb4b16"
     foreground = "#DDDDDD"
     timeout = 20
+
+[alert_ok]
+    summary = "*#production*"
+	body = "*\[OK\]*"
+	background = "#117700"
+
+[alert_nok]
+    summary = "*Power low*"
+	body = "*\[Alerting\]*"
+	background = "#ac322f"
+
+[alert_nok2]
+    summary = "*#production*"
+	body = "*Apex*"
+	background = "#ac322f"
 
 # [ignore]
 #     appname = "Spotify"
