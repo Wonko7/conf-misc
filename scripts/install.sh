@@ -30,4 +30,7 @@ ln -s ~/conf/misc/vimfx ~/.vimfx
 ln -s ~/conf/misc/w3m ~/.w3m
 
 
-echo "don't forget xmodmap -> check if default is good"
+echo "also: "
+echo "  don't forget xmodmap -> check if default is good"
+echo "  cd ~/conf/fonts && ./install.sh"
+echo "  nvim dev-python: sexpdata neovim-python-client neovim-remote nrepl-python-client sexpdata websocket-client"
