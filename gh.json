@@ -10,7 +10,7 @@
     "default_remote": "origin",
     "default_pr_forwarder": "",
     "default_pr_reviewer": "",
-    "github_token": "9d0bd608109b5d7b46b3d45eab7250f549db7d67",
+    "github_token": `pass show lol`,
     "github_user": "wonko7",
     "hooks": {
         "issue": {
@@ -21,7 +21,6 @@
             "new": {
                 "before": [],
                 "after": [
-                    "gh is --browser {{options.browser}} --user {{options.user}} --repo {{options.repo}} --number {{options.number}}"
                 ]
             },
             "open": {
@@ -37,7 +36,6 @@
             "fetch": {
                 "before": [],
                 "after": [
-                    "gh pr {{options.number}} --user {{options.user}} --repo {{options.repo}} --comment 'Just started reviewing :)'"
                 ]
             },
             "fwd": {
@@ -103,9 +101,9 @@
         }
     },
     "ignored_plugins": [],
-    "pull_branch_name_prefix": "pr-",
+    "pull_branch_name_prefix": "pr/",
     "plugins": {},
     "replace": {},
-    "signature": " <br><br>:octocat: *Sent from [GH](http://nodegh.io).*",
+    "signature": "",
     "plugins_path": "/home/wjc/.npm-packages/lib/node_modules"
 }
