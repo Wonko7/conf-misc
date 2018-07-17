@@ -141,11 +141,11 @@ ${color1}${goto 20}Disk
 ${color2}${goto 20}${voffset 60}${battery_percent}%
 #${color1}${goto 20}${battery_time}/${battery_status}
 ${color1}${goto 20}Batt
-${color2}${goto 20}${voffset 60}${downspeed wlp4s0}
-${color2}${goto 20}${upspeed wlp4s0}
-${color1}${goto 20}${wireless_essid wlp4s0}${color2}
-#:${color2} ${wireless_link_qual_perc wlp4s0}%
-${color2}${goto 20}${wireless_link_qual_perc wlp4s0}%
+${color2}${goto 20}${voffset 60}${downspeed wlp2s0}
+${color2}${goto 20}${upspeed wlp2s0}
+${color1}${goto 20}${wireless_essid wlp2s0}${color2}
+#:${color2} ${wireless_link_qual_perc wlp2s0}%
+${color2}${goto 20}${wireless_link_qual_perc wlp2s0}%
 # ${color2}${font Caviar Dreams:size=18}Uptime: ${uptime_short}
 # ${color2}${font Caviar Dreams:size=18}Processes: ${processes}
 # ${color2}${font Caviar Dreams:size=18}Running: ${running_processes}

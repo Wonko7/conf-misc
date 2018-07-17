@@ -7,15 +7,13 @@
 !keycode 163 = Mode_switch Mode_switch Mode_switch Mode_switch
 !keycode 105 = Control_R Control_R Control_R Control_R
 !keycode 37 = Control_L Control_L Control_L Control_L
-!keycode 107 = Mode_switch Mode_switch Mode_switch Mode_switch
 
 !clear mod3
 !keysym Alt_R = Mode_switch
 !keysym Alt_L = Mode_switch
 !add mod3 = Mode_switch
 !
-!clear mod1
-!add mod1 = Super_L Super_R
+clear mod1
 
 !clear Lock
 !clear Mod1
@@ -33,11 +31,10 @@ keycode 64  = Super_R Super_R Super_R Super_R
 keycode 108 = Super_L Super_L Super_L Super_L
 keycode 135 = Mode_switch Mode_switch Mode_switch Mode_switch
 keycode 110 = Mode_switch Mode_switch Mode_switch Mode_switch
-! ygg: remap ctrl to mode switch
-keycode 105 = Mode_switch Mode_switch Mode_switch Mode_switch
 !keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
 !keycode 134 = Mode_switch Mode_switch Mode_switch Mode_switch
 
+add mod1 = Super_L Super_R
 !keycode 66  = Control_R Control_R Control_R Control_R
 
 !add lock = Control_L Control_R
