@@ -1,9 +1,12 @@
 #! /bin/sh
 
+export DISPLAY=":0.0"
+export HOME=/home/wjc/
+export XAUTHORITY=$HOME/.Xauthority
+
 # one shot:
 feh --bg-scale ~/docs/wallpapers/nasa-poster-vision-future/1*&
 ~/conf/misc/scripts/kbd.sh&
-
 # services:
 (compton --config ~/.compton.conf&)
 (xscreensaver -no-splash && xscreensaver-command -lock&)
