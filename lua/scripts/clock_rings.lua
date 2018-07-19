@@ -320,7 +320,7 @@ function draw_clock_hands(cr,xc,yc)
     cairo_line_to(cr,xh,yh)
     
     cairo_set_line_cap(cr,CAIRO_LINE_CAP_ROUND)
-    cairo_set_line_width(cr,1)
+    cairo_set_line_width(cr,3)
     -- clock_fg_col=0xcb4b16
     cairo_set_source_rgba(cr, 0.79, 0.29, 0.08, 1.0)
     cairo_stroke(cr)
@@ -335,7 +335,7 @@ function draw_clock_hands(cr,xc,yc)
     cairo_move_to(cr,xc,yc)
     cairo_line_to(cr,xm,ym)
     
-    cairo_set_line_width(cr,1)
+    cairo_set_line_width(cr,2)
     cairo_stroke(cr)
     
     -- settings_table[2]['pct'] = mins_arc / (2 * math.pi);
@@ -344,8 +344,8 @@ function draw_clock_hands(cr,xc,yc)
     -- Draw seconds hand
     
     if show_seconds then
-        xs=xc+((clock_r - 7) * 2.5/3)*math.sin(secs_arc)
-        ys=yc-((clock_r - 7) * 2.5/3)*math.cos(secs_arc)
+        xs=xc+((clock_r - 7) * 2.2/3)*math.sin(secs_arc)
+        ys=yc-((clock_r - 7) * 2.2/3)*math.cos(secs_arc)
         cairo_move_to(cr,xc,yc)
         cairo_line_to(cr,xs,ys)
     
