@@ -1,13 +1,13 @@
 xscreensaver.splash: false
 
 !font settings
-xscreensaver.Dialog.headingFont:        -*-terminus-bold-*-*-*-32-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:           -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:          -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:          -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:         -*-terminus-bold-*-*-*-32-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:           -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:         -*-terminus-bold-*-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.headingFont:        -*-terminus-bold-*-*-*-*-320-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-terminus-medium-*-*-*-*-320-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-terminus-medium-*-*-*-*-320-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-terminus-medium-*-*-*-*-320-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-terminus-bold-*-*-*-*-320-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-terminus-medium-*-*-*-*-320-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-terminus-bold-*-*-*-*-320-*-*-*-*-*-*
 
 !general dialog box (affects main hostname, username, password text)
 xscreensaver.Dialog.foreground:         #268bd2

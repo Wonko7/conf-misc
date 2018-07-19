@@ -20,6 +20,7 @@ ln -s ~/conf/misc/xinitrc ~/.xinitrc
 ln -s ~/conf/misc/xinitrc ~/.xsession
 ln -s ~/conf/misc/xsession-kde.sh ~/.xsession-kde.sh
 ln -s ~/conf/misc/Xdefaults ~/.Xdefaults
+ln -s ~/conf/misc/Xresources ~/.Xresources
 ln -s ~/conf/misc/conkyrc ~/.conkyrc
 ln -s ~/conf/misc/lua ~/.lua
 ln -s ~/conf/misc/compton.conf ~/.compton.conf
