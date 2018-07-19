@@ -1,82 +1,39 @@
-# URxvt*background:  #101010
-# URxvt*foreground:  #ffffff
-# URxvt*color0:      #000000
-# URxvt*color1:      #9e1828
-# URxvt*color2:      #aece92
-# URxvt*color3:      #968a38
-# URxvt*color4:      #414171
-# URxvt*color5:      #963c59
-# URxvt*color6:      #418179
-# URxvt*color7:      #bebebe
-# URxvt*color8:      #666666
-# URxvt*color9:      #cf6171
-# URxvt*color10:     #c5f779
-# URxvt*color11:     #fff796
-# URxvt*color12:     #4186be
-# URxvt*color13:     #cf9ebe
-# URxvt*color14:     #71bebe
-# URxvt*color15:     #ffffff
-*font: -*-terminus-bold-*-*-*-14-*-*-*-*-*-*-*
-#*font: xft:Droid Sans Mono Slashed:pixelsize=10:Regular
-URxvt.font: xft:Droid Sans Mono:pixelsize=12:Regular
-URxvt.boldFont: xft:Droid Sans Mono:pixelsize=12:Bold
-URxvt.italicFont: xft:Droid Sans Mono:pixelsize=12:Italic
-URxvt.boldItalicFont: xft:Droid Sans Mono:pixelsize=12:Bold:Italic
+xscreensaver.splash: false
 
-URxvt*scrollBar: false
-URxvt*transparent: false
-URxvt*tintingType: false
-URxvt*tinting: #ffffff
-URxvt*shading: 10
+!font settings
+xscreensaver.Dialog.headingFont:        -*-terminus-bold-*-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-terminus-bold-*-*-*-32-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-terminus-bold-*-*-*-32-*-*-*-*-*-*-*
 
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #268bd2
+xscreensaver.Dialog.background:         #073642
+xscreensaver.Dialog.topShadowColor:     #002b36
+xscreensaver.Dialog.bottomShadowColor:  #002b36
+xscreensaver.Dialog.Button.foreground:  #002b36
+xscreensaver.Dialog.Button.background:  #cb4b16
 
-! Common
+!username/password input box and date text colour
+!xscreensaver.Dialog.text.foreground:    #666666
+!xscreensaver.Dialog.text.background:    #ffffff
+xscreensaver.Dialog.text.foreground:    #666666
+xscreensaver.Dialog.text.background:    #002b36
+xscreensaver.Dialog.internalBorderWidth:	100
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    0
 
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #cb4b16
+xscreensaver.passwd.thermometer.background:  #002b36
+xscreensaver.passwd.thermometer.width:       8
 
-! Dark
-
-
-! Light
-
-! #define #002b36 #fdf6e3
-! #define #073642 #eee8d5
-! #define #586e75 #93a1a1
-! #define #657b83 #839496
-! #define #839496 #657b83
-! #define #93a1a1 #586e75
-! #define #eee8d5 #073642
-! #define #fdf6e3 #002b36
-
-
-! To only apply colors to your terminal, for example, prefix
-! the color assignment statement with its name. Example:
-!
-! URxvt*background: #002b36
-
-URxvt*background: #002b36
-URxvt*foreground: #839496
-URxvt*fading: 40
-URxvt*fadeColor: #002b36
-URxvt*cursorColor: #93a1a1
-URxvt*pointerColorBackground: #586e75
-URxvt*pointerColorForeground: #93a1a1
-
-
-! Dark
-
-URxvt*color0: #073642
-URxvt*color1: #dc322f
-URxvt*color2: #859900
-URxvt*color3: #b58900
-URxvt*color4: #268bd2
-URxvt*color5: #d33682
-URxvt*color6: #2aa198
-URxvt*color7: #eee8d5
-URxvt*color8: #002b36
-URxvt*color9: #cb4b16
-URxvt*color10: #586e75
-URxvt*color11: #657b83
-URxvt*color12: #839496
-URxvt*color13: #6c71c4
-URxvt*color14: #93a1a1
-URxvt*color15: #fdf6e3
+!datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
+xscreensaver.Dialog.Logo.Width:		100
+!xscreensaver.passwd.logo.width:		0
+!xscreensaver.passwd.logo.height:	0
+xscreensaver.Dialog.Logo.Height:	100
