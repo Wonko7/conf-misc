@@ -18,6 +18,23 @@ Changelog:
 
 fg_col=0x268bd2
 fg_col=0xEEEEEE
+fg_col=0xAAAAAA
+
+fg_col=0xcb4b16
+bg_col=0x002b36
+
+clock_fg_col=0xcb4b16
+clock_bg_col=0x002b36
+
+clock_r=110
+
+clock_x=125
+clock_y=200
+
+rad=70
+toty=clock_y + 220
+deltay=160
+show_seconds=true
 
 settings_table = {
     {
@@ -31,17 +48,17 @@ settings_table = {
         -- "max" is the maximum value of the ring. If the Conky variable outputs a percentage, use 100.
         max=12,
         -- "bg_colour" is the colour of the base ring.
-        bg_colour=0xffffff,
+        bg_colour=clock_bg_col,
         -- "bg_alpha" is the alpha value of the base ring.
-        bg_alpha=0.1,
+        bg_alpha=0.2,
         -- "fg_colour" is the colour of the indicator part of the ring.
-        fg_colour=fg_col,
+        fg_colour=clock_fg_col,
         -- "fg_alpha" is the alpha value of the indicator part of the ring.
-        fg_alpha=0.2,
+        fg_alpha=0.4,
         -- "x" and "y" are the x and y coordinates of the centre of the ring, relative to the top left corner of the Conky window.
-        x=60, y=200,
+        x=125, y=clock_y,
         -- "radius" is the radius of the ring.
-        radius=30,
+        radius=clock_r,
         -- "thickness" is the thickness of the ring, centred around the radius.
         thickness=5,
         -- "start_angle" is the starting angle of the ring, in degrees, clockwise from top. Value can be either positive or negative.
@@ -53,12 +70,12 @@ settings_table = {
         name='time',
         arg='%M.%S',
         max=60,
-        bg_colour=0xffffff,
-        bg_alpha=0.1,
-        fg_colour=fg_col,
-        fg_alpha=0.4,
-        x=60, y=200,
-        radius=37, -- minutes
+        bg_colour=clock_bg_col,
+        bg_alpha=0.2,
+        fg_colour=clock_fg_col,
+        fg_alpha=0.6,
+        x=125, y=clock_y,
+        radius=clock_r + 7, -- minutes
         thickness=5,
         start_angle=0,
         end_angle=360
@@ -67,12 +84,12 @@ settings_table = {
         name='time',
         arg='%S',
         max=60,
-        bg_colour=0xffffff,
-        bg_alpha=0.1,
-        fg_colour=fg_col,
-        fg_alpha=0.6,
-        x=60, y=200,
-        radius=44,
+        bg_colour=clock_bg_col,
+        bg_alpha=0.2,
+        fg_colour=clock_fg_col,
+        fg_alpha=0.8,
+        x=125, y=clock_y,
+        radius=clock_r + 14,
         thickness=5,
         start_angle=0,
         end_angle=360
@@ -81,7 +98,7 @@ settings_table = {
     --     name='time',
     --     arg='%d',
     --     max=31,
-    --     bg_colour=0xffffff,
+    --     bg_colour=bg_col,
     --     bg_alpha=0.1,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
@@ -95,7 +112,7 @@ settings_table = {
     --     name='time',
     --     arg='%m',
     --     max=12,
-    --     bg_colour=0xffffff,
+    --     bg_colour=bg_col,
     --     bg_alpha=0.1,
     --     fg_colour=0x268bd2,
     --     fg_alpha=1,
@@ -109,7 +126,7 @@ settings_table = {
     --     name='batt',
     --     arg='BATT0',
     --     max=100,
-    --     bg_colour=0xffffff,
+    --     bg_colour=bg_col,
     --     bg_alpha=0.2,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
@@ -123,49 +140,49 @@ settings_table = {
         name='cpu',
         arg='cpu0',
         max=100,
-        bg_colour=0xffffff,
+        bg_colour=bg_col,
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=60, y=370,
-        radius=30,
+        x=175, y=toty,
+        radius=rad,
         thickness=5,
         start_angle=-90,
-        end_angle=180
+        end_angle=270
     },
     {
         name='memperc',
         arg='',
         max=100,
-        bg_colour=0xffffff,
+        bg_colour=bg_col,
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=60, y=460,
-        radius=30,
+        x=175, y=(toty + 1 * deltay),
+        radius=rad,
         thickness=5,
         start_angle=-90,
-        end_angle=180
-    },
-    {
-        name='swapperc',
-        arg='',
-        max=100,
-        bg_colour=0xffffff,
-        bg_alpha=0.2,
-        fg_colour=fg_col,
-        fg_alpha=0.8,
-        x=60, y=460,
-        radius=24,
-        thickness=5,
-        start_angle=-90,
-        end_angle=180
+        end_angle=270
     },
     -- {
     --     name='swapperc',
     --     arg='',
     --     max=100,
-    --     bg_colour=0xffffff,
+    --     bg_colour=bg_col,
+    --     bg_alpha=0.2,
+    --     fg_colour=fg_col,
+    --     fg_alpha=0.8,
+    --     x=175, y=(toty + 2 * deltay),
+    --     radius=rad,
+    --     thickness=5,
+    --     start_angle=-90,
+    --     end_angle=180
+    -- },
+    -- {
+    --     name='swapperc',
+    --     arg='',
+    --     max=100,
+    --     bg_colour=bg_col,
     --     bg_alpha=0.2,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
@@ -179,26 +196,26 @@ settings_table = {
         name='fs_used_perc',
         arg='/',
         max=100,
-        bg_colour=0xffffff,
+        bg_colour=bg_col,
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=60, y=550,
-        radius=30,
+        x=175, y=(toty + 2 * deltay),
+        radius=rad,
         thickness=5,
         start_angle=-90,
-        end_angle=180
+        end_angle=270
     },
         {
         name='downspeedf',
         arg='wlp4s0',
         max=1800,
-        bg_colour=0xffffff,
+        bg_colour=bg_col,
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=60, y=730,
-        radius=30,
+        x=175, y=(toty + 4 * deltay),
+        radius=rad,
         thickness=5,
         start_angle=-90,
         end_angle=180
@@ -207,12 +224,12 @@ settings_table = {
         name='upspeedf',
 	arg='wlp4s0',
         max=1800,
-        bg_colour=0xffffff,
+        bg_colour=bg_col,
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=60, y=730,
-        radius=24,
+        x=175, y=(toty + 4 * deltay),
+        radius=rad - 7,
         thickness=5,
         start_angle=-90,
         end_angle=180
@@ -221,28 +238,20 @@ settings_table = {
         name='battery_percent',
 	arg='BAT0',
         max=100,
-        bg_colour=0xffffff,
+        bg_colour=bg_col,
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=60, y=640,
-        radius=30,
+        x=175, y=(toty + 3 * deltay),
+        radius=rad,
         thickness=5,
         start_angle=-90,
-        end_angle=180
+        end_angle=270
     },
 }
 
 -- Use these settings to define the origin and extent of your clock.
 
-clock_r=38
-
--- "clock_x" and "clock_y" are the coordinates of the centre of the clock, in pixels, from the top left of the Conky window.
-
-clock_x=60
-clock_y=200
-
-show_seconds=true
 
 require 'cairo'
 
@@ -305,14 +314,15 @@ function draw_clock_hands(cr,xc,yc)
         
     -- Draw hour hand
     
-    xh=xc+26*math.sin(hours_arc)
-    yh=yc-26*math.cos(hours_arc)
+    xh=xc+((clock_r - 7) * 1/3 + 14)*math.sin(hours_arc)
+    yh=yc-((clock_r - 7) * 1/3 + 14)*math.cos(hours_arc)
     cairo_move_to(cr,xc,yc)
     cairo_line_to(cr,xh,yh)
     
     cairo_set_line_cap(cr,CAIRO_LINE_CAP_ROUND)
-    cairo_set_line_width(cr,2)
-    cairo_set_source_rgba(cr,1.0,1.0,1.0,1.0)
+    cairo_set_line_width(cr,1)
+    -- clock_fg_col=0xcb4b16
+    cairo_set_source_rgba(cr, 0.79, 0.29, 0.08, 1.0)
     cairo_stroke(cr)
     
    -- settings_table[1]['pct'] = (hours_arc % (2 * math.pi) / (2 * math.pi);
@@ -320,8 +330,8 @@ function draw_clock_hands(cr,xc,yc)
     
     -- Draw minute hand
     
-    xm=xc+32*math.sin(mins_arc)
-    ym=yc-32*math.cos(mins_arc)
+    xm=xc+((clock_r - 7) * 2/3)*math.sin(mins_arc)
+    ym=yc-((clock_r - 7) * 2/3)*math.cos(mins_arc)
     cairo_move_to(cr,xc,yc)
     cairo_line_to(cr,xm,ym)
     
@@ -334,8 +344,8 @@ function draw_clock_hands(cr,xc,yc)
     -- Draw seconds hand
     
     if show_seconds then
-        xs=xc+38*math.sin(secs_arc)
-        ys=yc-38*math.cos(secs_arc)
+        xs=xc+((clock_r - 7) * 2.5/3)*math.sin(secs_arc)
+        ys=yc-((clock_r - 7) * 2.5/3)*math.cos(secs_arc)
         cairo_move_to(cr,xc,yc)
         cairo_line_to(cr,xs,ys)
     
