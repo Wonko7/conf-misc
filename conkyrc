@@ -108,7 +108,7 @@ conky.config = {
 
 	temperature_unit = 'celsius',
 
-	top_name_width = 6,
+	top_name_width = 12,
 
 	-- color1 = '#EEEEEE',
 	-- color2 = '#A5AbA3',
