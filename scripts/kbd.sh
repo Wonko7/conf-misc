@@ -22,6 +22,7 @@ if [ -z "$ergo_id" ]; then
 fi
 
 for id in $ergo_id; do
+  echo $id
   xinput set-prop $id 'Device Enabled' 0
 done
 setxkbmap us
