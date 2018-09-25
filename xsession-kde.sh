@@ -12,7 +12,7 @@ feh --bg-scale ~/docs/wallpapers/nasa-poster-vision-future/1*&
 # services:
 (compton --config ~/.compton.conf&)
 (xscreensaver -no-splash && xscreensaver-command -lock&)
-(~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
+(python3.6 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
 (conky && sleep 5 && killall -USR1 conky&) # still does not work. desktop number/name is broken.
 (dunst -config ~/.dunstrc 2>&1 > /home/wjc/dunst.logs&)
 (unclutter -idle 30&)
