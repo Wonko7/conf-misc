@@ -6,12 +6,12 @@ This script draws percentage meters as rings, and also draws clock hands if you 
 IMPORTANT: if you are using the 'cpu' function, it will cause a segmentation fault if it tries to draw a ring straight away. The if statement on line 145 uses a delay to make sure that this doesn't happen. It calculates the length of the delay by the number of updates since Conky started. Generally, a value of 5s is long enough, so if you update Conky every 1s, use update_num>5 in that if statement (the default). If you only update Conky every 2s, you should change it to update_num>3; conversely if you update Conky every 0.5s, you should use update_num>10. ALSO, if you change your Conky, is it best to use "killall conky; conky" to update it, otherwise the update_num will not be reset and you will get an error.
 
 To call this script in Conky, use the following (assuming that you save this script to ~/scripts/rings.lua):
-    lua_load ~/scripts/clock_rings.lua
-    lua_draw_hook_pre clock_rings
-    
+lua_load ~/scripts/clock_rings.lua
+lua_draw_hook_pre clock_rings
+
 Changelog:
 + v1.0 -- Original release (30.09.2009)
-   v1.1p -- Jpope edit londonali1010 (05.10.2009)
+v1.1p -- Jpope edit londonali1010 (05.10.2009)
 *v 2011mint -- reEdit despot77 (18.02.2011)
 ]]
 
@@ -23,8 +23,17 @@ fg_col=0xAAAAAA
 fg_col=0xcb4b16
 bg_col=0x002b36
 
-clock_fg_col=0xcb4b16
-clock_bg_col=0x002b36
+fg_col=0xcccccc
+clock_fg_col=0xcccccc
+
+fg_col=0xffffff
+clock_fg_col=0xffffff
+
+-- clock_fg_col=0xcb4b16
+--clock_bg_col=0x002b36
+--bg_col=0x002b36
+clock_bg_col=0xffffff
+bg_col=0xffffff
 
 clock_r=105
 
@@ -292,7 +301,7 @@ function draw_ring(cr,t,pt)
     cairo_stroke(cr)        
 end
 
-function draw_clock_hands(cr,xc,yc)
+function draw_clock_hands(cr,pt,xc,yc)
     local secs,mins,hours,secs_arc,mins_arc,hours_arc
     local xh,yh,xm,ym,xs,ys
     -- local file = io.open("/tmp/lol", "a")
@@ -321,8 +330,11 @@ function draw_clock_hands(cr,xc,yc)
     
     cairo_set_line_cap(cr,CAIRO_LINE_CAP_ROUND)
     cairo_set_line_width(cr,3)
-    -- clock_fg_col=0xcb4b16
-    cairo_set_source_rgba(cr, 0.79, 0.29, 0.08, 1.0)
+
+    --cairo_set_source_rgba(cr, 0.79, 0.29, 0.08, 1.0)
+    --cairo_set_source_rgba(cr, 0.79, 0.29, 0.08, 1.0)
+    cairo_set_source_rgba(cr,rgb_to_r_g_b(clock_fg_col,0.8))
+    -- cairo_set_source_rgba(cr,rgb_to_r_g_b(clock_fg_col,pt['fg_alpha']))
     cairo_stroke(cr)
     
    -- settings_table[1]['pct'] = (hours_arc % (2 * math.pi) / (2 * math.pi);
@@ -382,7 +394,7 @@ function conky_clock_rings()
     update_num=tonumber(updates)
     
 
-    draw_clock_hands(cr,clock_x,clock_y)
+    draw_clock_hands(cr,settings_table[0],clock_x,clock_y)
     cairo_set_line_cap(cr,CAIRO_LINE_CAP_BUTT)
 
     if update_num>5 then

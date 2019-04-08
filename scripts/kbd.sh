@@ -17,7 +17,7 @@ xset r rate 400 30
 if [ -z "$ergo_id" ]; then
   setxkbmap dvorak
   xmodmap ~/conf/misc/xmodmap.laptop.dvorak
-  notify-send keyboard: laptop
+  /home/wjc/conf/notify-user/notify-user.sh ":(" keyboard: laptop
   exit 0
 fi
 
@@ -27,4 +27,4 @@ for id in $ergo_id; do
 done
 setxkbmap us
 xmodmap ~/conf/misc/xmodmap.ergo.dvorak
-notify-send keyboard: ergo
+/home/wjc/conf/notify-user/notify-user.sh ":)" keyboard: ergo

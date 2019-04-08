@@ -101,7 +101,8 @@ conky.config = {
 -- Text settings #
 	use_xft = true,
 	-- font = 'Hakslig:size=10',
-	font = 'Hakslig:size=20',
+	-- font = 'Hakslig:size=20',
+	font = 'Fira Mono for Powerline:size=18',
 	xftalpha = 1.0,
 
 	uppercase = false,
@@ -113,8 +114,21 @@ conky.config = {
 	-- color1 = '#EEEEEE',
 	-- color2 = '#A5AbA3',
 	color1 = '#cb4b16',
-	color2 = '#002b36',
-	color3 = '#A657b83',
+	-- color1 = '#EEEEEE',
+	-- color2 = '#002b36',
+
+
+	-- sol light green:
+	-- color1 = '#2aa198',
+	-- sol red:
+	-- color1 = '#d30102',
+	-- nice blue & pink:
+	--color1 = '#268bd2',
+	--color3 = '#CCCCCC',
+	-- color1 = '#d33682',
+    -- 
+	color1 = '#CCCCCC',
+	color2 = '#FFFFFF',
 
 -- Lua Load  #
 	lua_load = '~/.lua/scripts/clock_rings.lua',
@@ -126,22 +140,23 @@ conky.text = [[
 
 ${voffset 300}
 
-${color2}${goto 20}${voffset -5}${cpu cpu0}%
-${color1}${goto 20}CPU
-${color2}${goto 20}${voffset 100}${memperc}%
-${color1}${goto 20}RAM
-${color2}${goto 20}${voffset 100}${fs_used_perc /}%
-${color1}${goto 20}Disk
-${color2}${goto 20}${voffset 100}${battery_percent}%
-${color1}${goto 20}Batt
-${color2}${goto 20}${voffset 100}${downspeed wlp2s0}
-${color2}${goto 20}${upspeed wlp2s0}
-${color1}${goto 20}${wireless_essid wlp2s0}${color2}
-${color2}${goto 20}${wireless_link_qual_perc wlp2s0}%
+${color2}${goto 0}${voffset -5}${cpu cpu0}%
+${color1}${goto 0}CPU
+${color2}${goto 0}${voffset 100}${memperc}%
+${color1}${goto 0}RAM
+${color2}${goto 0}${voffset 100}${fs_used_perc /}%
+${color1}${goto 0}Disk
+${color2}${goto 0}${voffset 100}${battery_percent}%
+${color1}${goto 0}Batt
+${color2}${goto 0}${voffset 100}${downspeed wlp2s0}
+${color2}${goto 0}${upspeed wlp2s0}
+${color1}${goto 0}${wireless_essid wlp2s0}${color2}
+${color2}${goto 0}${wireless_link_qual_perc wlp2s0}%
 
 
 # ${color2}      ${if_match ${desktop_name}==1}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==2}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==3}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==4}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==5}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==6}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==7}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==8}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==9}${color1}●${else}${color2}●${endif}
-${color2}      ${if_match "${desktop}"=="1"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="2"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="3"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="4"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="5"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="6"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="7"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="8"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
+#${color2}    ${if_match "${desktop}"=="1"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="2"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="3"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="4"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="5"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="6"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="7"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="8"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
+${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="9"}${color1}● ${else}${color2}○${endif}
 #:${desktop}:${desktop_name}:
 
 ${color1}
@@ -164,13 +179,11 @@ ${color2}${top_mem name 5}${goto 180}${top_mem mem 5}
 ${color2}${top_mem name 6}${goto 180}${top_mem mem 6}
 ${color2}${top_mem name 7}${goto 180}${top_mem mem 7}
 ${color2}${top_mem name 8}${goto 180}${top_mem mem 8}
-
-
+${color1}
+${execi 5 ~/conf/misc/scripts/conky-qlop.sh}
+${color2}
 ${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
 ${battery}
 ${battery_time}
-
-#${font DejaVu Sans Mono:size=7}${color1}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/  //'}
-${font}
-#${font DejaVu Sans Mono:size=6}${execi 300 w3m -dump http://wttr.in/ | head -n 7 | tail -n 5 | sed -re 's/   //'}
 ]];
+

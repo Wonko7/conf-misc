@@ -45,9 +45,15 @@
     timeout = 20
 
 [urgency_normal]
-    background = "#268bd2"
-    #background = "#073642"
+    #  was blue:
+    #background = "#268bd2"
+    # was orange:
     #background = "#cb4b16"
+    # was green:
+    # background = "#117700"
+    # dark blue:
+    background = "#073642"
+
     foreground = "#DDDDDD"
     timeout = 20
 
@@ -58,18 +64,18 @@
 
 [alert_ok]
     summary = "*#production*"
-	body = "*\[OK\]*"
-	background = "#117700"
+    body = "*\[OK\]*"
+    background = "#117700"
 
 [alert_nok]
     summary = "*Power low*"
-	body = "*\[Alerting\]*"
-	background = "#ac322f"
+    body = "*\[Alerting\]*"
+    background = "#ac322f"
 
 [alert_nok2]
     summary = "*#production*"
-	body = "*Apex*"
-	background = "#ac322f"
+    body = "*Apex*"
+    background = "#ac322f"
 
 # [ignore]
 #     appname = "Spotify"
