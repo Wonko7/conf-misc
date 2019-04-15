@@ -138,9 +138,9 @@ conky.config = {
 
 conky.text = [[
 
-${voffset 300}
-
-${color2}${goto 0}${voffset -5}${cpu cpu0}%
+${execpi 1 ~/conf/misc/scripts/conky-date.sh}
+${voffset 220}
+${color2}${goto 0}${voffset 60}${cpu cpu0}%
 ${color1}${goto 0}CPU
 ${color2}${goto 0}${voffset 100}${memperc}%
 ${color1}${goto 0}RAM
@@ -152,15 +152,13 @@ ${color2}${goto 0}${voffset 100}${downspeed wlp2s0}
 ${color2}${goto 0}${upspeed wlp2s0}
 ${color1}${goto 0}${wireless_essid wlp2s0}${color2}
 ${color2}${goto 0}${wireless_link_qual_perc wlp2s0}%
-
-
+${voffset 10}
 # ${color2}      ${if_match ${desktop_name}==1}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==2}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==3}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==4}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==5}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==6}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==7}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==8}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==9}${color1}●${else}${color2}●${endif}
 #${color2}    ${if_match "${desktop}"=="1"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="2"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="3"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="4"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="5"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="6"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="7"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="8"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
-${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="9"}${color1}● ${else}${color2}○${endif}
+${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
 #:${desktop}:${desktop_name}:
 
-${color1}
-  CPU:
+${color1} CPU:
 ${color2}${top name 1}${goto 180}${top cpu 1}
 ${color2}${top name 2}${goto 180}${top cpu 2}
 ${color2}${top name 3}${goto 180}${top cpu 3}
@@ -169,8 +167,8 @@ ${color2}${top name 5}${goto 180}${top mem 5}
 ${color2}${top name 6}${goto 180}${top mem 6}
 ${color2}${top name 7}${goto 180}${top mem 7}
 ${color2}${top name 8}${goto 180}${top mem 8}
-${color1}
-  MEM:
+
+${color1} MEM:
 ${color2}${top_mem name 1}${goto 180}${top_mem mem 1}
 ${color2}${top_mem name 2}${goto 180}${top_mem mem 2}
 ${color2}${top_mem name 3}${goto 180}${top_mem mem 3}
@@ -185,5 +183,6 @@ ${color2}
 ${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
 ${battery}
 ${battery_time}
+#${execpi 300 cal | sed -e 's/'`date | awk '{print $3}'`'/\$\{color e84448}'`date | awk '{print $3}'`'\$\{color}/'}
 ]];
 

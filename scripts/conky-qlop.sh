@@ -1,7 +1,6 @@
 #! /bin/sh
 
 current=`qlop -c`
-
 if [ -z "$current" ]; then
 	exit 0
 fi

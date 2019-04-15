@@ -38,10 +38,11 @@ bg_col=0xffffff
 clock_r=105
 
 clock_x=125
-clock_y=200
+clock_y=385
 
 rad=70
 toty=clock_y + 220
+totx=179
 deltay=160
 show_seconds=true
 
@@ -153,7 +154,7 @@ settings_table = {
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=175, y=toty,
+        x=totx, y=toty,
         radius=rad,
         thickness=5,
         start_angle=-90,
@@ -167,7 +168,7 @@ settings_table = {
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=175, y=(toty + 1 * deltay),
+        x=totx, y=(toty + 1 * deltay),
         radius=rad,
         thickness=5,
         start_angle=-90,
@@ -209,7 +210,7 @@ settings_table = {
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=175, y=(toty + 2 * deltay),
+        x=totx, y=(toty + 2 * deltay),
         radius=rad,
         thickness=5,
         start_angle=-90,
@@ -223,7 +224,7 @@ settings_table = {
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=175, y=(toty + 4 * deltay),
+        x=totx, y=(toty + 4 * deltay),
         radius=rad,
         thickness=5,
         start_angle=-90,
@@ -237,7 +238,7 @@ settings_table = {
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=175, y=(toty + 4 * deltay),
+        x=totx, y=(toty + 4 * deltay),
         radius=rad - 7,
         thickness=5,
         start_angle=-90,
@@ -251,7 +252,7 @@ settings_table = {
         bg_alpha=0.2,
         fg_colour=fg_col,
         fg_alpha=0.8,
-        x=175, y=(toty + 3 * deltay),
+        x=totx, y=(toty + 3 * deltay),
         radius=rad,
         thickness=5,
         start_angle=-90,

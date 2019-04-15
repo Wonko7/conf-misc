@@ -3,7 +3,7 @@
 export DISPLAY=":0.0"
 export HOME=/home/wjc/
 export XAUTHORITY=$HOME/.Xauthority
-export QT_QPA_PLATFORMTHEME="qt5ct"
+#export QT_QPA_PLATFORMTHEME="qt5ct" // env!
 #export QT_AUTO_SCREEN_SCALE_FACTOR="1.5"
 
 # ~/conf/notify-user
@@ -11,7 +11,8 @@ echo "export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" > /tmp/dbus-exp
 chmod a+r /tmp/dbus-exports.sh
 
 # one shot:
-feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h54m43s595.png
+feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png
+/home/wjc/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png
 ~/conf/misc/scripts/kbd.sh&
 # services:
 (compton --config ~/.compton.conf&)
