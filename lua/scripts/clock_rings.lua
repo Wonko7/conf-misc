@@ -37,7 +37,7 @@ bg_col=0xffffff
 
 clock_r=105
 
-clock_x=125
+clock_x=121
 clock_y=385
 
 rad=70

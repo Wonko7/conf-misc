@@ -138,7 +138,7 @@ conky.config = {
 
 conky.text = [[
 
-${execpi 1 ~/conf/misc/scripts/conky-date.sh}
+${execpi 300 ~/conf/misc/scripts/conky-date.sh}
 ${voffset 220}
 ${color2}${goto 0}${voffset 60}${cpu cpu0}%
 ${color1}${goto 0}CPU
@@ -183,6 +183,5 @@ ${color2}
 ${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
 ${battery}
 ${battery_time}
-#${execpi 300 cal | sed -e 's/'`date | awk '{print $3}'`'/\$\{color e84448}'`date | awk '{print $3}'`'\$\{color}/'}
 ]];
 
