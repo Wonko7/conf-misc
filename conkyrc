@@ -127,7 +127,8 @@ conky.config = {
 	--color3 = '#CCCCCC',
 	-- color1 = '#d33682',
     -- 
-	color1 = '#CCCCCC',
+	color1 = '#268bd2', -- sol blue
+	color1 = '#67C8FF', -- neon blue
 	color2 = '#FFFFFF',
 
 -- Lua Load  #

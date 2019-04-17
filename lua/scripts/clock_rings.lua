@@ -16,24 +16,25 @@ v1.1p -- Jpope edit londonali1010 (05.10.2009)
 ]]
 
 
-fg_col=0x268bd2
-fg_col=0xEEEEEE
-fg_col=0xAAAAAA
-
-fg_col=0xcb4b16
-bg_col=0x002b36
-
-fg_col=0xcccccc
-clock_fg_col=0xcccccc
-
-fg_col=0xffffff
-clock_fg_col=0xffffff
-
+-- fg_col=0x268bd2
+-- fg_col=0xEEEEEE
+-- fg_col=0xAAAAAA
+-- 
+-- fg_col=0xcb4b16
+-- bg_col=0x002b36
+-- 
+-- fg_col=0xcccccc
+-- clock_fg_col=0xcccccc
 -- clock_fg_col=0xcb4b16
 --clock_bg_col=0x002b36
 --bg_col=0x002b36
-clock_bg_col=0xffffff
+
+-- DEF
+fg_col=0x67C8FF
 bg_col=0xffffff
+
+clock_fg_col=fg_col
+clock_bg_col=bg_col
 
 clock_r=105
 
@@ -60,7 +61,8 @@ settings_table = {
         -- "bg_colour" is the colour of the base ring.
         bg_colour=clock_bg_col,
         -- "bg_alpha" is the alpha value of the base ring.
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0, -- FIXME make this globals. was 0.2
         -- "fg_colour" is the colour of the indicator part of the ring.
         fg_colour=clock_fg_col,
         -- "fg_alpha" is the alpha value of the indicator part of the ring.
@@ -81,7 +83,8 @@ settings_table = {
         arg='%M.%S',
         max=60,
         bg_colour=clock_bg_col,
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0,
         fg_colour=clock_fg_col,
         fg_alpha=0.6,
         x=clock_x, y=clock_y,
@@ -95,7 +98,8 @@ settings_table = {
         arg='%S',
         max=60,
         bg_colour=clock_bg_col,
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0,
         fg_colour=clock_fg_col,
         fg_alpha=0.8,
         x=clock_x, y=clock_y,
@@ -109,7 +113,8 @@ settings_table = {
     --     arg='%d',
     --     max=31,
     --     bg_colour=bg_col,
-    --     bg_alpha=0.1,
+    ----     bg_alpha=0.1,
+    --     bg_alpha=0,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
     --     x=100, y=150,
@@ -123,7 +128,8 @@ settings_table = {
     --     arg='%m',
     --     max=12,
     --     bg_colour=bg_col,
-    --     bg_alpha=0.1,
+    ----     bg_alpha=0.1,
+    --     bg_alpha=0,
     --     fg_colour=0x268bd2,
     --     fg_alpha=1,
     --     x=100, y=150,
@@ -137,7 +143,8 @@ settings_table = {
     --     arg='BATT0',
     --     max=100,
     --     bg_colour=bg_col,
-    --     bg_alpha=0.2,
+    ----     bg_alpha=0.2,
+    --     bg_alpha=0,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
     --     x=60, y=300,
@@ -151,7 +158,8 @@ settings_table = {
         arg='cpu0',
         max=100,
         bg_colour=bg_col,
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0,
         fg_colour=fg_col,
         fg_alpha=0.8,
         x=totx, y=toty,
@@ -165,7 +173,8 @@ settings_table = {
         arg='',
         max=100,
         bg_colour=bg_col,
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0,
         fg_colour=fg_col,
         fg_alpha=0.8,
         x=totx, y=(toty + 1 * deltay),
@@ -179,7 +188,8 @@ settings_table = {
     --     arg='',
     --     max=100,
     --     bg_colour=bg_col,
-    --     bg_alpha=0.2,
+    ----     bg_alpha=0.2,
+    --     bg_alpha=0,
     --     fg_colour=fg_col,
     --     fg_alpha=0.8,
     --     x=175, y=(toty + 2 * deltay),
@@ -193,7 +203,8 @@ settings_table = {
     --     arg='',
     --     max=100,
     --     bg_colour=bg_col,
-    --     bg_alpha=0.2,
+    ----     bg_alpha=0.2,
+    --     bg_alpha=0,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
     --     x=60, y=370,
@@ -207,7 +218,8 @@ settings_table = {
         arg='/',
         max=100,
         bg_colour=bg_col,
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0,
         fg_colour=fg_col,
         fg_alpha=0.8,
         x=totx, y=(toty + 2 * deltay),
@@ -221,35 +233,40 @@ settings_table = {
         arg='wlp2s0',
         max=1800,
         bg_colour=bg_col,
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0,
         fg_colour=fg_col,
         fg_alpha=0.8,
         x=totx, y=(toty + 4 * deltay),
         radius=rad,
         thickness=5,
         start_angle=-90,
-        end_angle=180
+        -- end_angle=180 3/4
+        end_angle=270 -- full circle
     },
         {
         name='upspeedf',
 	arg='wlp2s0',
         max=1800,
         bg_colour=bg_col,
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0,
         fg_colour=fg_col,
         fg_alpha=0.8,
         x=totx, y=(toty + 4 * deltay),
         radius=rad - 7,
         thickness=5,
         start_angle=-90,
-        end_angle=180
+        -- end_angle=180 3/4
+        end_angle=270 -- full circle
     },
         {
         name='battery_percent',
 	arg='BAT0',
         max=100,
         bg_colour=bg_col,
-        bg_alpha=0.2,
+        --bg_alpha=0.2,
+        bg_alpha=0,
         fg_colour=fg_col,
         fg_alpha=0.8,
         x=totx, y=(toty + 3 * deltay),
