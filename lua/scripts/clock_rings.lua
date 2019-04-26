@@ -39,7 +39,7 @@ clock_bg_col=bg_col
 clock_r=105
 
 clock_x=121
-clock_y=385
+clock_y=335
 
 rad=70
 toty=clock_y + 220

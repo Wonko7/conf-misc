@@ -138,9 +138,8 @@ conky.config = {
 };
 
 conky.text = [[
-
-${execpi 300 ~/conf/misc/scripts/conky-date.sh}
-${voffset 220}
+${font Fira Mono for Powerline:size=15}${offset -60}${execpi 300 ~/conf/misc/scripts/conky-date.sh}
+${font}${voffset 230}
 ${color2}${goto 0}${voffset 60}${cpu cpu0}%
 ${color1}${goto 0}CPU
 ${color2}${goto 0}${voffset 100}${memperc}%
@@ -153,11 +152,10 @@ ${color2}${goto 0}${voffset 100}${downspeed wlp2s0}
 ${color2}${goto 0}${upspeed wlp2s0}
 ${color1}${goto 0}${wireless_essid wlp2s0}${color2}
 ${color2}${goto 0}${wireless_link_qual_perc wlp2s0}%
-${voffset 10}
+
 # ${color2}      ${if_match ${desktop_name}==1}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==2}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==3}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==4}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==5}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==6}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==7}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==8}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==9}${color1}●${else}${color2}●${endif}
 #${color2}    ${if_match "${desktop}"=="1"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="2"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="3"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="4"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="5"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="6"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="7"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="8"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
 ${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
-#:${desktop}:${desktop_name}:
 
 ${color1} CPU:
 ${color2}${top name 1}${goto 180}${top cpu 1}
