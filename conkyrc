@@ -138,7 +138,7 @@ conky.config = {
 };
 
 conky.text = [[
-${font Fira Mono for Powerline:size=15}${offset -60}${execpi 300 ~/conf/misc/scripts/conky-date.sh}
+${font Fira Mono for Powerline:size=15}${execpi 300 ~/conf/misc/scripts/conky-date.sh}
 ${font}${voffset 230}
 ${color2}${goto 0}${voffset 60}${cpu cpu0}%
 ${color1}${goto 0}CPU

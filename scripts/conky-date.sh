@@ -14,8 +14,10 @@ current=`cal -m`
 current=$(echo "$current" |                                                               \
   sed -e /"^${DAY/#0/} "/s/"^${DAY/#0/} "/""'${color1}'"${DAY/#0/}"'${color2}'" "/ \
   -e /" ${DAY/#0/} "/s/" ${DAY/#0/} "/" "'${color1}'"${DAY/#0/}"'${color2}'" "/    \
+  -e /" ${DAY/#0/}$"/s/" ${DAY/#0/}$"/" "'${color1}'"${DAY/#0/}"'${color2}'" "/    \
   -e 's/ *$//'
 )
+
 current=$(echo "$current"|sed -e /" ${DAY/#0/} "/s/" ${DAY/#0/} "/" "'${color1}'"${DAY/#0/}"'${color2}'" "/  -e 's/ *$//')
 echo -e "\${color2}$current"
 
