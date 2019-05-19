@@ -23,4 +23,4 @@ feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png
 (dunst -config ~/.dunstrc 2>&1 > /home/wjc/dunst.logs&)
 (unclutter -idle 30&)
 (qlipper&)
-(systemd-run --scope --user lxqt-panel&)
+#(lxqt-panel&) # fuck systemd which ignores its own KillUserProcesses=yes :(

@@ -35,6 +35,7 @@ keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
 ! ! ygg: remap ctrl to mode switch
 keycode 105 = Mode_switch Mode_switch Mode_switch Mode_switch
 keycode 107 = Mode_switch Mode_switch Mode_switch Mode_switch
+keycode 117 = Multi_key
 !keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
 !keycode 134 = Mode_switch Mode_switch Mode_switch Mode_switch 
 
