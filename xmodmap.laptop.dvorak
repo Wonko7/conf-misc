@@ -19,7 +19,7 @@ add     control = Control_L Control_R
 !clear Lock
 !clear Mod1
 !clear Mod3
-!clear 
+!clear
 !keycode 203 = NoSymbol NoSymbol NoSymbol NoSymbol
 !keycode 204 = NoSymbol NoSymbol NoSymbol NoSymbol
 !keycode 205 = NoSymbol NoSymbol NoSymbol NoSymbol
@@ -35,9 +35,9 @@ keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
 ! ! ygg: remap ctrl to mode switch
 keycode 105 = Mode_switch Mode_switch Mode_switch Mode_switch
 keycode 107 = Mode_switch Mode_switch Mode_switch Mode_switch
-keycode 117 = Multi_key
+keycode 112 = Multi_key
 !keycode 133 = Mode_switch Mode_switch Mode_switch Mode_switch
-!keycode 134 = Mode_switch Mode_switch Mode_switch Mode_switch 
+!keycode 134 = Mode_switch Mode_switch Mode_switch Mode_switch
 
 ! caps lockA
 !keycode 66  = Control_R Control_R Control_R Control_R

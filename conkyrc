@@ -23,7 +23,7 @@ conky.config = {
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- #
--- 
+--
 -- double_buffer yes
 -- alignment middle_middle
 -- background no
@@ -126,7 +126,7 @@ conky.config = {
 	--color1 = '#268bd2',
 	--color3 = '#CCCCCC',
 	-- color1 = '#d33682',
-    -- 
+    --
 	color1 = '#268bd2', -- sol blue
 	color1 = '#67C8FF', -- neon blue
 	color2 = '#FFFFFF',
@@ -155,7 +155,10 @@ ${color2}${goto 0}${wireless_link_qual_perc wlp2s0}%
 
 # ${color2}      ${if_match ${desktop_name}==1}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==2}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==3}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==4}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==5}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==6}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==7}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==8}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==9}${color1}●${else}${color2}●${endif}
 #${color2}    ${if_match "${desktop}"=="1"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="2"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="3"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="4"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="5"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="6"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="7"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="8"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
-${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
+# version with circles:
+#${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
+# version with disks:
+${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}●${endif}
 
 ${color1} CPU:
 ${color2}${top name 1}${goto 180}${top cpu 1}
@@ -183,4 +186,3 @@ ${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
 ${battery}
 ${battery_time}
 ]];
-
