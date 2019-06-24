@@ -132,7 +132,7 @@ conky.config = {
 	color2 = '#FFFFFF',
 
 -- Lua Load  #
-	lua_load = '~/.lua/scripts/clock_rings.lua',
+	lua_load = '~/conf/misc/scripts/conky-clock.lua',
 	lua_draw_hook_pre = 'clock_rings',
 
 };
@@ -146,8 +146,9 @@ ${color2}${goto 0}${voffset 100}${memperc}%
 ${color1}${goto 0}RAM
 ${color2}${goto 0}${voffset 100}${fs_used_perc /}%
 ${color1}${goto 0}Disk
-${color2}${goto 0}${voffset 100}${battery_percent}%
-${color1}${goto 0}Batt
+${color2}${goto 0}${voffset 100}${execpi 1 ~/conf/misc/scripts/conky-sound.sh --all}%
+🔊
+#"${color1}${goto 0}Sound
 ${color2}${goto 0}${voffset 100}${downspeed wlp2s0}
 ${color2}${goto 0}${upspeed wlp2s0}
 ${color1}${goto 0}${wireless_essid wlp2s0}${color2}

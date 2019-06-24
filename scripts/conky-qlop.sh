@@ -1,6 +1,6 @@
 #! /bin/sh
 
-current=`qlop -c`
+current=`genlop -c | sed -nre '/ \* / s: \* ::p'`
 if [ -z "$current" ]; then
   uname --kernel-release
   exit 0

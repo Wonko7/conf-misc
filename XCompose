@@ -2,6 +2,9 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 #<Multi_key> <s> <p> : "🖖" U1F596
 
 <Multi_key> <s> <p> : "🖖"
+<Multi_key> <l> <l> : "🖖"
+<Multi_key> <s> <h> : "🤫"
+<Multi_key> <s> <c> : "😱"
 
 <Multi_key> <<> <3> : "❤️"
 <Multi_key> <h> <h> : "❤️"
@@ -12,7 +15,6 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <e> <h> : "😍"
 <Multi_key> <k> <k> : "💋"
 
-<Multi_key> <s> <h> : "🤫"
 
 <Multi_key> <t> <u> : "👍"
 <Multi_key> <t> <d> : "👎"

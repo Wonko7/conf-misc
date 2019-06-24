@@ -19,10 +19,10 @@ v1.1p -- Jpope edit londonali1010 (05.10.2009)
 -- fg_col=0x268bd2
 -- fg_col=0xEEEEEE
 -- fg_col=0xAAAAAA
--- 
+--
 -- fg_col=0xcb4b16
 -- bg_col=0x002b36
--- 
+--
 -- fg_col=0xcccccc
 -- clock_fg_col=0xcccccc
 -- clock_fg_col=0xcb4b16
@@ -260,10 +260,10 @@ settings_table = {
         -- end_angle=180 3/4
         end_angle=270 -- full circle
     },
-        {
-        name='battery_percent',
-	arg='BAT0',
-        max=100,
+    {
+        name='Sound',
+	arg='!conky',
+        max=150,
         bg_colour=bg_col,
         --bg_alpha=0.2,
         bg_alpha=0,
@@ -282,7 +282,14 @@ settings_table = {
 
 require 'cairo'
 
-function rgb_to_r_g_b(colour,alpha)
+function os.capture(cmd)
+  local f = assert(io.popen(cmd, 'r'))
+  local s = assert(f:read('*a'))
+  f:close()
+  return s
+end
+
+function rgb_to_r_g_b(colour, alpha)
     return ((colour / 0x10000) % 0x100) / 255., ((colour / 0x100) % 0x100) / 255., (colour % 0x100) / 255., alpha
 end
 
@@ -290,139 +297,148 @@ function ang_to_pct(angle)
 	return (angle % (2 * math.pi)) / (2 * math.pi)
 end
 
-function draw_ring(cr,t,pt)
-    local w,h=conky_window.width,conky_window.height
-    
-    local xc,yc,ring_r,ring_w,sa,ea=pt['x'],pt['y'],pt['radius'],pt['thickness'],pt['start_angle'],pt['end_angle']
+function draw_ring(cr, t, pt)
+    local w, h=conky_window.width, conky_window.height
+
+    local xc, yc, ring_r, ring_w, sa, ea=pt['x'], pt['y'], pt['radius'], pt['thickness'], pt['start_angle'], pt['end_angle']
     local bgc, bga, fgc, fga=pt['bg_colour'], pt['bg_alpha'], pt['fg_colour'], pt['fg_alpha']
 
     local angle_0=sa*(2*math.pi/360)-math.pi/2
     local angle_f=ea*(2*math.pi/360)-math.pi/2
     local t_arc=t*(angle_f-angle_0)
-    t_arc = math.min(t_arc,1*(angle_f-angle_0))
-    
+    t_arc = math.min(t_arc, 1*(angle_f-angle_0))
+
     -- t_arc = modpi(t_arc)
- 
+
 
     -- Draw background ring
 
-    cairo_arc(cr,xc,yc,ring_r,angle_0,angle_f)
-    cairo_set_source_rgba(cr,rgb_to_r_g_b(bgc,bga))
-    cairo_set_line_width(cr,ring_w)
+    cairo_arc(cr, xc, yc, ring_r, angle_0, angle_f)
+    cairo_set_source_rgba(cr, rgb_to_r_g_b(bgc, bga))
+    cairo_set_line_width(cr, ring_w)
     cairo_stroke(cr)
-    
+
     -- Draw indicator ring
 
-    cairo_arc(cr,xc,yc,ring_r,angle_0,(angle_0+t_arc))
-    -- cairo_arc(cr,xc,yc,ring_r,angle_0,angle_0+t_arc)
-    cairo_set_source_rgba(cr,rgb_to_r_g_b(fgc,fga))
-    cairo_stroke(cr)        
+    cairo_arc(cr, xc, yc, ring_r, angle_0, (angle_0+t_arc))
+    -- cairo_arc(cr, xc, yc, ring_r, angle_0, angle_0+t_arc)
+    cairo_set_source_rgba(cr, rgb_to_r_g_b(fgc, fga))
+    cairo_stroke(cr)
 end
 
-function draw_clock_hands(cr,pt,xc,yc)
-    local secs,mins,hours,secs_arc,mins_arc,hours_arc
-    local xh,yh,xm,ym,xs,ys
+function draw_clock_hands(cr, pt, xc, yc)
+    local secs, mins, hours, secs_arc, mins_arc, hours_arc
+    local xh, yh, xm, ym, xs, ys
     -- local file = io.open("/tmp/lol", "a")
-    
-    secs=os.date("%S")    
+
+    secs=os.date("%S")
     mins=os.date("%M")
     hours=os.date("%I")
-        
+
     secs_arc=((2*math.pi/60)*secs)
     mins_arc=((2*math.pi/60)*mins+secs_arc/60)
     hours_arc=((2*math.pi/12)*hours+mins_arc/12)
-    
+
     -- file:write("hours: ")
     -- file:write(hours)
     -- file:write(" : ")
     -- file:write(mins)
     -- file:write("\n")
     -- file:close()
-        
+
     -- Draw hour hand
-    
+
     xh=xc+((clock_r - 7) * 1/3 + 14)*math.sin(hours_arc)
     yh=yc-((clock_r - 7) * 1/3 + 14)*math.cos(hours_arc)
-    cairo_move_to(cr,xc,yc)
-    cairo_line_to(cr,xh,yh)
-    
-    cairo_set_line_cap(cr,CAIRO_LINE_CAP_ROUND)
-    cairo_set_line_width(cr,3)
+    cairo_move_to(cr, xc, yc)
+    cairo_line_to(cr, xh, yh)
+
+    cairo_set_line_cap(cr, CAIRO_LINE_CAP_ROUND)
+    cairo_set_line_width(cr, 3)
 
     --cairo_set_source_rgba(cr, 0.79, 0.29, 0.08, 1.0)
     --cairo_set_source_rgba(cr, 0.79, 0.29, 0.08, 1.0)
-    cairo_set_source_rgba(cr,rgb_to_r_g_b(clock_fg_col,0.8))
-    -- cairo_set_source_rgba(cr,rgb_to_r_g_b(clock_fg_col,pt['fg_alpha']))
+    cairo_set_source_rgba(cr, rgb_to_r_g_b(clock_fg_col, 0.8))
+    -- cairo_set_source_rgba(cr, rgb_to_r_g_b(clock_fg_col, pt['fg_alpha']))
     cairo_stroke(cr)
-    
+
    -- settings_table[1]['pct'] = (hours_arc % (2 * math.pi) / (2 * math.pi);
     settings_table[1]['pct'] = ang_to_pct(hours_arc)
-    
+
     -- Draw minute hand
-    
+
     xm=xc+((clock_r - 7) * 2/3)*math.sin(mins_arc)
     ym=yc-((clock_r - 7) * 2/3)*math.cos(mins_arc)
-    cairo_move_to(cr,xc,yc)
-    cairo_line_to(cr,xm,ym)
-    
-    cairo_set_line_width(cr,2)
+    cairo_move_to(cr, xc, yc)
+    cairo_line_to(cr, xm, ym)
+
+    cairo_set_line_width(cr, 2)
     cairo_stroke(cr)
-    
+
     -- settings_table[2]['pct'] = mins_arc / (2 * math.pi);
     settings_table[2]['pct'] = ang_to_pct(mins_arc)
-    
+
     -- Draw seconds hand
-    
+
     if show_seconds then
         xs=xc+((clock_r - 7) * 2.2/3)*math.sin(secs_arc)
         ys=yc-((clock_r - 7) * 2.2/3)*math.cos(secs_arc)
-        cairo_move_to(cr,xc,yc)
-        cairo_line_to(cr,xs,ys)
-    
-        cairo_set_line_width(cr,1)
+        cairo_move_to(cr, xc, yc)
+        cairo_line_to(cr, xs, ys)
+
+        cairo_set_line_width(cr, 1)
         cairo_stroke(cr)
-	
+
 	--settings_table[3]['pct'] = secs_arc / (2 * math.pi);
 	settings_table[3]['pct'] = ang_to_pct(secs_arc)
     end
 end
 
 function conky_clock_rings()
-    local function setup_rings(cr,pt)
+    local function setup_rings(cr, pt)
         local str=''
         local value=0
-        
-        str=string.format('${%s %s}',pt['name'],pt['arg'])
-        str=conky_parse(str)
-        
-        value=tonumber(str)
-        pct=value/pt['max']
-        
-        draw_ring(cr,pct,pt)
+
+        if pt['arg'] ~= '!conky' then
+          print(pt['name'])
+          str = string.format('${%s %s}', pt['name'], pt['arg'])
+          str = conky_parse(str)
+
+          value = tonumber(str)
+          pct = value/pt['max']
+        else
+          -- only sound right now:
+          value = os.capture('~/conf/misc/scripts/conky-sound.sh')
+          pct = value / pt['max']
+
+          print (pct / pt['max'])
+        end
+
+        draw_ring(cr, pct, pt)
     end
-    
+
     -- Check that Conky has been running for at least 5s
 
     if conky_window==nil then return end
-    local cs=cairo_xlib_surface_create(conky_window.display,conky_window.drawable,conky_window.visual, conky_window.width,conky_window.height)
-    
-    local cr=cairo_create(cs)    
-    
+    local cs=cairo_xlib_surface_create(conky_window.display, conky_window.drawable, conky_window.visual, conky_window.width, conky_window.height)
+
+    local cr=cairo_create(cs)
+
     local updates=conky_parse('${updates}')
     update_num=tonumber(updates)
-    
 
-    draw_clock_hands(cr,settings_table[0],clock_x,clock_y)
-    cairo_set_line_cap(cr,CAIRO_LINE_CAP_BUTT)
+
+    draw_clock_hands(cr, settings_table[0], clock_x, clock_y)
+    cairo_set_line_cap(cr, CAIRO_LINE_CAP_BUTT)
 
     if update_num>5 then
         for i in pairs(settings_table) do
 	    if i < 4 then
 		draw_ring(cr, settings_table[i]['pct'], settings_table[i])
 	    else
-		setup_rings(cr,settings_table[i])
+		setup_rings(cr, settings_table[i])
 	    end
         end
     end
-    
+
 end

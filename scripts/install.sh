@@ -15,10 +15,9 @@ ln -s ~/conf/misc/vimperatorrc ~/.vimperatorrc
 ln -s ~/conf/xmonad ~/.xmonad
 
 ln -s ~/conf/misc/xmodmap ~/.xmodmap
-ln -s ~/conf/misc/lua ~/.lua
 ln -s ~/conf/misc/xinitrc ~/.xinitrc
 ln -s ~/conf/misc/xinitrc ~/.xsession
-ln -s ~/conf/misc/xsession-kde.sh ~/.xsession-kde.sh
+ln -s ~/conf/misc/xsession-user.sh ~/.xsession-user.sh
 ln -s ~/conf/misc/Xdefaults ~/.Xdefaults
 ln -s ~/conf/misc/Xresources ~/.Xresources
 ln -s ~/conf/misc/XCompose ~/.XCompose
