@@ -1,140 +1,82 @@
 conky.config = {
--- Conky, a system monitor, based on torsmo
+  -- Conky settings #
+  background = false,
+  update_interval = 1,
+  cpu_avg_samples = 2,
+  net_avg_samples = 2,
+  --override_utf8_locale = true,
 
--- Any original torsmo code is licensed under the BSD license
+  double_buffer = true,
+  no_buffers = true,
+  --	text_buffer_size = 2048,
 
--- All code written since the fork of torsmo is licensed under the GPL
+  temperature_unit = 'celsius',
+  use_spacer = 'none',
 
--- Please see COPYING for details
+-- Window specifications:
+  own_window = true,
+  --own_window_type = 'panel',
+  own_window_type = 'panel',
+  own_window_class = 'Conky',
+  own_window_transparent = yes,
+  own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+  own_window_argb_visual = true,
+  own_window_argb_value = 0,
 
--- Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
--- Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
--- All rights reserved.
+  border_inner_margin = 0,
+  border_outer_margin = 0,
 
--- This program is free software: you can redistribute it and/or modify
--- it under the terms of the GNU General Public License as published by
--- the Free Software Foundation, either version 3 of the License, or
--- (at your option) any later version.
+  minimum_width = 250,
+  minimum_height = 10,
+  maximum_width = 250,
 
--- This program is distributed in the hope that it will be useful,
--- but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
--- GNU General Public License for more details.
--- You should have received a copy of the GNU General Public License
--- along with this program.  If not, see <http://www.gnu.org/licenses/>.
--- #
---
--- double_buffer yes
--- alignment middle_middle
--- background no
--- border_width 1
--- cpu_avg_samples 2
--- default_color white
--- default_outline_color white
--- default_shade_color white
--- draw_borders no
--- draw_graph_borders yes
--- draw_outline no
--- draw_shades no
--- use_xft yes
--- xftfont DejaVu Sans Mono:size=12
--- gap_x 5
--- gap_y 60
--- minimum_size 5 5
--- net_avg_samples 2
--- no_buffers yes
--- out_to_console no
--- out_to_stderr no
--- extra_newline no
--- own_window yes
--- own_window_class Conky
--- own_window_type normal
+  alignment = 'middle_left',
+  gap_x = 30,
+  gap_y = 0,
+
+-- Graphics settings:
+  draw_shades = false,
+  draw_outline = false,
+  draw_borders = false,
+  draw_graph_borders = false,
+  out_to_console = false,
+  out_to_stderr = false,
+  extra_newline = false,
 
 
+-- Text settings:
+  use_xft = true,
+  -- font = 'Hakslig:size=10',
+  -- font = 'Hakslig:size=20',
+  font = 'Fira Mono for Powerline:size=18',
+  xftalpha = 1.0,
+  uppercase = false,
 
--- Conky settings #
-	background = false,
-	update_interval = 1,
+  top_name_width = 12,
 
-	cpu_avg_samples = 2,
-	net_avg_samples = 2,
-
-	override_utf8_locale = true,
-
-	double_buffer = true,
-	no_buffers = true,
-
-	text_buffer_size = 2048,
---imlib_cache_size 0
-
-	temperature_unit = 'celsius',
-
--- Window specifications #
-
-	own_window = true,
-	--own_window_type = 'panel',
-	own_window_type = 'panel',
---own_window_type normal
-	own_window_class = 'Conky',
-	own_window_transparent = yes,
-	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
-	own_window_argb_visual = true,
-	own_window_argb_value = 0,
-
-	border_inner_margin = 0,
-	border_outer_margin = 0,
-
-	minimum_width = 250,
-	minimum_height = 10,
-	maximum_width = 250,
-
-	alignment = 'middle_left',
-	gap_x = 30,
-	gap_y = 0,
-
--- Graphics settings #
-	draw_shades = false,
-	draw_outline = false,
-	draw_borders = false,
-	draw_graph_borders = false,
-
--- Text settings #
-	use_xft = true,
-	-- font = 'Hakslig:size=10',
-	-- font = 'Hakslig:size=20',
-	font = 'Fira Mono for Powerline:size=18',
-	xftalpha = 1.0,
-
-	uppercase = false,
-
-	temperature_unit = 'celsius',
-
-	top_name_width = 12,
-
-	-- color1 = '#EEEEEE',
-	-- color2 = '#A5AbA3',
-	color1 = '#cb4b16',
-	-- color1 = '#EEEEEE',
-	-- color2 = '#002b36',
+  -- color1 = '#EEEEEE',
+  -- color2 = '#A5AbA3',
+  -- color1 = '#cb4b16',
+  -- color1 = '#EEEEEE',
+  -- color2 = '#002b36',
 
 
-	-- sol light green:
-	-- color1 = '#2aa198',
-	-- sol red:
-	-- color1 = '#d30102',
-	-- nice blue & pink:
-	--color1 = '#268bd2',
-	--color3 = '#CCCCCC',
-	-- color1 = '#d33682',
-    --
-	color1 = '#268bd2', -- sol blue
-	color1 = '#67C8FF', -- neon blue
-	color2 = '#FFFFFF',
+  -- sol light green:
+  -- color1 = '#2aa198',
+  -- sol red:
+  -- color1 = '#d30102',
+  -- nice blue & pink:
+  --color1 = '#268bd2',
+  --color3 = '#CCCCCC',
+  -- color1 = '#d33682',
+  --
+    color1 = '#268bd2', -- sol blue
+    color1 = '#67C8FF', -- neon blue
+    color2 = '#FFFFFF',
 
--- Lua Load  #
-	lua_load = '~/conf/misc/scripts/conky-clock.lua',
-	lua_draw_hook_pre = 'clock_rings',
-
+  -- Lua Load  #
+    lua_load = '~/conf/misc/scripts/conky-clock.lua',
+  lua_draw_hook_pre = 'clock_rings',
 };
 
 conky.text = [[
@@ -146,9 +88,7 @@ ${color2}${goto 0}${voffset 100}${memperc}%
 ${color1}${goto 0}RAM
 ${color2}${goto 0}${voffset 100}${fs_used_perc /}%
 ${color1}${goto 0}Disk
-${color2}${goto 0}${voffset 100}${execpi 1 ~/conf/misc/scripts/conky-sound.sh --all}%
-🔊
-#"${color1}${goto 0}Sound
+${color2}${goto 0}${voffset 100}${execpi 1 ~/conf/misc/scripts/conky-sound.sh --all}
 ${color2}${goto 0}${voffset 100}${downspeed wlp2s0}
 ${color2}${goto 0}${upspeed wlp2s0}
 ${color1}${goto 0}${wireless_essid wlp2s0}${color2}
@@ -182,8 +122,6 @@ ${color2}${top_mem name 7}${goto 180}${top_mem mem 7}
 ${color2}${top_mem name 8}${goto 180}${top_mem mem 8}
 ${color1}
 ${execi 5 ~/conf/misc/scripts/conky-qlop.sh}
-${color2}
-${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
-${battery}
-${battery_time}
+${color2}${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
+${battery} ${battery_time}
 ]];

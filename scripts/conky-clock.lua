@@ -400,7 +400,6 @@ function conky_clock_rings()
         local value=0
 
         if pt['arg'] ~= '!conky' then
-          print(pt['name'])
           str = string.format('${%s %s}', pt['name'], pt['arg'])
           str = conky_parse(str)
 
@@ -410,8 +409,6 @@ function conky_clock_rings()
           -- only sound right now:
           value = os.capture('~/conf/misc/scripts/conky-sound.sh')
           pct = value / pt['max']
-
-          print (pct / pt['max'])
         end
 
         draw_ring(cr, pct, pt)

@@ -1,6 +1,6 @@
 #! /bin/sh
 
-current=`genlop -c | sed -nre '/ \* / s: \* ::p'`
+current=`genlop -c  2> /dev/null | sed -nre '/ \* / s: \* ::p'`
 if [ -z "$current" ]; then
   uname --kernel-release
   exit 0

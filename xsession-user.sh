@@ -10,6 +10,7 @@ chmod a+r /tmp/dbus-exports.sh
 # one shot:
 feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png
 ~/conf/misc/scripts/kbd.sh&
+mute
 
 # services:
 (compton --config ~/.compton.conf&)
