@@ -22,13 +22,13 @@ ln -s ~/conf/misc/Xdefaults ~/.Xdefaults
 ln -s ~/conf/misc/Xresources ~/.Xresources
 ln -s ~/conf/misc/XCompose ~/.XCompose
 ln -s ~/conf/misc/conkyrc ~/.conkyrc
-ln -s ~/conf/misc/lua ~/.lua
 ln -s ~/conf/misc/compton.conf ~/.compton.conf
 ln -s ~/conf/misc/xbindkeysrc ~/.bindkeysrc
 ln -s ~/conf/misc/fonts.conf ~/.fonts.conf
 ln -s ~/conf/misc/dunstrc ~/.dunstrc
 ln -s ~/conf/misc/vimfx ~/.vimfx
 ln -s ~/conf/misc/w3m ~/.w3m
+ln -s ~/conf/misc/xscreensaver ~/.xscreensaver
 
 
 echo "also: "
