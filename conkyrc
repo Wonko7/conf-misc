@@ -72,6 +72,7 @@ conky.config = {
   --
   color1 = '#268bd2', -- sol blue
   color1 = '#67C8FF', -- neon blue
+  color0 = '#00FF00',
   color2 = '#FFFFFF',
 
   -- Lua Load  #
@@ -85,24 +86,29 @@ ${font}${voffset 220}
 ${color2}${goto 0}${voffset 68}${cpu cpu0}%
 ${color1}${goto 0}CPU
 ${color2}${goto 0}${voffset 68}${memperc}%
-${color1}${goto 0}RAM
-${color2}${goto 0}${voffset 68}${fs_used_perc /}%
+${color2}${goto 0}${swapperc}%
+${color1}${goto 0}RAM/swap
+${color2}${goto 0}${voffset 40}${fs_used_perc /}%
 ${color1}${goto 0}Disk
 ${color2}${goto 0}${voffset 68}${execpi 1 ~/conf/misc/scripts/conky-sound.sh --all}
 #${color2}${goto 0}${voffset 95}${downspeed wlp2s0} #${color2}${goto 0}${upspeed wlp2s0}
-${voffset 68}${color2}${goto 0}${downspeedf wlp2s0}K
-${color2}${goto 0}${upspeedf wlp2s0}K
+${voffset 68}${color2}${goto 0}${downspeedf wlp2s0}k
+${color2}${goto 0}${upspeedf wlp2s0}k
 ${color2}${goto 0}${wireless_link_qual_perc wlp2s0}%
-${color1}${goto 0}${wireless_essid wlp2s0}${color2}
+# empty line in font small size:
+${color1}${goto 0}${wireless_essid wlp2s0}${color2}${font Fira Mono for Powerline:size=18}
 
-# ${color2}      ${if_match ${desktop_name}==1}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==2}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==3}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==4}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==5}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==6}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==7}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==8}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==9}${color1}●${else}${color2}●${endif}
-#${color2}    ${if_match "${desktop}"=="1"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="2"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="3"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="4"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="5"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="6"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="7"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="8"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
-# version with circles:
-#${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}○ ${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}
-# version with disks:
-${alignc}${color2}${if_match "${desktop}"=="1"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="2"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="3"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="4"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="5"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="6"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="7"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="8"}${color1}● ${else}${color2}● ${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}●${endif}
+${alignc}${if_match "${desktop_name}"=="1"}${color1}● ${else}${if_match "${desktop_name}"=="11"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${alignc}${if_match "${desktop_name}"=="2"}${color1}● ${else}${if_match "${desktop_name}"=="12"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${alignc}${if_match "${desktop_name}"=="3"}${color1}● ${else}${if_match "${desktop_name}"=="13"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${alignc}${if_match "${desktop_name}"=="4"}${color1}● ${else}${if_match "${desktop_name}"=="14"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${alignc}${if_match "${desktop_name}"=="5"}${color1}● ${else}${if_match "${desktop_name}"=="15"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${alignc}${if_match "${desktop_name}"=="6"}${color1}● ${else}${if_match "${desktop_name}"=="16"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${alignc}${if_match "${desktop_name}"=="7"}${color1}● ${else}${if_match "${desktop_name}"=="17"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${alignc}${if_match "${desktop_name}"=="8"}${color1}● ${else}${if_match "${desktop_name}"=="18"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${alignc}${if_match "${desktop_name}"=="9"}${color1}●${else}${if_match "${desktop_name}"=="19"}${color1}○${else}${color2}●${endif}${endif}
 
-${color1} CPU:
+${font}${color1} CPU:
 ${color2}${top name 1}${goto 180}${top cpu 1}
 ${color2}${top name 2}${goto 180}${top cpu 2}
 ${color2}${top name 3}${goto 180}${top cpu 3}
