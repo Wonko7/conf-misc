@@ -48,11 +48,11 @@ conky.config = {
   use_xft = true,
   -- font = 'Hakslig:size=10',
   -- font = 'Hakslig:size=20',
-  font = 'Fira Mono for Powerline:size=18',
+  font = 'Fira Mono for Powerline:size=22',
   xftalpha = 1.0,
   uppercase = false,
 
-  top_name_width = 12,
+  top_name_width = 9,
 
   -- color1 = '#EEEEEE',
   -- color2 = '#A5AbA3',
@@ -70,29 +70,30 @@ conky.config = {
   --color3 = '#CCCCCC',
   -- color1 = '#d33682',
   --
-    color1 = '#268bd2', -- sol blue
-    color1 = '#67C8FF', -- neon blue
-    color2 = '#FFFFFF',
+  color1 = '#268bd2', -- sol blue
+  color1 = '#67C8FF', -- neon blue
+  color2 = '#FFFFFF',
 
   -- Lua Load  #
-    lua_load = '~/conf/misc/scripts/conky-clock.lua',
+  lua_load = '~/conf/misc/scripts/conky-clock.lua',
   lua_draw_hook_pre = 'clock_rings',
 };
 
 conky.text = [[
 ${font Fira Mono for Powerline:size=15}${execpi 300 ~/conf/misc/scripts/conky-date.sh}
-${font}${voffset 230}
-${color2}${goto 0}${voffset 60}${cpu cpu0}%
+${font}${voffset 220}
+${color2}${goto 0}${voffset 68}${cpu cpu0}%
 ${color1}${goto 0}CPU
-${color2}${goto 0}${voffset 100}${memperc}%
+${color2}${goto 0}${voffset 68}${memperc}%
 ${color1}${goto 0}RAM
-${color2}${goto 0}${voffset 100}${fs_used_perc /}%
+${color2}${goto 0}${voffset 68}${fs_used_perc /}%
 ${color1}${goto 0}Disk
-${color2}${goto 0}${voffset 100}${execpi 1 ~/conf/misc/scripts/conky-sound.sh --all}
-${color2}${goto 0}${voffset 100}${downspeed wlp2s0}
-${color2}${goto 0}${upspeed wlp2s0}
-${color1}${goto 0}${wireless_essid wlp2s0}${color2}
+${color2}${goto 0}${voffset 68}${execpi 1 ~/conf/misc/scripts/conky-sound.sh --all}
+#${color2}${goto 0}${voffset 95}${downspeed wlp2s0} #${color2}${goto 0}${upspeed wlp2s0}
+${voffset 68}${color2}${goto 0}${downspeedf wlp2s0}K
+${color2}${goto 0}${upspeedf wlp2s0}K
 ${color2}${goto 0}${wireless_link_qual_perc wlp2s0}%
+${color1}${goto 0}${wireless_essid wlp2s0}${color2}
 
 # ${color2}      ${if_match ${desktop_name}==1}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==2}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==3}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==4}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==5}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==6}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==7}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==8}${color1}●${else}${color2}●${endif}${if_match ${desktop_name}==9}${color1}●${else}${color2}●${endif}
 #${color2}    ${if_match "${desktop}"=="1"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="2"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="3"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="4"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="5"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="6"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="7"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="8"}${color1}●${else}${color2}○${endif}${if_match "${desktop}"=="9"}${color1}●${else}${color2}○${endif}

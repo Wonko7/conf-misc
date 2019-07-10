@@ -33,18 +33,23 @@ v1.1p -- Jpope edit londonali1010 (05.10.2009)
 fg_col=0x67C8FF
 bg_col=0xffffff
 
+bg_alpha=0.2
+fg_alpha=0.8
+
 clock_fg_col=fg_col
 clock_bg_col=bg_col
 
-clock_r=105
+clock_r=94
 
-clock_x=121
+clock_x=126
 clock_y=335
 
-rad=70
-toty=clock_y + 220
+thickness=10
+gap_thickness=4
+rad=50
+toty=clock_y + 210
 totx=179
-deltay=160
+deltay=140
 show_seconds=true
 
 settings_table = {
@@ -61,18 +66,17 @@ settings_table = {
         -- "bg_colour" is the colour of the base ring.
         bg_colour=clock_bg_col,
         -- "bg_alpha" is the alpha value of the base ring.
-        --bg_alpha=0.2,
-        bg_alpha=0, -- FIXME make this globals. was 0.2
+        bg_alpha=bg_alpha, -- FIXME make this globals. was 0.2
         -- "fg_colour" is the colour of the indicator part of the ring.
         fg_colour=clock_fg_col,
         -- "fg_alpha" is the alpha value of the indicator part of the ring.
-        fg_alpha=0.4,
+        fg_alpha=0.7,
         -- "x" and "y" are the x and y coordinates of the centre of the ring, relative to the top left corner of the Conky window.
         x=clock_x, y=clock_y,
         -- "radius" is the radius of the ring.
         radius=clock_r,
         -- "thickness" is the thickness of the ring, centred around the radius.
-        thickness=5,
+        thickness=thickness,
         -- "start_angle" is the starting angle of the ring, in degrees, clockwise from top. Value can be either positive or negative.
         start_angle=0,
         -- "end_angle" is the ending angle of the ring, in degrees, clockwise from top. Value can be either positive or negative, but must be larger than start_angle.
@@ -83,13 +87,12 @@ settings_table = {
         arg='%M.%S',
         max=60,
         bg_colour=clock_bg_col,
-        --bg_alpha=0.2,
-        bg_alpha=0,
+        bg_alpha=bg_alpha,
         fg_colour=clock_fg_col,
-        fg_alpha=0.6,
+        fg_alpha=0.8,
         x=clock_x, y=clock_y,
-        radius=clock_r + 7, -- minutes
-        thickness=5,
+        radius=clock_r + thickness + gap_thickness, -- minutes
+        thickness=thickness,
         start_angle=0,
         end_angle=360
     },
@@ -98,13 +101,12 @@ settings_table = {
         arg='%S',
         max=60,
         bg_colour=clock_bg_col,
-        --bg_alpha=0.2,
-        bg_alpha=0,
+        bg_alpha=bg_alpha,
         fg_colour=clock_fg_col,
-        fg_alpha=0.8,
+        fg_alpha=0.9,
         x=clock_x, y=clock_y,
-        radius=clock_r + 14,
-        thickness=5,
+        radius=clock_r + (thickness + gap_thickness) * 2,
+        thickness=thickness,
         start_angle=0,
         end_angle=360
     },
@@ -113,13 +115,13 @@ settings_table = {
     --     arg='%d',
     --     max=31,
     --     bg_colour=bg_col,
-    ----     bg_alpha=0.1,
-    --     bg_alpha=0,
+    ----     bg_alpha=bg_alpha,
+    --     bg_alpha=bg_alpha,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
     --     x=100, y=150,
     --     radius=70,
-    --     thickness=5,
+    --     thickness=thickness,
     --     start_angle=-90,
     --     end_angle=90
     -- },
@@ -128,13 +130,13 @@ settings_table = {
     --     arg='%m',
     --     max=12,
     --     bg_colour=bg_col,
-    ----     bg_alpha=0.1,
-    --     bg_alpha=0,
+    ----     bg_alpha=bg_alpha,
+    --     bg_alpha=bg_alpha,
     --     fg_colour=0x268bd2,
     --     fg_alpha=1,
     --     x=100, y=150,
     --     radius=76,
-    --     thickness=5,
+    --     thickness=thickness,
     --     start_angle=-90,
     --     end_angle=90
     -- },
@@ -143,13 +145,13 @@ settings_table = {
     --     arg='BATT0',
     --     max=100,
     --     bg_colour=bg_col,
-    ----     bg_alpha=0.2,
-    --     bg_alpha=0,
+    ----     bg_alpha=bg_alpha,
+    --     bg_alpha=bg_alpha,
     --     fg_colour=0x268bd2,
     --     fg_alpha=0.8,
     --     x=60, y=300,
     --     radius=25,
-    --     thickness=5,
+    --     thickness=thickness,
     --     start_angle=-90,
     --     end_angle=180
     -- },
@@ -158,13 +160,12 @@ settings_table = {
         arg='cpu0',
         max=100,
         bg_colour=bg_col,
-        --bg_alpha=0.2,
-        bg_alpha=0,
+        bg_alpha=bg_alpha,
         fg_colour=fg_col,
-        fg_alpha=0.8,
+        fg_alpha=fg_alpha,
         x=totx, y=toty,
         radius=rad,
-        thickness=5,
+        thickness=thickness,
         start_angle=-90,
         end_angle=270
     },
@@ -173,13 +174,12 @@ settings_table = {
         arg='',
         max=100,
         bg_colour=bg_col,
-        --bg_alpha=0.2,
-        bg_alpha=0,
+        bg_alpha=bg_alpha,
         fg_colour=fg_col,
-        fg_alpha=0.8,
+        fg_alpha=fg_alpha,
         x=totx, y=(toty + 1 * deltay),
         radius=rad,
-        thickness=5,
+        thickness=thickness,
         start_angle=-90,
         end_angle=270
     },
@@ -188,13 +188,13 @@ settings_table = {
     --     arg='',
     --     max=100,
     --     bg_colour=bg_col,
-    ----     bg_alpha=0.2,
-    --     bg_alpha=0,
+    ----     bg_alpha=bg_alpha,
+    --     bg_alpha=bg_alpha,
     --     fg_colour=fg_col,
-    --     fg_alpha=0.8,
+    --     fg_alpha=fg_alpha,
     --     x=175, y=(toty + 2 * deltay),
     --     radius=rad,
-    --     thickness=5,
+    --     thickness=thickness,
     --     start_angle=-90,
     --     end_angle=180
     -- },
@@ -203,13 +203,13 @@ settings_table = {
     --     arg='',
     --     max=100,
     --     bg_colour=bg_col,
-    ----     bg_alpha=0.2,
-    --     bg_alpha=0,
+    ----     bg_alpha=bg_alpha,
+    --     bg_alpha=bg_alpha,
     --     fg_colour=0x268bd2,
-    --     fg_alpha=0.8,
+    --     fg_alpha=fg_alpha,
     --     x=60, y=370,
     --     radius=25,
-    --     thickness=5,
+    --     thickness=thickness,
     --     start_angle=-90,
     --     end_angle=180
     -- },
@@ -218,13 +218,12 @@ settings_table = {
         arg='/',
         max=100,
         bg_colour=bg_col,
-        --bg_alpha=0.2,
-        bg_alpha=0,
+        bg_alpha=bg_alpha,
         fg_colour=fg_col,
-        fg_alpha=0.8,
+        fg_alpha=fg_alpha,
         x=totx, y=(toty + 2 * deltay),
         radius=rad,
-        thickness=5,
+        thickness=thickness,
         start_angle=-90,
         end_angle=270
     },
@@ -233,13 +232,12 @@ settings_table = {
         arg='wlp2s0',
         max=1800,
         bg_colour=bg_col,
-        --bg_alpha=0.2,
-        bg_alpha=0,
+        bg_alpha=bg_alpha,
         fg_colour=fg_col,
-        fg_alpha=0.8,
+        fg_alpha=fg_alpha,
         x=totx, y=(toty + 4 * deltay),
         radius=rad,
-        thickness=5,
+        thickness=thickness,
         start_angle=-90,
         -- end_angle=180 3/4
         end_angle=270 -- full circle
@@ -249,13 +247,12 @@ settings_table = {
 	arg='wlp2s0',
         max=1800,
         bg_colour=bg_col,
-        --bg_alpha=0.2,
-        bg_alpha=0,
+        bg_alpha=bg_alpha,
         fg_colour=fg_col,
-        fg_alpha=0.8,
+        fg_alpha=fg_alpha,
         x=totx, y=(toty + 4 * deltay),
-        radius=rad - 7,
-        thickness=5,
+        radius=rad - thickness - gap_thickness,
+        thickness=thickness,
         start_angle=-90,
         -- end_angle=180 3/4
         end_angle=270 -- full circle
@@ -265,13 +262,12 @@ settings_table = {
 	arg='!conky',
         max=150,
         bg_colour=bg_col,
-        --bg_alpha=0.2,
-        bg_alpha=0,
+        bg_alpha=bg_alpha,
         fg_colour=fg_col,
-        fg_alpha=0.8,
+        fg_alpha=fg_alpha,
         x=totx, y=(toty + 3 * deltay),
         radius=rad,
-        thickness=5,
+        thickness=thickness,
         start_angle=-90,
         end_angle=270
     },
@@ -412,6 +408,7 @@ function conky_clock_rings()
         end
 
         draw_ring(cr, pct, pt)
+        --draw_ring(cr, 100, pt)
     end
 
     -- Check that Conky has been running for at least 5s
@@ -432,6 +429,7 @@ function conky_clock_rings()
         for i in pairs(settings_table) do
 	    if i < 4 then
 		draw_ring(cr, settings_table[i]['pct'], settings_table[i])
+		--draw_ring(cr, 100, settings_table[i])
 	    else
 		setup_rings(cr, settings_table[i])
 	    end
