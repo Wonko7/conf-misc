@@ -21,7 +21,8 @@
     sticky_history = yes
     line_height = 0
 
-    separator_height = 5;
+    #ygg
+    separator_height = 15;
 
     separator_color = auto
 

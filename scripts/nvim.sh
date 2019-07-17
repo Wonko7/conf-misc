@@ -3,10 +3,10 @@
 ## this binds a single nvim per desktop. Any terminal on that desktop will send files to it.
 ## vim is run in a tmux session which will be re-attached if the terminal is closed.
 
-date >> /tmp/lol
 if [ -z $VIM_SERVER ]; then
   VIM_SERVER=nvim_`wmctrl -d | sed -nre "/\*/ s/^([0-9]+).*/\1/p"`
 fi
+echo $VIM_SERVER
 
 SOCKET_PREFIX=/tmp/nvimsockets
 nvr_cmd="nvr -s --servername $SOCKET_PREFIX/$VIM_SERVER $@"
