@@ -7,7 +7,6 @@ ln -s ~/conf/vim/vimrc ~/.config/nvim/init.vim
 
 ln -s ~/conf/zsh/zshrc ~/.zshrc
 ln -s ~/conf/git/gitconfig ~/.gitconfig
-ln -s ~/conf/misc/ackrc ~/.ackrc
 ln -s ~/conf/misc/mostrc ~/.mostrc
 ln -s ~/conf/misc/tmux.conf ~/.tmux.conf
 ln -s ~/conf/misc/vimperatorrc ~/.vimperatorrc
@@ -30,8 +29,12 @@ ln -s ~/conf/misc/vimfx ~/.vimfx
 ln -s ~/conf/misc/w3m ~/.w3m
 ln -s ~/conf/misc/xscreensaver ~/.xscreensaver
 
+cd ~/conf/notify-user
+make
+cd -
 
 echo "also: "
 echo "  don't forget xmodmap -> check if default is good"
 echo "  cd ~/conf/fonts && ./install.sh"
-echo "  nvim dev-python: sexpdata neovim-python-client neovim-remote nrepl-python-client sexpdata websocket-client"
+echo "  nvim: dev-python: sexpdata neovim-python-client neovim-remote nrepl-python-client sexpdata websocket-client"
+echo "  zsh: bookmarks, history, tmux-sessions"
