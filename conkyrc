@@ -96,8 +96,8 @@ ${voffset 68}${color2}${goto 0}${downspeedf wlp2s0}k
 ${color2}${goto 0}${upspeedf wlp2s0}k
 ${color2}${goto 0}${wireless_link_qual_perc wlp2s0}%
 # empty line in font small size:
-${color1}${goto 0}${wireless_essid wlp2s0}${color2}${font Fira Mono for Powerline:size=18}
-
+${color1}${goto 0}${wireless_essid wlp2s0}${color2}${font Fira Mono for Powerline:size=18}\
+${voffset 15}
 ${alignc}${if_match "${desktop_name}"=="1"}${color1}● ${else}${if_match "${desktop_name}"=="11"}${color1}○ ${else}${color2}● ${endif}${endif}\
 ${alignc}${if_match "${desktop_name}"=="2"}${color1}● ${else}${if_match "${desktop_name}"=="12"}${color1}○ ${else}${color2}● ${endif}${endif}\
 ${alignc}${if_match "${desktop_name}"=="3"}${color1}● ${else}${if_match "${desktop_name}"=="13"}${color1}○ ${else}${color2}● ${endif}${endif}\
@@ -106,8 +106,10 @@ ${alignc}${if_match "${desktop_name}"=="5"}${color1}● ${else}${if_match "${des
 ${alignc}${if_match "${desktop_name}"=="6"}${color1}● ${else}${if_match "${desktop_name}"=="16"}${color1}○ ${else}${color2}● ${endif}${endif}\
 ${alignc}${if_match "${desktop_name}"=="7"}${color1}● ${else}${if_match "${desktop_name}"=="17"}${color1}○ ${else}${color2}● ${endif}${endif}\
 ${alignc}${if_match "${desktop_name}"=="8"}${color1}● ${else}${if_match "${desktop_name}"=="18"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="9"}${color1}●${else}${if_match "${desktop_name}"=="19"}${color1}○${else}${color2}●${endif}${endif}
-
+${alignc}${if_match "${desktop_name}"=="9"}${color1}● ${else}${if_match "${desktop_name}"=="19"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${voffset 15}
+# on ygg ^ is cleaner than v
+#${alignc}${if_match "${desktop_name}"=="9"}${color1}●${else}${if_match "${desktop_name}"=="19"}${color1}○${else}${color2}●${endif}${endif}
 ${font}${color1} CPU:
 ${color2}${top name 1}${goto 180}${top cpu 1}
 ${color2}${top name 2}${goto 180}${top cpu 2}
@@ -116,8 +118,8 @@ ${color2}${top name 4}${goto 180}${top cpu 4}
 ${color2}${top name 5}${goto 180}${top mem 5}
 ${color2}${top name 6}${goto 180}${top mem 6}
 ${color2}${top name 7}${goto 180}${top mem 7}
-${color2}${top name 8}${goto 180}${top mem 8}
-
+${color2}${top name 8}${goto 180}${top mem 8}\
+${voffset 15}
 ${color1} MEM:
 ${color2}${top_mem name 1}${goto 180}${top_mem mem 1}
 ${color2}${top_mem name 2}${goto 180}${top_mem mem 2}
@@ -126,9 +128,9 @@ ${color2}${top_mem name 4}${goto 180}${top_mem mem 4}
 ${color2}${top_mem name 5}${goto 180}${top_mem mem 5}
 ${color2}${top_mem name 6}${goto 180}${top_mem mem 6}
 ${color2}${top_mem name 7}${goto 180}${top_mem mem 7}
-${color2}${top_mem name 8}${goto 180}${top_mem mem 8}
-${color1}
+${color2}${top_mem name 8}${goto 180}${top_mem mem 8}\
+${voffset 15}${color1}
 ${execi 5 ~/conf/misc/scripts/conky-qlop.sh}
 ${color2}${hwmon 0 temp 1}°C - ${hwmon 1 temp 1}°C
-${battery} ${battery_time}
+${battery_percent}% ${battery} ${battery_time}
 ]];
