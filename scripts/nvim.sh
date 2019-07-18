@@ -6,7 +6,6 @@
 if [ -z $VIM_SERVER ]; then
   VIM_SERVER=nvim_`wmctrl -d | sed -nre "/\*/ s/^([0-9]+).*/\1/p"`
 fi
-echo $VIM_SERVER
 
 SOCKET_PREFIX=/tmp/nvimsockets
 nvr_cmd="nvr -s --servername $SOCKET_PREFIX/$VIM_SERVER $@"
