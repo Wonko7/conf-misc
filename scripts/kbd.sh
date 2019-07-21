@@ -16,7 +16,8 @@ xset r rate 400 30
 
 if [ -z "$ergo_id" ]; then
   setxkbmap dvorak
-  xmodmap ~/conf/misc/xmodmap.laptop.dvorak
+  xmodmap ~/conf/misc/xmodmap/$HOST.xmodmap
+  xmodmap ~/conf/misc/xmodmap/common.xmodmap
   /home/wjc/conf/notify-user/notify-user.sh ":(" keyboard: laptop
   exit 0
 fi
@@ -26,5 +27,6 @@ for id in $ergo_id; do
   xinput set-prop $id 'Device Enabled' 0
 done
 setxkbmap us
-xmodmap ~/conf/misc/xmodmap.ergo.dvorak
+xmodmap ~/conf/misc/xmodmap/ergo.xmodmap
+xmodmap ~/conf/misc/xmodmap/common.xmodmap
 /home/wjc/conf/notify-user/notify-user.sh ":)" keyboard: ergo
