@@ -48,7 +48,7 @@ conky.config = {
   use_xft = true,
   -- font = 'Hakslig:size=10',
   -- font = 'Hakslig:size=20',
-  font = 'Fira Mono for Powerline:size=22', # 22 / 10
+  font = 'Fira Mono for Powerline:size=22', -- 22 / 10
   xftalpha = 1.0,
   uppercase = false,
 

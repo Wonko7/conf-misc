@@ -23,7 +23,7 @@ mute
 (compton --config ~/.compton.conf&)
 (xscreensaver -no-splash && xscreensaver-command -lock&)
 (python3.7 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
-(conky&)
+(conky -c ~/conf/misc/conky/$HOST.conky &)
 (sleep 1 && killall -s USR1 conky&)
 (dunst -config ~/.dunstrc 2>&1 > /home/wjc/dunst.logs&)
 (unclutter -idle 30&)
