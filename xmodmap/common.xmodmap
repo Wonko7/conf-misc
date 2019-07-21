@@ -1,6 +1,3 @@
-keysym Super_L = Mode_switch
-keycode 201 = Multi_key
-
 ! right:
 keysym	1		= 1		exclam		acircumflex	Acircumflex
 keysym	2		= 2		at		ediaeresis	Ediaeresis
@@ -27,7 +24,6 @@ keysym	k		= k		K		parenright
 keysym	x		= x		X		braceright
 
 ! left:
-
 keysym	c		= c		C		ccedilla	Ccedilla
 keysym	h		= h		H		parenleft
 keysym	t		= t		T		parenright
