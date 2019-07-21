@@ -4,6 +4,7 @@
 export DISPLAY=":0.0"
 export HOME=/home/wjc/
 export XAUTHORITY=$HOME/.Xauthority
+HOST=$(hostname)
 
 # logs=/tmp/kbd/lol-$(date '+%s')
 # echo $1 >> $logs
@@ -14,7 +15,7 @@ xset b 0 0 0
 xset r rate 400 30
 
 
-if [ -z "$ergo_id" ]; then
+if [ -z "$ergo_id" -o ! -z "$1" ]; then # --laptop
   setxkbmap dvorak
   xmodmap ~/conf/misc/xmodmap/$HOST.xmodmap
   xmodmap ~/conf/misc/xmodmap/common.xmodmap
