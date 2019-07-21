@@ -1,12 +1,14 @@
 #! /bin/sh
 
-if [ $HOST = yggdrasill ]; then
+HOST=$(hostname)
+
+if [ "$HOST" = "yggdrasill" ]; then
   small_size=15
   big_size=35
 else
   # daban-urnud
-  big_size=15
-  small_size=15
+  small_size=20
+  big_size=20
 fi
 
 
@@ -14,9 +16,9 @@ fi
 desktop=$(wmctrl -d | sed -nre 's/.*\*.*\s+([0-9]+)$/\1/p')
 
 if [ "$desktop" -lt 10 ]; then
-  size=35
+  size=$big_size
 else
-  size=15
+  size=$small_size
 fi
 
 st -f "Fira Mono for Powerline:pixelsize=$size" $@
