@@ -81,14 +81,14 @@ conky.config = {
 };
 
 conky.text = [[
-${font Fira Mono for Powerline:size=15}${execpi 300 ~/conf/misc/conky/conky-date.sh} # 15 9
-${font}${voffset 220} # 220 122
-${color2}${goto 0}${voffset 68}${cpu cpu0}% # 68 60
+${font Fira Mono for Powerline:size=15}${execpi 300 ~/conf/misc/conky/conky-date.sh}
+${font}${voffset 220}
+${color2}${goto 0}${voffset 68}${cpu cpu0}%
 ${color1}${goto 0}CPU
 ${color2}${goto 0}${voffset 68}${memperc}%
 ${color2}${goto 0}${swapperc}%
 ${color1}${goto 0}RAM/swap
-${color2}${goto 0}${voffset 48}${fs_used_perc /}% # 48 40
+${color2}${goto 0}${voffset 48}${fs_used_perc /}%
 ${color1}${goto 0}Disk
 ${color2}${goto 0}${voffset 68}${execpi 1 ~/conf/misc/conky/conky-sound.sh --all}
 #${color2}${goto 0}${voffset 95}${downspeed wlp2s0} #${color2}${goto 0}${upspeed wlp2s0} # 95 58
@@ -98,15 +98,15 @@ ${color2}${goto 0}${wireless_link_qual_perc wlp2s0}%
 # empty line in font small size:
 ${color1}${goto 0}${wireless_essid wlp2s0}${color2}${font Fira Mono for Powerline:size=18}\
 ${voffset 15}
-${alignc}${if_match "${desktop_name}"=="1"}${color1}● ${else}${if_match "${desktop_name}"=="11"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="2"}${color1}● ${else}${if_match "${desktop_name}"=="12"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="3"}${color1}● ${else}${if_match "${desktop_name}"=="13"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="4"}${color1}● ${else}${if_match "${desktop_name}"=="14"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="5"}${color1}● ${else}${if_match "${desktop_name}"=="15"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="6"}${color1}● ${else}${if_match "${desktop_name}"=="16"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="7"}${color1}● ${else}${if_match "${desktop_name}"=="17"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="8"}${color1}● ${else}${if_match "${desktop_name}"=="18"}${color1}○ ${else}${color2}● ${endif}${endif}\
-${alignc}${if_match "${desktop_name}"=="9"}${color1}● ${else}${if_match "${desktop_name}"=="19"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="1"}${color1}● ${else}${if_match "${desktop_name}"=="11"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="2"}${color1}● ${else}${if_match "${desktop_name}"=="12"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="3"}${color1}● ${else}${if_match "${desktop_name}"=="13"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="4"}${color1}● ${else}${if_match "${desktop_name}"=="14"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="5"}${color1}● ${else}${if_match "${desktop_name}"=="15"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="6"}${color1}● ${else}${if_match "${desktop_name}"=="16"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="7"}${color1}● ${else}${if_match "${desktop_name}"=="17"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="8"}${color1}● ${else}${if_match "${desktop_name}"=="18"}${color1}○ ${else}${color2}● ${endif}${endif}\
+${if_match "${desktop_name}"=="9"}${color1}● ${else}${if_match "${desktop_name}"=="19"}${color1}○ ${else}${color2}● ${endif}${endif}\
 ${voffset 15}
 # on ygg ^ is cleaner than v
 #${alignc}${if_match "${desktop_name}"=="9"}${color1}●${else}${if_match "${desktop_name}"=="19"}${color1}○${else}${color2}●${endif}${endif}

@@ -260,6 +260,20 @@ settings_table = {
         end_angle=270
     },
     {
+        name='Sound',
+        arg='!conky',
+        max=150,
+        bg_colour=bg_col,
+        bg_alpha=bg_alpha,
+        fg_colour=fg_col,
+        fg_alpha=fg_alpha,
+        x=totx, y=(toty + 3 * deltay),
+        radius=rad,
+        thickness=thickness,
+        start_angle=-90,
+        end_angle=270
+    },
+    {
         name='downspeedf',
         arg=wlan,
         max=1800,
@@ -274,7 +288,7 @@ settings_table = {
         -- end_angle=180 3/4
         end_angle=270 -- full circle
     },
-        {
+    {
         name='upspeedf',
 	arg=wlan,
         max=1800,
@@ -288,20 +302,6 @@ settings_table = {
         start_angle=-90,
         -- end_angle=180 3/4
         end_angle=270 -- full circle
-    },
-    {
-        name='Sound',
-	arg='!conky',
-        max=150,
-        bg_colour=bg_col,
-        bg_alpha=bg_alpha,
-        fg_colour=fg_col,
-        fg_alpha=fg_alpha,
-        x=totx, y=(toty + 3 * deltay),
-        radius=rad,
-        thickness=thickness,
-        start_angle=-90,
-        end_angle=270
     },
 }
 
@@ -435,12 +435,11 @@ function conky_clock_rings()
           pct = value/pt['max']
         else
           -- only sound right now:
-          value = os.capture('~/conf/misc/scripts/conky-sound.sh')
+          value = os.capture('~/conf/misc/conky/conky-sound.sh')
           pct = value / pt['max']
         end
 
         draw_ring(cr, pct, pt)
-        --draw_ring(cr, 100, pt)
     end
 
     -- Check that Conky has been running for at least 5s
