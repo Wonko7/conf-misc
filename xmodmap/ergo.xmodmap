@@ -1,0 +1,2 @@
+keysym Super_L = Mode_switch
+keycode 201    = Multi_key
