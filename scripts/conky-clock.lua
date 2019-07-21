@@ -28,6 +28,14 @@ v1.1p -- Jpope edit londonali1010 (05.10.2009)
 -- clock_fg_col=0xcb4b16
 --clock_bg_col=0x002b36
 --bg_col=0x002b36
+function getHostname()
+  local f = io.popen ("/bin/hostname")
+  local hostname = f:read("*a") or ""
+  f:close()
+  hostname =string.gsub(hostname, "\n$", "")
+  return hostname
+end
+hostname = getHostname()
 
 -- DEF
 fg_col=0x67C8FF
@@ -39,22 +47,43 @@ fg_alpha=0.8
 clock_fg_col=fg_col
 clock_bg_col=bg_col
 
-clock_r=93
+if hostname == 'yggdrasill' then
+  clock_r=93
+  clock_x=126
+  clock_y=335
 
-clock_x=126
-clock_y=335
+  thickness=10
+  gap_thickness=4
+  rad=50
+  toty=clock_y + 210
+  totx=179
+  deltay=140
+  show_seconds=true
 
-thickness=10
-gap_thickness=4
-rad=50
-toty=clock_y + 210
-totx=179
-deltay=140
-show_seconds=true
+  clock_hand_thickness_s = 3
+  clock_hand_thickness_m = 5
+  clock_hand_thickness_h = 7
 
-clock_hand_thickness_s = 3
-clock_hand_thickness_m = 5
-clock_hand_thickness_h = 7
+  wlan = 'wlp2s0'
+else
+  clock_r=50
+  clock_x=75
+  clock_y=200
+
+  thickness=6
+  gap_thickness=2
+  rad=33
+  toty=clock_y + 135
+  totx=110
+  deltay=100
+  show_seconds=true
+
+  clock_hand_thickness_s = 2
+  clock_hand_thickness_m = 3
+  clock_hand_thickness_h = 4
+
+  wlan = 'wlp4s0'
+end
 
 settings_table = {
     {
@@ -230,9 +259,9 @@ settings_table = {
         start_angle=-90,
         end_angle=270
     },
-        {
+    {
         name='downspeedf',
-        arg='wlp2s0',
+        arg=wlan,
         max=1800,
         bg_colour=bg_col,
         bg_alpha=bg_alpha,
@@ -247,7 +276,7 @@ settings_table = {
     },
         {
         name='upspeedf',
-	arg='wlp2s0',
+	arg=wlan,
         max=1800,
         bg_colour=bg_col,
         bg_alpha=bg_alpha,
@@ -438,5 +467,4 @@ function conky_clock_rings()
 	    end
         end
     end
-
 end
