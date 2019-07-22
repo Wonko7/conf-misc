@@ -23,5 +23,6 @@ xset fp+ /usr/share/fonts/terminus
 xset fp+ ~/.local/share/fonts
 
 source ~/conf/zsh/env.zsh
+~/.xsession
 
 exec xmonad

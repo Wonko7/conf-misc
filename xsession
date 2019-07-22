@@ -1,2 +1,2 @@
 #! /bin/sh
-source ~/.xsession-user.sh
+~/.xsession-user.sh
