@@ -31,13 +31,13 @@ conky.config = {
   maximum_width = 250,
 
   alignment = 'middle_left',
-  gap_x = 30,
+  gap_x = 40,
   gap_y = 0,
 
 -- Graphics settings:
   draw_shades = false,
-  draw_outline = false,
-  draw_borders = false,
+  draw_outline = true,
+  draw_borders = true,
   draw_graph_borders = false,
   out_to_console = false,
   out_to_stderr = false,

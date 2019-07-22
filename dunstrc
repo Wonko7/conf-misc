@@ -6,11 +6,12 @@
     indicate_hidden = yes
     alignment = left
     bounce_freq = 0
-    show_age_threshold = 60;
+    show_age_threshold = 20;
 
     word_wrap = yes
 
-    geometry = "280x0+20+20"
+    geometry = "@GEOM"
+    #geometry = "280x0+20+20"
     transparency = 10
 
     idle_threshold = 20
@@ -22,21 +23,21 @@
     line_height = 0
 
     #ygg
-    separator_height = 15;
+    separator_height = @SEP
 
     separator_color = auto
 
-    padding = 1
-    horizontal_padding = 9
+    #padding = 1
+    horizontal_padding = @PAD
 
     markup = yes
     format = "<b>%s</b>\n%b"
 
 
 [shortcuts]
-    close = ctrl+c
-    close_all = ctrl+c+a
-    history = ctrl+h
+    #close = ctrl+c
+    #close_all = ctrl+c+a
+    #history = ctrl+h
     #close_all = ctrl+shift+\"
     #history = ctrl+\"
     #history = ctrl+shift+space+
