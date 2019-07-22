@@ -57,6 +57,7 @@ quarter_border=$(( border / 4 ))
 total_conk=$(( border * 2 + conky_width ))
 dunst_width=$(( total_conk - border ))
 #echo ${dunst_width}x0+${half_border}+${half_border}
+echo "xmonad for $HOST should be (Border $half_border $half_border $half_border $half_border)"
 
 sed dunstrc \
   -re s/@GEOM/${dunst_width}x0+${half_border}+${half_border}/g \
