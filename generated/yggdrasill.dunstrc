@@ -35,6 +35,7 @@
     format = "<b>%s</b>\n%b"
 
 
+# these are never caught so feel free to put basic shortcuts here, see xdotool script to send shortcuts directly to dunst
 [shortcuts]
     close = ctrl+1
     close_all = ctrl+2

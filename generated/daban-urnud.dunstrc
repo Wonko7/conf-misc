@@ -1,6 +1,6 @@
 [global]
     #font = Droid Sans Mono Slashed for Powerline 11
-    font = Fira Mono for Powerline 20
+    font = Fira Mono for Powerline 13
 
     sort = yes
     indicate_hidden = yes
@@ -10,7 +10,7 @@
 
     word_wrap = yes
 
-    geometry = "290x0+20+20"
+    geometry = "170x0+10+10"
     #geometry = "280x0+20+20"
     transparency = 10
 
@@ -23,18 +23,19 @@
     line_height = 0
 
     #ygg
-    separator_height = 20
+    separator_height = 10
 
     separator_color = auto
 
     #padding = 1
-    padding = 10
-    horizontal_padding = 10
+    padding = 5
+    horizontal_padding = 5
 
     markup = yes
     format = "<b>%s</b>\n%b"
 
 
+# these are never caught so feel free to put basic shortcuts here, see xdotool script to send shortcuts directly to dunst
 [shortcuts]
     close = ctrl+1
     close_all = ctrl+2

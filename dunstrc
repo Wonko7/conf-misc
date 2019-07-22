@@ -1,6 +1,6 @@
 [global]
     #font = Droid Sans Mono Slashed for Powerline 11
-    font = Fira Mono for Powerline 20
+    font = Fira Mono for Powerline @FONT_SIZE
 
     sort = yes
     indicate_hidden = yes
