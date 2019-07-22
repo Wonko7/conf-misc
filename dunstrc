@@ -28,15 +28,18 @@
     separator_color = auto
 
     #padding = 1
+    padding = @PAD
     horizontal_padding = @PAD
 
     markup = yes
     format = "<b>%s</b>\n%b"
 
 
+# these are never caught so feel free to put basic shortcuts here, see xdotool script to send shortcuts directly to dunst
 [shortcuts]
-    #close = ctrl+c
-    #close_all = ctrl+c+a
+    close = ctrl+1
+    close_all = ctrl+2
+    history = ctrl+3
     #history = ctrl+h
     #close_all = ctrl+shift+\"
     #history = ctrl+\"

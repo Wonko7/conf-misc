@@ -28,6 +28,7 @@
     separator_color = auto
 
     #padding = 1
+    padding = 10
     horizontal_padding = 10
 
     markup = yes
@@ -35,8 +36,9 @@
 
 
 [shortcuts]
-    #close = ctrl+c
-    #close_all = ctrl+c+a
+    close = ctrl+1
+    close_all = ctrl+2
+    history = ctrl+3
     #history = ctrl+h
     #close_all = ctrl+shift+\"
     #history = ctrl+\"
