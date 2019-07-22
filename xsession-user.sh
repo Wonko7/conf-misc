@@ -7,12 +7,11 @@ chmod a+r /tmp/dbus-exports.sh
 
 # one shot:
 #feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png
-if [ $HOST = yggdrasill ]; then
-  feh --bg-scale ~/pics/dualspidey/t3.png
-else
-  # daban-urnud
-  feh --bg-scale /home/wjc/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png
-fi
+case $HOST in
+  yggdrasill)  feh --bg-scale ~/pics/dualspidey/t3.png;;
+  daban-urnud) feh --bg-scale /home/wjc/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png;;
+  *)           logger -s -p user.error "xsession-user: unknown $HOST no background!";;
+esac
 
 ~/conf/misc/scripts/kbd.sh&
 mute
