@@ -21,9 +21,9 @@ mute
 (compton --config ~/.compton.conf&)
 (xscreensaver -no-splash && xscreensaver-command -lock&)
 (python3.7 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
-(conky -c ~/conf/misc/conky/$HOST.conkyrc &)
+(conky -c ~/conf/misc/generated/$HOST.conkyrc &)
 (sleep 1 && killall -s USR1 conky&)
-(dunst -config ~/.dunstrc 2>&1 > /home/wjc/dunst.logs&)
+(dunst -config ~/conf/misc/generated/$HOST.dunstrc 2>&1 > /home/wjc/dunst.logs&)
 (unclutter -idle 30&)
 (qlipper&)
 #(lxqt-panel&) # fuck systemd which ignores its own KillUserProcesses=yes :(
