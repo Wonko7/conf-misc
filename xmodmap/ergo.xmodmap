@@ -1,2 +1,3 @@
-keysym Super_L = Mode_switch
+keycode 134     = Meta_L
+keycode 133     = Mode_switch
 keycode 201    = Multi_key
