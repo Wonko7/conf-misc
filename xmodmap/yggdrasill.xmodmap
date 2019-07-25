@@ -10,3 +10,7 @@ keycode 64      = Super_L
 
 ! insert :
 keycode 107     = Multi_key
+
+! mod4 is xmonad:
+remove mod1     = Alt_L Alt_R
+add mod4        = Alt_L Alt_R

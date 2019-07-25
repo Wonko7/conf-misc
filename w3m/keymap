@@ -87,7 +87,7 @@ keymap	l	MOVE_RIGHT
 keymap	C-m	MOUSE_TOGGLE
 keymap	n	SEARCH_NEXT
 keymap	o	OPTIONS
-keymap	Q	QUIT
+keymap	Q	BACK
 keymap	r	VERSION
 keymap	s	SELECT_MENU
 keymap	u	PEEK_LINK
@@ -140,4 +140,3 @@ keymap	M-[4~	END
 keymap	M-[5~	PREV_PAGE
 keymap	M-[6~	NEXT_PAGE
 keymap	M-[28~	MENU
-

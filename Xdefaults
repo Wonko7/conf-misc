@@ -25,10 +25,10 @@
 !!URxvt.italicFont: xft:Droid Sans Mono:pixelsize=10:Italic
 !!URxvt.boldItalicFont: xft:Droid Sans Mono:pixelsize=10:Bold:Italic
 
-URxvt.font: xft:Droid Sans Mono Slashed for Powerline:pixelsize=16:Regular
-URxvt.boldFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=12:Bold
-URxvt.italicFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=12:Italic
-URxvt.boldItalicFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=12:Bold:Italic
+URxvt.font: xft:Droid Sans Mono Slashed for Powerline:pixelsize=20:Regular
+URxvt.boldFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=20:Bold
+URxvt.italicFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=20:Italic
+URxvt.boldItalicFont: xft:Droid Sans Mono Slashed for Powerline:pixelsize=20:Italic
 
 URxvt*scrollBar: true
 URxvt*transparent: false
