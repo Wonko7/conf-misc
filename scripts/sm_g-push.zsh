@@ -1,14 +1,34 @@
 #! /bin/zsh
 
+_col ()
+{
+  read l
+  a=$(echo $l | cut -d' ' -f1)
+  b=$(echo $l | cut -d' ' -f2)
+  c=$(echo $l | cut -d' ' -f3)
+  d=$(echo $l | cut -d' ' -f4)
+  printf '%-15s %-15s %-15s %-15s\n' $a $b $c $d
+}
+
+push_fn ()
+{
+  name=$1
+  branch=$2
+  tags=$3
+  if [ -z $tags ]; then
+    /usr/bin/time -f "$name $branch %e seconds" git push -q 2>&1 | _col || echo "/!\\" $i $b failed
+  else
+    /usr/bin/time -f "$name --tags %e seconds" git push --tags -q 2>&1 | _col || echo "/!\\" $i $b failed
+  fi
+}
+
 cd $conf
 for i in ergo git kernel-config misc vim zsh zsh/tmux-sessions zsh/bookmarks .; do
   cd $i
   b=$(git b | sed -nre "s/^\* //p")
-  echo $i $b
-  #(/usr/bin/time -f "$i %e seconds" git push -q  2> $err || echo "/!\\" $i $b failed ) &
-  (/usr/bin/time -f "$i %e seconds" git push -q || echo "/!\\" $i $b failed ) &
+  push_fn $i $b&
   if [ "$i" = "." ]; then
-    (/usr/bin/time -f ". %e seconds" git push -q --tags  || echo "/!\\" $i $b failed ) &
+    push_fn $i $b tag &
   fi
   cd - > /dev/null
 done | column -t
