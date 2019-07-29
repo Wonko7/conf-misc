@@ -1,7 +1,7 @@
 #! /bin/zsh
 
 cd $conf
-for i in conf pass-audit ergo git kernel-config misc vim zsh zsh/tmux-sessions zsh/bookmarks; do
+for i in ergo git kernel-config misc vim zsh zsh/tmux-sessions zsh/bookmarks .; do
   cd $i
   b=$(git b | sed -nre "s/^\* //p")
   echo $i $b
