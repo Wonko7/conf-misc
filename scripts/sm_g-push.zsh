@@ -7,7 +7,7 @@ _col ()
   b=$(echo $l | cut -d' ' -f2)
   c=$(echo $l | cut -d' ' -f3)
   d=$(echo $l | cut -d' ' -f4)
-  printf '%-15s %-15s %-15s %-15s\n' $a $b $c $d
+  printf '%-15s %-15s %-15s %-15s\n' "$a" ""$b "$c" "$d"
 }
 
 push_fn ()
@@ -15,7 +15,10 @@ push_fn ()
   name=$1
   branch=$2
   tags=$3
-  if [ -z $tags ]; then
+
+  if echo "$branch" | grep -q '(HEAD detached at'; then
+    echo $name can\'t touch this | _col
+  elif [ -z $tags ]; then
     /usr/bin/time -f "$name $branch %e seconds" git push -q 2>&1 | _col || echo "/!\\" $i $b failed
   else
     /usr/bin/time -f "$name --tags %e seconds" git push --tags -q 2>&1 | _col || echo "/!\\" $i $b failed
