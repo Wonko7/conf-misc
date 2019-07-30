@@ -7,7 +7,7 @@ _col ()
   b=$(echo $l | cut -d' ' -f2)
   c=$(echo $l | cut -d' ' -f3)
   d=$(echo $l | cut -d' ' -f4)
-  printf '%-15s %-15s %-15s %-15s\n' "$a" ""$b "$c" "$d"
+  printf '%-20s %-15s %-15s %-15s\n' "$a" ""$b "$c" "$d"
 }
 
 push_fn ()
@@ -17,11 +17,11 @@ push_fn ()
   tags=$3
 
   if echo "$branch" | grep -q '(HEAD detached at'; then
-    echo $name can\'t touch this | _col
+    printf '%-20s %-15s\n' "$name" "can't touch this"
   elif [ -z $tags ]; then
-    /usr/bin/time -f "$name $branch %e seconds" git push -q 2>&1 | _col || echo "/!\\" $i $b failed
+    /usr/bin/time -f "$name $branch %es" git push -q 2>&1 | _col || echo "/!\\" $name $branch failed
   else
-    /usr/bin/time -f "$name --tags %e seconds" git push --tags -q 2>&1 | _col || echo "/!\\" $i $b failed
+    /usr/bin/time -f "$name --tags %es" git push --tags -q 2>&1 | _col || echo "/!\\" $name $branch failed
   fi
 }
 
@@ -34,4 +34,4 @@ for i in ergo git kernel-config misc vim zsh zsh/tmux-sessions zsh/bookmarks .; 
     push_fn $i $b tag &
   fi
   cd - > /dev/null
-done | column -t
+done | cat
