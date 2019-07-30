@@ -26,7 +26,7 @@ push_fn ()
 }
 
 cd $conf
-for i in ergo git kernel-config misc vim zsh zsh/tmux-sessions zsh/bookmarks .; do
+for i in ergo git kernel-config misc vim xmonad zsh zsh/tmux-sessions zsh/bookmarks .; do
   cd $i
   b=$(git b | sed -nre "s/^\* //p")
   push_fn $i $b&
