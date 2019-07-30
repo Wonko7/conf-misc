@@ -34,4 +34,4 @@ for i in ergo git kernel-config misc vim zsh zsh/tmux-sessions zsh/bookmarks .; 
     push_fn $i $b tag &
   fi
   cd - > /dev/null
-done | cat
+done | cat # cat is just here to wait for all output cleanly
