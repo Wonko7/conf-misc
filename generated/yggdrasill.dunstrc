@@ -14,7 +14,7 @@
     #geometry = "280x0+20+20"
     transparency = 10
 
-    idle_threshold = 20
+    idle_threshold = 0
 
     monitor = 0
     follow = none
@@ -50,7 +50,7 @@
     #background = "#cb4b16"
     background = "#268bd2"
     foreground = "#CCCCCC"
-    timeout = 20
+    timeout = 0
 
 [urgency_normal]
     #  was blue:
@@ -63,12 +63,12 @@
     background = "#073642"
 
     foreground = "#DDDDDD"
-    timeout = 20
+    timeout = 0
 
 [urgency_critical]
     background = "#cb4b16"
     foreground = "#DDDDDD"
-    timeout = 20
+    timeout = 0
 
 [alert_ok]
     summary = "*#production*"
