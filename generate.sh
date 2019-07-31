@@ -9,37 +9,52 @@ y_conky_width=250
 d_border=20
 d_conky_width=150
 
-sed conky/conky.conf \
-  -re s/@WIDTH/$y_conky_width/g \
-  -re s/@GAP_X/$y_border/g \
-  -re s/@TOP_WIDTH/9/g \
-  -re s/@FONT_SIZE/22/g \
-  -re s/@FONT_DATE_SIZE/15/g \
-  -re s/@FONT_DESKTOP_SIZE/18/g \
-  -re s/@V_CLOCK/220/g \
-  -re s/@VDELTA/68/g \
-  -re s/@VDDELTA/48/g \
-  -re s/@VDDDELTA/68/g \
-  -re s/@H_TOP/180/g \
-  -re s/@VMINILINE/15/g \
-  -re s/@WLAN/wlp2s0/g \
-  > generated/yggdrasill.conkyrc
+for i in $@; do
+  case $i in
+    --conky) generate_conky=1;;
+    --dunst) generate_dunst=1;;
+  esac
+done
 
-sed conky/conky.conf \
-  -re s/@WIDTH/$d_conky_width/g \
-  -re s/@GAP_X/$d_border/g \
-  -re s/@TOP_WIDTH/14/g \
-  -re s/@FONT_SIZE/10/g \
-  -re s/@FONT_DATE_SIZE/9/g \
-  -re s/@FONT_DESKTOP_SIZE/10/g \
-  -re s/@V_CLOCK/122/g \
-  -re s/@VDELTA/68/g \
-  -re s/@VDDELTA/48/g \
-  -re s/@VDDDELTA/58/g \
-  -re s/@H_TOP/120/g \
-  -re s/@VMINILINE/10/g \
-  -re s/@WLAN/wlp4s0/g \
-  > generated/daban-urnud.conkyrc
+if [ -z "$generate_dunst" -a -z "$generate_conky" ]; then
+  generate_dunst=1
+  generate_conky=1
+fi
+
+if [ ! -z $generate_conky ]; then
+  echo conky!
+  sed conky/conky.conf \
+    -re s/@WIDTH/$y_conky_width/g \
+    -re s/@GAP_X/$y_border/g \
+    -re s/@TOP_WIDTH/9/g \
+    -re s/@FONT_SIZE/22/g \
+    -re s/@FONT_DATE_SIZE/15/g \
+    -re s/@FONT_DESKTOP_SIZE/18/g \
+    -re s/@V_CLOCK/220/g \
+    -re s/@VDELTA/68/g \
+    -re s/@VDDELTA/48/g \
+    -re s/@VDDDELTA/68/g \
+    -re s/@H_TOP/180/g \
+    -re s/@VMINILINE/15/g \
+    -re s/@WLAN/wlp2s0/g \
+    > generated/yggdrasill.conkyrc
+
+  sed conky/conky.conf \
+    -re s/@WIDTH/$d_conky_width/g \
+    -re s/@GAP_X/$d_border/g \
+    -re s/@TOP_WIDTH/14/g \
+    -re s/@FONT_SIZE/10/g \
+    -re s/@FONT_DATE_SIZE/9/g \
+    -re s/@FONT_DESKTOP_SIZE/10/g \
+    -re s/@V_CLOCK/122/g \
+    -re s/@VDELTA/68/g \
+    -re s/@VDDELTA/48/g \
+    -re s/@VDDDELTA/58/g \
+    -re s/@H_TOP/120/g \
+    -re s/@VMINILINE/10/g \
+    -re s/@WLAN/wlp4s0/g \
+    > generated/daban-urnud.conkyrc
+fi
 
 make_dunst ()
 {
@@ -66,5 +81,8 @@ make_dunst ()
     > generated/$host.dunstrc
 }
 
-make_dunst daban-urnud $d_conky_width $d_border 13
-make_dunst yggdrasill $y_conky_width $y_border 20
+if [ ! -z $generate_dunst ]; then
+  echo dunst!
+  make_dunst daban-urnud $d_conky_width $d_border 13
+  make_dunst yggdrasill $y_conky_width $y_border 20
+fi
