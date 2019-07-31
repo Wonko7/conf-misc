@@ -9,7 +9,7 @@ y_conky_width=250
 d_border=20
 d_conky_width=150
 
-sed conky/conkyrc \
+sed conky/conky.conf \
   -re s/@WIDTH/$y_conky_width/g \
   -re s/@GAP_X/$y_border/g \
   -re s/@TOP_WIDTH/9/g \
@@ -25,7 +25,7 @@ sed conky/conkyrc \
   -re s/@WLAN/wlp2s0/g \
   > generated/yggdrasill.conkyrc
 
-sed conky/conkyrc \
+sed conky/conky.conf \
   -re s/@WIDTH/$d_conky_width/g \
   -re s/@GAP_X/$d_border/g \
   -re s/@TOP_WIDTH/14/g \
