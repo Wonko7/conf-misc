@@ -1,0 +1,15 @@
+.*
+*.[oa]
+*.lo
+*~
+*.swp
+*sh
+*tmp
+*.mk
+*.gdb
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc

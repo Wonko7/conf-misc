@@ -1,34 +1,30 @@
-mkdir -p ~/.config
-ln -s ~/conf/vim/vimrc             ~/.vimrc
-ln -s ~/conf/vim/gvimrc            ~/.gvimrc
-ln -s ~/conf/vim                   ~/.vim
-ln -s ~/conf/vim                   ~/.config/nvim
-ln -s ~/conf/vim/vimrc             ~/.config/nvim/init.vim
+ln -snf ~/conf/vim/vimrc             ~/.vimrc
+ln -snf ~/conf/vim/gvimrc            ~/.gvimrc
+ln -snf ~/conf/vim                   ~/.vim
+ln -snf ~/conf/vim                   ~/.config/nvim
+ln -snf ~/conf/vim/vimrc             ~/.config/nvim/init.vim
 
-ln -s ~/conf/xmonad                ~/.xmonad
-ln -s ~/conf/zsh/zshrc             ~/.zshrc
-ln -s ~/conf/git/gitconfig         ~/.gitconfig
-ln -s ~/conf/misc/tmux.conf        ~/.tmux.conf
+ln -snf ~/conf/xmonad                ~/.xmonad
+ln -snf ~/conf/zsh/zshrc             ~/.zshrc
+ln -snf ~/conf/misc/git/gitconfig    ~/.gitconfig
+ln -snf ~/conf/misc/tmux.conf        ~/.tmux.conf
 
-ln -s ~/conf/misc/w3m              ~/.w3m
-ln -s ~/conf/misc/mostrc           ~/.mostrc
+ln -snf ~/conf/misc/w3m              ~/.w3m
+ln -snf ~/conf/misc/mostrc           ~/.mostrc
 
-ln -s ~/conf/misc/compton.conf     ~/.compton.conf
-ln -s ~/conf/misc/vimfx            ~/.vimfx
+ln -snf ~/conf/misc/compton.conf     ~/.compton.conf
+ln -snf ~/conf/misc/vimfx            ~/.vimfx
 
-ln -s ~/conf/misc/xinitrc          ~/.xinitrc
-ln -s ~/conf/misc/xsession         ~/.xsession
-ln -s ~/conf/misc/xsession-user.sh ~/.xsession-user.sh
+ln -snf ~/conf/misc/xinitrc          ~/.xinitrc
+ln -snf ~/conf/misc/xsession         ~/.xsession
+ln -snf ~/conf/misc/xsession-user.sh ~/.xsession-user.sh
 
-ln -s ~/conf/misc/XCompose         ~/.XCompose
-ln -s ~/conf/misc/Xdefaults        ~/.Xdefaults
-ln -s ~/conf/misc/Xresources       ~/.Xresources
-ln -s ~/conf/misc/xscreensaver     ~/.xscreensaver
+ln -snf ~/conf/misc/XCompose         ~/.XCompose
+ln -snf ~/conf/misc/Xdefaults        ~/.Xdefaults
+ln -snf ~/conf/misc/Xresources       ~/.Xresources
+ln -snf ~/conf/misc/xscreensaver     ~/.xscreensaver
 
-# FIXME should refresh this:
-ln -s ~/conf/misc/fonts.conf       ~/.fonts.conf
-
-#ln -s ~/conf/misc/xbindkeysrc      ~/.bindkeysrc
+ln -snf ~/conf/misc/fonts.conf       ~/.fonts.conf
 
 cd ~/conf/notify-user
 make
