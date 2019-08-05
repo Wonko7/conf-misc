@@ -14,7 +14,7 @@ ergo_id=$(xinput list | sed -nre 's/.*Ergo.*id=([0-9]+).*pointer.*/\1/p')
 xset b 0 0 0
 xset r rate 400 30
 
-if [ -z "$ergo_id" -a ! -z "$1" ]; then # --laptop
+if [ -z "$ergo_id" -o ! -z "$1" ]; then # --laptop
   setxkbmap dvorak
   xmodmap ~/conf/misc/xmodmap/$HOST.xmodmap
   xmodmap ~/conf/misc/xmodmap/common.xmodmap
