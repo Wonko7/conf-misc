@@ -41,6 +41,8 @@
   ss   = submodule summary
   su   = submodule update --recursive
   suco = submodule update --checkout
+  surb = submodule update --rebase
+  sum  = submodule update --merge
   lsf  = ls-files
   m    = merge
   cl   = clean -fdx
