@@ -73,3 +73,9 @@
 [pager]
   submodule = false
   branch    = false
+
+[push]
+  recurseSubmodules = on-demand
+
+[fetch]
+  recurseSubmodules = on-demand
