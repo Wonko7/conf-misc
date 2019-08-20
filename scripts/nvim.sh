@@ -17,7 +17,6 @@ if nvr --serverlist | egrep -q "^$SOCKET_PREFIX/$VIM_SERVER\$"; then
   # send file open to existing session:
   $nvr_cmd
   # find vim window and raise:
-  ## FIXME: could benchmark this as mksh vs an bash array executed by dash.
   vim_line=$(wmctrl -l | grep $VIM_SERVER)
   vim_window=$(echo $vim_line | cut -d' ' -f1)
   vim_desktop=$(echo $vim_line | awk '{print $2}')
@@ -31,7 +30,10 @@ if nvr --serverlist | egrep -q "^$SOCKET_PREFIX/$VIM_SERVER\$"; then
     ##   #wmctrl -i -R $vim_window[0]
     ##   wmctrl -a $vim_window[0]
     ## fi
-    wmctrl -i -a $vim_window ## might not keep that because of dance commander.
+    if [ $VIM_SERVER != DANCE_COMMANDER ]; then
+      wmctrl -i -a $vim_window
+      # else, focus 2nd monitor on DANCE_COMMANDER?
+    fi
   fi
 else
   # new session:
