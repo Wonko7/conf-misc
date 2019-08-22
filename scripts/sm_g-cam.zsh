@@ -38,8 +38,8 @@ commit_submodules ()
     echo "$tag"
     read answer
   done
-  git commit --no-gpg-sign -a -m "$commit"
-  git tag "$tag"
+  git commit -a -m "$commit"
+  git tag "$tag" -m "$commit"
 }
 
 commit_submodules $@
