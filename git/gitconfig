@@ -6,7 +6,9 @@
   signingkey  = william@undefined.re
 
 [color]
-  ui = true
+  ui = always
+[column]
+  ui = always
 
 [alias]
   st   = status -s
@@ -49,34 +51,38 @@
   t    = tag
   ui   = update-index
 
+# vim merge!
 [merge]
   tool   = vimdiff
-
 [mergetool]
   prompt = true
-
 [mergetool "vimdiff"]
   cmd    = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
-[rerere]
-  enabled = 1
-
-[diff]
-  renamelimit = 5000
-
+# enable gpg by default:
 [commit]
   gpgsign = true
+[tag]
+  gpgSign = true
+# see push.gpgSign
 
+# submodule stuff:
 [status]
   submodulesummary = 1
-
 [pager]
   submodule = false
   branch    = false
-
 [push]
   recurseSubmodules = on-demand
   followTags        = true
 
 [fetch]
   recurseSubmodules = on-demand
+
+# misc:
+[rerere]
+  enabled = 1
+[diff]
+  renamelimit = 5000
+[grep]
+  patternType = perl
