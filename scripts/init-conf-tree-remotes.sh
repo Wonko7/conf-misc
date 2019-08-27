@@ -28,7 +28,7 @@ init_relative_submodule ()
 }
 
 r=$(get_current_repo_name)
-if [ "$r" != conf-root ]; then
+if [ "$r" != conf-root -a "$r" != conf-root.git ]; then
   echo And the worms ate into his brain
   exit 1
 fi
