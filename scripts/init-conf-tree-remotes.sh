@@ -32,6 +32,7 @@ if [ "$r" != conf-root -a "$r" != conf-root.git ]; then
   echo And the worms ate into his brain
   exit 1
 fi
+init_relative_submodule
 
 for root_project in $(find . -name .gitmodules); do
   pushd $(dirname $root_project) > /dev/null
