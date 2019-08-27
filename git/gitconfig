@@ -7,8 +7,6 @@
 
 [color]
   ui = always
-[column]
-  ui = always
 
 [alias]
   st   = status -s
@@ -41,6 +39,7 @@
   ra   = remote add
   s    = submodule
   ss   = submodule summary
+  si   = submodule update -j 10 --init --recursive
   su   = submodule update --recursive
   suco = submodule update --checkout
   surb = submodule update --rebase
