@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/zsh
 
 R1=git@gitlab.com:wonko7
 R2=git@github.com:Wonko7
