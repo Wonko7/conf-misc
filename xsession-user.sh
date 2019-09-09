@@ -11,7 +11,7 @@ local sleepy_time=3
 case $HOST in
   yggdrasill)
     feh --bg-scale ~/pics/dualspidey/t3.png&
-    sleepy_time=3
+    sleepy_time=4
     ;;
   daban-urnud)
     feh --bg-scale /home/wjc/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
