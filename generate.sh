@@ -11,14 +11,16 @@ d_conky_width=150
 
 for i in $@; do
   case $i in
+    --git)   generate_git=1;;
     --conky) generate_conky=1;;
     --dunst) generate_dunst=1;;
   esac
 done
 
-if [ -z "$generate_dunst" -a -z "$generate_conky" ]; then
+if [ -z "$generate_dunst$generate_conky$generate_git" ]; then
   generate_dunst=1
   generate_conky=1
+  generate_git=1
 fi
 
 if [ ! -z $generate_conky ]; then
@@ -85,4 +87,10 @@ if [ ! -z $generate_dunst ]; then
   echo dunst!
   make_dunst daban-urnud $d_conky_width $d_border 13
   make_dunst yggdrasill $y_conky_width $y_border 20
+fi
+
+if [ ! -z $generate_git ]; then
+  echo git!
+  cp git/gitconfig generated/sign.gitconfig
+  sed git/gitconfig -re 's/.*gpg|sign/#\0/' > generated/gitconfig
 fi

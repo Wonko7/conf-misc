@@ -1,3 +1,4 @@
+HOST=$(hostname)
 ln -snf ~/conf/vim/vimrc             ~/.vimrc
 ln -snf ~/conf/vim/gvimrc            ~/.gvimrc
 ln -snf ~/conf/vim                   ~/.vim
@@ -6,6 +7,7 @@ ln -snf ~/conf/vim/vimrc             ~/.config/nvim/init.vim
 
 ln -snf ~/conf/xmonad                ~/.xmonad
 ln -snf ~/conf/zsh/zshrc             ~/.zshrc
+
 ln -snf ~/conf/misc/git/gitconfig    ~/.gitconfig
 ln -snf ~/conf/misc/tmux.conf        ~/.tmux.conf
 
@@ -25,6 +27,19 @@ ln -snf ~/conf/misc/Xresources       ~/.Xresources
 ln -snf ~/conf/misc/xscreensaver     ~/.xscreensaver
 
 ln -snf ~/conf/misc/fonts.conf       ~/.fonts.conf
+
+# host dependent:
+case $HOST in
+  daban-urnud|yggdrasill)
+    echo git with gpg signing!
+    ln -snf ~/conf/misc/generated/sign.gitconfig ~/.gitconfig
+    ;;
+  *)
+    echo git without gpg signing!
+    ln -snf ~/conf/misc/generated/gitconfig       ~/.gitconfig
+    ;;
+esac
+
 
 cd ~/conf/notify-user
 make
