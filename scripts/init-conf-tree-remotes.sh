@@ -8,6 +8,11 @@ get_current_repo_name ()
   git config --get remote.origin.url | sed -nre 's:.*/::p'
 }
 
+get_current_repo_scheme ()
+{
+  git config --get remote.origin.url | sed -nre 's/^([^:]+).*/\1/p'
+}
+
 list_relative_submodules () {
   grep "url = ../" -B 1 .gitmodules | sed -nre 's:.*path = ::p'
 }
@@ -32,6 +37,20 @@ if [ "$r" != conf-root -a "$r" != conf-root.git ]; then
   echo And the worms ate into his brain
   exit 1
 fi
+
+scheme=$(get_current_repo_scheme)
+if [ "$scheme" = https ]; then
+  echo "Read-Only tree, disabling tmux-sessions, history & bookmarks"
+  pushd zsh > /dev/null
+  git config submodule.history.active false
+  git config submodule.tmux-sessions.active false
+  git config submodule.bookmarks.active false
+  popd > /dev/null
+  exit 0
+fi
+
+# else: find all relative submodules & add remotes & urls:
+
 init_relative_submodule
 
 for root_project in $(find . -name .gitmodules); do
