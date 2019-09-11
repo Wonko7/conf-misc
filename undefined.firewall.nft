@@ -19,14 +19,14 @@ table ip firewall {
 # table ip6 firewall {
 #         chain incoming {
 #                 type filter hook input priority 1;
-# 
+#
 #                 # no ping floods
 #                 ip6 nexthdr icmpv6 limit rate 50/second mark set $validated accept
 #                 ip6 nexthdr icmpv6 drop
-# 
+#
 # 		# local net
 # 		# ip6 saddr 2a01:e35:2e74:a2c0::/64 mark set $local accept
-# 
+#
 # 		accept
 #         }
 # }
@@ -52,11 +52,12 @@ table inet firewall {
 			tcp dport {bootps, bootpc} limit rate 50/second accept
 			udp dport {bootps, bootpc} limit rate 50/second accept
 
-			# stuffs:
+			# public:
+			# FIXME: rate limit smtp, submission, imaps, xmpp...
 			tcp dport ssh limit rate 5/minute log prefix "FIREWALL new: " accept
-			tcp dport {http, https, smtp, submission, imaps, 41414} accept
-			udp dport {41414} accept
-			# tcp dport {ssh, http, https, imaps} limit rate 5/minute log prefix "FIREWALL new: " accept
+			tcp dport {http, https, smtp, submission, imaps, 41414, xmpp-client, xmpp-server} accept
+			udp dport {41414, xmpp-client, xmpp-server} accept
+			#tcp dport {ssh, http, https, imaps} limit rate 5/minute log prefix "FIREWALL new: " accept
 
 			#tcp dport >= 1024 reject
 			#udp dport >= 1024 reject
