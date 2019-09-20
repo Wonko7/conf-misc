@@ -54,7 +54,7 @@
 
 [urgency_normal]
     #  was blue:
-    #background = "#268bd2"
+    background = "#268bd2"
     # was orange:
     # background = "#cb4b16"
     # was green:
@@ -69,6 +69,13 @@
     background = "#cb4b16"
     foreground = "#DDDDDD"
     timeout = 0
+
+[new_message]
+    summary = "*New message*"
+    background = "#cb4b16"
+[unread_message]
+    summary = "*unread messages*"
+    background = "#cb4b16"
 
 [alert_ok]
     summary = "*#production*"
