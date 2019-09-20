@@ -1,6 +1,6 @@
 #! /bin/sh
 
-HOST=$(hostname)
+source ~/conf/zsh/env.zsh
 
 echo "export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" > /tmp/dbus-exports.sh
 chmod a+r /tmp/dbus-exports.sh

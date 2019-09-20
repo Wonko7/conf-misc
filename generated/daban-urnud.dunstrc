@@ -56,11 +56,11 @@
     #  was blue:
     #background = "#268bd2"
     # was orange:
-    #background = "#cb4b16"
+    # background = "#cb4b16"
     # was green:
-    # background = "#117700"
+    background = "#117700"
     # dark blue:
-    background = "#073642"
+    # background = "#073642"
 
     foreground = "#DDDDDD"
     timeout = 0

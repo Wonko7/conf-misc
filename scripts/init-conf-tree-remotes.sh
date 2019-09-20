@@ -1,7 +1,7 @@
 #! /bin/zsh
 
-R1=git@gitlab.com:wonko7
-R2=git@github.com:Wonko7
+R1=git@github.com:Wonko7
+R2=git@gitlab.com:wonko7
 
 get_current_repo_name ()
 {
@@ -40,7 +40,8 @@ fi
 
 scheme=$(get_current_repo_scheme)
 if [ "$scheme" = https ]; then
-  echo "Read-Only tree, disabling tmux-sessions, history & bookmarks"
+  echo "Read-Only tree, disabling notes, tmux-sessions, history & bookmarks"
+  git config submodule.notes.active false
   pushd zsh > /dev/null
   git config submodule.history.active false
   git config submodule.tmux-sessions.active false
