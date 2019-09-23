@@ -33,7 +33,9 @@
   lo   = log --graph --pretty=oneline --decorate=short
   f    = fetch
   ph   = push
+  psh  = push
   pl   = pull
+  pll  = pull
   r    = remote
   rs   = remote show
   ra   = remote add

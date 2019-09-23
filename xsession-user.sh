@@ -29,10 +29,17 @@ mute&
 (conky -c ~/conf/misc/generated/$HOST.conkyrc &)&
 # ... let me explain:
 # conky needs to be restarted otherwise desktop names are all null. Then, if screen is locked before conky is restarted, conky crashes.
-(sleep 1 && killall -s USR1 conky && sleep $sleepy_time && xscreensaver-command --lock)&
+(sleep 2 && killall -s USR1 conky)&
 (compton --config ~/.compton.conf)&
 (python3.7 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock)&
 (dunst -config ~/conf/misc/generated/$HOST.dunstrc)&
 (unclutter -idle 30&)&
-(redshift -l $(pass show stuff/location-alpha))
+(redshift -l $(pass show stuff/location-alpha))&
 (qlipper&)&
+
+
+# sigh:
+(sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1)&
+(sleep 10 && ~/conf/misc/scripts/kbd.sh LOL2)&
+(sleep 15 && ~/conf/misc/scripts/kbd.sh LOL3)&
+(sleep 20 && ~/conf/misc/scripts/kbd.sh LOL4)&
