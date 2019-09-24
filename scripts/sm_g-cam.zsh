@@ -16,6 +16,10 @@ random_words ()
 
 update_private ()
 {
+  echo
+  echo updating private:
+  echo
+
   for sm in */; do
     sm=$(basename $sm)
     echo $sm
@@ -71,7 +75,7 @@ commit_submodules ()
   git commit -a -m "$tag"
   git tag "$tag" -m "$tag"
 
-  if [ -d private/update-all.sh ]; then
+  if [ -d private/.git ]; then
     pushd private
     update_private "$tag"
     popd > /dev/null
