@@ -67,9 +67,12 @@ for root_project in $(find . -name .gitmodules); do
   popd > /dev/null
 done
 
+echo
 echo initialising private:
+echo
 
-git clone --recurse-submodules git@github.com:Wonko7/private-root.git -j 10 private
+git clone -j 10 --recurse-submodules git@github.com:Wonko7/private-root.git private
+
 pushd private
 for sm in */; do
   pushd $sm
