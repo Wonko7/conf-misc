@@ -50,9 +50,9 @@ update_private ()
   done
 
   git commit -am "$HOST: $tag"
-  git commit -a -m "$commit"
   git tag "$tag" -m "$tag"
   git push
+  git push --tag
 }
 
 commit_submodules ()
@@ -63,10 +63,10 @@ commit_submodules ()
   local commit
   local tag
 
+  git s summary
   while [ "$answer" != y ]; do
     tag="$(random_words)"
-    git s summary
-    if [[ "$@" != "" ]]; then
+    if [ "$@" != "" ]; then
       commit="$tag: $@"
     fi
     echo "$tag"
@@ -80,7 +80,9 @@ commit_submodules ()
     update_private "$tag"
     popd > /dev/null
   fi
+
+  git push
+  git push --tag
 }
 
 commit_submodules $@
-git push

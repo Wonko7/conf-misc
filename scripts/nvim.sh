@@ -3,6 +3,11 @@
 ## this binds a single nvim per desktop. Any terminal on that desktop will send files to it.
 ## vim is run in a tmux session which will be re-attached if the terminal is closed.
 
+if [ "$REMOTE_SESSION" = 1 ]; then
+  nvim $@
+  exit $?
+fi
+
 if [ -z $VIM_SERVER ]; then
   VIM_SERVER=nvim_`wmctrl -d | sed -nre "/\*/ s/^([0-9]+).*/\1/p"`
 fi
