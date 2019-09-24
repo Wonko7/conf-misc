@@ -66,3 +66,14 @@ for root_project in $(find . -name .gitmodules); do
   done
   popd > /dev/null
 done
+
+echo initialising private:
+mkdir private
+pushd private > /dev/null
+
+git clone --recurse-submodules git@github.com:Wonko7/private-root.git
+for sm in */; do
+  pushd $sm
+  git checkout master
+  popd > /dev/null
+done
