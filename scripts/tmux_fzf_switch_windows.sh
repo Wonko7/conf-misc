@@ -1,6 +1,8 @@
 #! /bin/sh
 
+if [ ! -z "$1" ]; then
+  __tmux_session=$1
+fi
+win=$(tmux list-windows -F '#I:#W' | ~/.fzf/bin/fzf-tmux | cut -d: -f1)
 
-local win=$(tmux list-windows -F '#I:#W' | fzf-tmux | cut -d: -f1)
-local session=$(tmux display-message -p '#S')
 tmux select-window -t "$__tmux_session:$win" 2>&1 > /dev/null
