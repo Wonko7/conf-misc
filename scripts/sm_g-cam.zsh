@@ -4,13 +4,18 @@ PAGER=
 
 random_words ()
 {
-  words=$(fortune -a)
-  words="$words $(fortune -a)"
-  words="$words $(fortune -a)"
-  words="$words $(fortune -a)"
-
-  words=$(echo $words | sed -re "s/(--|[^-_!?[:alnum:]])+/ /g" -e "s/ /\n/g" | sed -re "{ /the/I d }" -ne "{ /^.{3,}/ p }")
-  words=$(echo $words | shuf -n 3 | tr '\n' '-' | sed -e 's/-$//')
+  local smut=~/conf/private/smut/50-shades.words
+  local words
+  if [ -r "$smut" ]; then
+    words=$(shuf -n 3 $smut | tr '\n' '-' | sed -e 's/-$//')
+  else
+    echo warning! could not find smut! falling back on fortune.
+    words=$(fortune -a)
+    words="$words $(fortune -a)"
+    words="$words $(fortune -a)"
+    words="$words $(fortune -a)"
+    words=$(echo $words | sed -re "s/(--|[^-_!?[:alnum:]])+/ /g" -e "s/ /\n/g" | sed -re "{ /the/I d }" -ne "{ /^.{3,}/ p }")
+  fi
   echo $words
 }
 
@@ -19,6 +24,7 @@ update_private ()
   echo
   echo updating private:
   echo
+  local sm changes commit answer
 
   for sm in */; do
     sm=$(basename $sm)
@@ -39,7 +45,7 @@ update_private ()
     echo "commit? $commit"
     git status --short
     read answer
-    if [ "$answer" != y ]; then
+    if [ y != "$answer" ]; then
       popd > /dev/null
       continue
     fi
@@ -64,9 +70,9 @@ commit_submodules ()
   local tag
 
   git s summary
-  while [ "$answer" != y ]; do
+  while [ y != "$answer" ]; do
     tag="$(random_words)"
-    if [ "$@" != "" ]; then
+    if [ ! -z "$@" ]; then
       commit="$tag: $@"
     fi
     echo "$tag"
