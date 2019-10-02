@@ -26,7 +26,7 @@ update_private ()
   echo
   local sm changes commit answer
 
-  for sm in */; do
+  for sm in bookmarks tmux-sessions pass history; do # FIXME
     sm=$(basename $sm)
     echo $sm
     pushd $sm
@@ -40,6 +40,8 @@ update_private ()
       continue
     fi
 
+
+    # FIXME sigh $tag... should be $1.
     commit="$sm: $HOST: $tag"
     echo
     echo "commit? $commit"
