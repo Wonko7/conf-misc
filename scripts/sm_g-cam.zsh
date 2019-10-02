@@ -14,7 +14,7 @@ random_words ()
     words="$words $(fortune -a)"
     words="$words $(fortune -a)"
     words="$words $(fortune -a)"
-    words=$(echo $words | sed -re "s/(--|[^-_!?[:alnum:]])+/ /g" -e "s/ /\n/g" | sed -re "{ /the/I d }" -ne "{ /^.{3,}/ p }")
+    words=$(echo $words | sed -re "s/(--|[^-_![:alnum:]])+/ /g" -e "s/ /\n/g" | sed -re "{ /the/I d }" -ne "{ /^.{3,}/ p }")
   fi
   echo $words
 }
