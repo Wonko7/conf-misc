@@ -4,7 +4,7 @@ PAGER=
 
 random_words ()
 {
-  local smut=~/conf/private/smut/50-shades.words
+  local smut=~/conf/private/smut/t-rex.words
   local words
   if [ -r "$smut" ]; then
     words=$(shuf -n 3 $smut | tr '\n' '-' | sed -e 's/-$//')
