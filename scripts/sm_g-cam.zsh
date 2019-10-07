@@ -26,7 +26,7 @@ update_private ()
   echo
   local sm changes commit answer
 
-  for sm in bookmarks tmux-sessions pass history; do # FIXME
+  for sm in notes bookmarks tmux-sessions pass history; do # FIXME
     sm=$(basename $sm)
     echo $sm
     pushd $sm
