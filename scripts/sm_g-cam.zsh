@@ -9,7 +9,7 @@ random_words ()
   if [ -r "$smut" ]; then
     words=$(shuf -n 3 $smut | tr '\n' '-' | sed -e 's/-$//')
   else
-    echo warning! could not find smut! falling back on fortune.
+    1>&2 echo warning! could not find smut! falling back on fortune.
     words=$(fortune -a)
     words="$words $(fortune -a)"
     words="$words $(fortune -a)"
@@ -19,9 +19,32 @@ random_words ()
   echo $words
 }
 
+choose_tag () {
+  local answer
+  local tag=$1
+
+  # keep $tag given as script arg?
+  if [ ! -z "$tag" ]; then
+    1>&2 echo "$tag"
+    read answer
+    if [ y = "$answer" ]; then
+      echo $tag
+      return
+    fi
+  fi
+
+  # generate new one then:
+  while [ y != "$answer" ]; do
+    tag=$(random_words)
+    1>&2 echo "$tag"
+    read answer
+  done
+  echo $tag
+}
+
 update_private ()
 {
-  echo
+  local tag=$1
   echo updating private:
   echo
   local sm changes commit answer
@@ -41,11 +64,10 @@ update_private ()
     fi
 
 
-    # FIXME sigh $tag... should be $1.
     commit="$sm: $HOST: $tag"
     echo
-    echo "commit? $commit"
     git status --short
+    echo "commit? $commit"
     read answer
     if [ y != "$answer" ]; then
       popd > /dev/null
@@ -56,41 +78,51 @@ update_private ()
 
     popd > /dev/null
   done
+}
 
-  git commit -am "$HOST: $tag"
-  git tag "$tag" -m "$tag"
+commit_root ()
+{
+  local tag=$1
+  local root=$2
+
+  echo
+  echo "commit root:" $root
+  if [ "$root" = "private" ]; then
+    update_private $tag
+  fi
+
+  git commit -a -m "$HOST: $tag"
+  git tag "$tag" -m "$HOST: $tag"
+}
+
+push_root ()
+{
   git push
   git push --tag
 }
 
-commit_submodules ()
-{
-  local smodules=$(git status -s | sed -nre 's/ M // p' | tr '\n' ' ' | sed -e 's/ $//')
-  local answer
-  local words
-  local commit
-  local tag
+init () {
+  local root=$(basename "$PWD")
+  local tag answer
 
-  git s summary
-  while [ y != "$answer" ]; do
-    tag="$(random_words)"
-    if [ ! -z "$@" ]; then
-      commit="$tag: $@"
-    fi
-    echo "$tag"
-    read answer
-  done
-  git commit -a -m "$tag"
-  git tag "$tag" -m "$tag"
+  git submodule summary
+  echo "===========" $root
+
+  local tag=$(choose_tag $1)
+  commit_root $tag $root
 
   if [ -d private/.git ]; then
     pushd private
-    update_private "$tag"
+    git submodule summary
+    echo "Descend into private?"
+    read answer
+    if [ y = "$answer" ]; then
+      commit_root $tag private
+      push_root
+    fi
     popd > /dev/null
   fi
-
-  git push
-  git push --tag
+  push_root
 }
 
-commit_submodules $@
+init $1
