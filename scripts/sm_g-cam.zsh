@@ -49,7 +49,7 @@ update_private ()
   echo
   local sm changes commit answer
 
-  for sm in notes bookmarks tmux-sessions pass history; do # FIXME
+  for sm in notes bookmarks tmux-sessions pass history; do # FIXME auto commit modules.
     sm=$(basename $sm)
     echo $sm
     pushd $sm
@@ -98,6 +98,7 @@ commit_root ()
 push_root ()
 {
   git push
+  git push # for some reason the "remote end hung up unexpectedly" happens every fucking time.
   git push --tag
 }
 
