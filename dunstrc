@@ -31,7 +31,7 @@
     padding = @PAD
     horizontal_padding = @PAD
 
-    markup = no
+    markup = yes
     format = "<b>%s</b>\n%b"
 
 
