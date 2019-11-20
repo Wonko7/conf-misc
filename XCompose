@@ -2,17 +2,16 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 #<Multi_key> <s> <p> : "🖖" U1F596
 
 <Multi_key> <s> <p> : "🖖"
-<Multi_key> <l> <l> : "🖖"
 <Multi_key> <s> <h> : "🤫"
 <Multi_key> <s> <c> : "😱"
 
 <Multi_key> <less> <3> : "❤️"
 <Multi_key> <h> <h> : "❤️"
-<Multi_key> <s> <h> : "💖"
-<Multi_key> <b> <h> : "💔"
-<Multi_key> <r> <h> : "💞"
-<Multi_key> <t> <h> : "💕"
-<Multi_key> <e> <h> : "😍"
+<Multi_key> <h> <s> : "💖"
+<Multi_key> <h> <b> : "💔"
+<Multi_key> <h> <c> : "💞"
+<Multi_key> <h> <d> : "💕"
+<Multi_key> <h> <e> : "😍"
 <Multi_key> <k> <k> : "💋"
 
 
@@ -23,4 +22,13 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <a> <a> : "👾"
 <Multi_key> <u> <f> <o> : "🛸"
 
-<Multi_key> <l> <o> <l> : "hahahaha lololololo"
+# math:
+<Multi_key> <m> <e> : "∃"
+<Multi_key> <m> <n> <e> : "∄"
+<Multi_key> <m> <a> : "∈"
+<Multi_key> <m> <n> <a> : "∉"
+<Multi_key> <m> <o> : "∞"
+<Multi_key> <m> <q> : "∀"
+<Multi_key> <m> <s> : "∑"
+<Multi_key> <m> <m> : "∏"
+<Multi_key> <m> <p> : "π"
