@@ -6,7 +6,7 @@
   signingkey  = william@undefined.re
 
 [color]
-  ui = always
+  ui = auto
 
 [alias]
   st   = status -s
