@@ -10,7 +10,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <h> <s> : "💖"
 <Multi_key> <h> <b> : "💔"
 <Multi_key> <h> <c> : "💞"
-<Multi_key> <h> <d> : "💕"
+<Multi_key> <h> <2> : "💕"
 <Multi_key> <h> <e> : "😍"
 <Multi_key> <k> <k> : "💋"
 
