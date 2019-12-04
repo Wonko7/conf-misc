@@ -26,4 +26,4 @@ else
   size=$small_size
 fi
 
-st -f "Fira Mono for Powerline:pixelsize=$size" $@
+(st -f "Fira Mono for Powerline:pixelsize=$size" $@)&
