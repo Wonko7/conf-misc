@@ -13,11 +13,11 @@ if [ -z $VIM_SERVER ]; then
 fi
 
 SOCKET_PREFIX=/tmp/nvimsockets
-nvr_cmd="nvr -s --servername $SOCKET_PREFIX/$VIM_SERVER $@"
+mkdir -p $SOCKET_PREFIX
 
+nvr_cmd="nvr -s --servername $SOCKET_PREFIX/$VIM_SERVER $@"
 current_desktop_id=$(wmctrl -d | sed -nre 's/^([0-9]+)\s+\*.*$/\1/p')
 
-mkdir -p $SOCKET_PREFIX
 
 if [ $VIM_SERVER = DANCE_COMMANDER ]; then
   xdotool key "alt+ctrl+8"
