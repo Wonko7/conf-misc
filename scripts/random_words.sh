@@ -76,8 +76,10 @@ choose_tags () {
   # generate new one then:
   while [ y != "$answer" ]; do
     tag=$(random_words $nb_tags | sk)
-    1>&2 echo "tag? $tag"
-    read answer
+    if [ ! -z $tag ]; then
+      1>&2 echo "tag? $tag"
+      read answer
+    fi
   done
   echo $tag
 }
