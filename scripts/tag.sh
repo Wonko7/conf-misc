@@ -6,5 +6,5 @@ echo $PWD
 echo $SMUT
 git status --short
 
-tag=$(choose_tag)
+tag=$(choose_tags 10)
 git tag -s "$tag" -m "$tag"
