@@ -71,7 +71,7 @@ init () {
   git submodule summary
   echo "===========" $root
 
-  local tag=$(choose_tag $1)
+  local tag=$(choose_tags 10 $1)
   commit_root $tag $root
 
   if [ -d private/.git ]; then
