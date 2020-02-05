@@ -31,7 +31,7 @@ update_private ()
     git status --short
     echo "commit? $commit"
     read answer
-    if [ y != "$answer" ]; then
+    if is_answer_affirmative "$answer"; then
       popd > /dev/null
       continue
     fi
@@ -79,7 +79,7 @@ init () {
     git submodule summary
     echo "Descend into private?"
     read answer
-    if [ y = "$answer" ]; then
+    if is_answer_affirmative "$answer"; then
       commit_root $tag private
       push_root
     fi
