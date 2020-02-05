@@ -2,7 +2,7 @@
 
 PAGER=
 
-source $misc/scripts/random_words.sh
+source $misc/scripts/random_words.zsh
 
 update_private ()
 {

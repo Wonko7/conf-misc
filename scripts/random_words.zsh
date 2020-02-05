@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/zsh
 
 is_answer_affirmative ()
 {
