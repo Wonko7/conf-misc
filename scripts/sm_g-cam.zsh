@@ -32,11 +32,8 @@ update_private ()
     echo "commit? $commit"
     read answer
     if is_answer_affirmative "$answer"; then
-      popd > /dev/null
-      continue
+      git commit -am "$sm: $HOST: $tag"
     fi
-
-    git commit -am "$sm: $HOST: $tag"
 
     popd > /dev/null
   done
