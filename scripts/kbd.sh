@@ -18,7 +18,7 @@ if [ -z "$ergo_id" -o "$1" = "--laptop" ]; then # --laptop
   setxkbmap dvorak
   xmodmap ~/conf/misc/xmodmap/$HOST.xmodmap
   xmodmap ~/conf/misc/xmodmap/common.xmodmap
-  /home/wjc/conf/notify-user/notify-user.sh ":(" keyboard: laptop $1
+  notify-send ":(" "keyboard: laptop $1"
   exit 0
 fi
 
@@ -29,4 +29,4 @@ done
 setxkbmap us
 xmodmap ~/conf/misc/xmodmap/ergo.xmodmap
 xmodmap ~/conf/misc/xmodmap/common.xmodmap
-/home/wjc/conf/notify-user/notify-user.sh ":)" keyboard: ergo $1
+notify-send ":)" "keyboard: ergo $1"
