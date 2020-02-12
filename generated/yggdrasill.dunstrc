@@ -31,7 +31,7 @@
     padding = 10
     horizontal_padding = 10
 
-    markup = no
+    markup = yes
     format = "<b>%s</b>\n%b"
 
 
@@ -77,10 +77,13 @@
     summary = "*unread messages*"
     background = "#cb4b16"
 
-[alert_ok]
-    summary = "*#production*"
-    body = "*\[OK\]*"
+[remote]
+    summary = "@*:*"
     background = "#117700"
+
+# [alert_ok]
+#     summary = "@*:*"
+#     background = "#117700"
 
 [alert_nok]
     summary = "*Power low*"
