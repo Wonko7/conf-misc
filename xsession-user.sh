@@ -34,6 +34,7 @@ mute&
 (python3.7 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
 (dunst -config ~/conf/misc/generated/$HOST.dunstrc&)
 (notif --notifier $HOST&)
+(session-lock-actions.sh&)
 (unclutter -idle 30&)
 (redshift -l $(pass show stuff/location-alpha)&)
 (qlipper&)
