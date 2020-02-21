@@ -25,20 +25,24 @@ esac
 mute&
 
 # services:
-(xscreensaver -no-splash&)
-(conky -c ~/conf/misc/generated/$HOST.conkyrc &)
-# ... let me explain:
-# conky needs to be restarted otherwise desktop names are all null. Then, if screen is locked before conky is restarted, conky crashes.
-(sleep 2 && killall -s USR1 conky)&
-(picom --config ~/.compton.conf&)
-(python3.7 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
-(dunst -config ~/conf/misc/generated/$HOST.dunstrc&)
-(notif notify $HOST&)
-(~/conf/misc/scripts/session-lock-actions.sh&)
-(unclutter -idle 30&)
-(redshift -l $(pass show stuff/location-alpha)&)
-(qlipper&)
+if which s6-svscan > /dev/null 2> /dev/null; then
+  (s6-svscan ~/conf/s6-services&)
+else
+  (xscreensaver -no-splash&)
+  (conky -c ~/conf/misc/generated/$HOST.conkyrc &)
+  (picom --config ~/.compton.conf&)
+  (python3.7 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
+  (dunst -config ~/conf/misc/generated/$HOST.dunstrc&)
+  (notif notify $HOST&)
+  (~/conf/misc/scripts/session-lock-actions.sh&)
+  (unclutter -idle 30&)
+  (redshift -l $(pass show stuff/location-alpha)&)
+  (qlipper&)
+fi
 
+# ... let me explain:
+# conky needs to be restarted otherwise desktop names are all null. Also, if screen is locked before conky is restarted, conky crashes.
+(sleep 2 && killall -s USR1 conky)&
 
 # sigh:
 (sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1&)&
