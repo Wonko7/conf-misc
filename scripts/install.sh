@@ -1,4 +1,5 @@
 HOST=$(hostname)
+
 ln -snf ~/conf/vim/vimrc                ~/.vimrc
 ln -snf ~/conf/vim/gvimrc               ~/.gvimrc
 ln -snf ~/conf/vim                      ~/.vim
@@ -39,11 +40,6 @@ case $HOST in
     ln -snf ~/conf/misc/generated/gitconfig       ~/.gitconfig
     ;;
 esac
-
-
-cd ~/conf/notify-user
-make
-cd -
 
 echo "also: "
 echo "  don't forget xmodmap -> check if default is good"
