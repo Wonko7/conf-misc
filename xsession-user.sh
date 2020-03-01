@@ -1,6 +1,7 @@
 #! /bin/sh
 
 source ~/conf/zsh/env.zsh
+source ~/conf/zsh/alias.zsh
 
 echo "export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" > /tmp/dbus-exports.sh
 chmod a+r /tmp/dbus-exports.sh
@@ -22,7 +23,7 @@ case $HOST in
 esac
 
 ~/conf/misc/scripts/kbd.sh&
-mute&
+mute
 
 # services:
 if which s6-svscan > /dev/null 2> /dev/null; then
@@ -42,10 +43,10 @@ fi
 
 # ... let me explain:
 # conky needs to be restarted otherwise desktop names are all null. Also, if screen is locked before conky is restarted, conky crashes.
-(sleep 2 && killall -s USR1 conky)&
+(sleep 2 && killall -s USR1 conky || echo killall conky did not work)&
 
 # sigh:
-(sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1&)&
-(sleep 10 && ~/conf/misc/scripts/kbd.sh LOL2&)&
-(sleep 15 && ~/conf/misc/scripts/kbd.sh LOL3&)&
-(sleep 20 && ~/conf/misc/scripts/kbd.sh LOL4&)&
+sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1
+sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1
+sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1
+sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1
