@@ -1,11 +1,11 @@
 #! /bin/sh
 
 source ~/conf/zsh/env.zsh
-source ~/conf/zsh/alias.zsh
+#source ~/conf/zsh/alias.zsh
 
 echo "export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" > /tmp/dbus-exports.sh
 chmod a+r /tmp/dbus-exports.sh
-local sleepy_time=3
+sleepy_time=3
 
 # one shot:
 #feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png
@@ -14,8 +14,8 @@ case $HOST in
     feh --bg-scale ~/pics/dualspidey/t3.png&
     sleepy_time=4
     ;;
-  daban-urnud)
-    feh --bg-scale /home/wjc/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
+  daban-urnud|rocinante)
+    feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
     sleepy_time=5
     ;;
   *)
@@ -23,7 +23,7 @@ case $HOST in
 esac
 
 ~/conf/misc/scripts/kbd.sh&
-mute
+#mute
 
 # services:
 if which s6-svscan > /dev/null 2> /dev/null; then
