@@ -1,7 +1,9 @@
 #! /bin/sh
 
 #sleep 1 # for udev events
-export DISPLAY=":0.0"
+if [ -z $DISPLAY ]; then
+  export DISPLAY=":0.0"
+fi
 export HOME=/home/wjc/
 export XAUTHORITY=$HOME/.Xauthority
 HOST=$(hostname)

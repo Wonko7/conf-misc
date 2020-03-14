@@ -37,6 +37,7 @@ xscreensaver.Dialog.Logo.Width:		100
 !xscreensaver.passwd.logo.width:		0
 !xscreensaver.passwd.logo.height:	0
 xscreensaver.Dialog.Logo.Height:	100
+xscreensaver.newLoginCommand: lxdm -c USER_SWITCH
 
 URxvt.font: xft:Fira Mono for Powerline:pixelsize=30:Regular
 URxvt.boldFont: xft:Fira Mono for Powerline:pixelsize=30:Bold
