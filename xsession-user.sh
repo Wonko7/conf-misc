@@ -10,12 +10,14 @@ sleepy_time=3
 # one shot:
 #feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png
 case $HOST in
-  yggdrasill)
+  yggdrasill-dual-screen)
     feh --bg-scale ~/pics/dualspidey/t3.png&
     sleepy_time=4
     ;;
-  daban-urnud|rocinante)
-    feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
+  yggdrasill|daban-urnud|rocinante)
+    # feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
+    # feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
+    feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h53m05s873.png&
     sleepy_time=5
     ;;
   *)

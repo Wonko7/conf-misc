@@ -38,7 +38,11 @@ end
 hostname = getHostname()
 
 -- DEF
-fg_col=0x67C8FF
+-- fg_col=0x67C8FF neon blue
+--fg_col=0xd33682 magenta
+--
+fg_col=0xFF67C8
+--fg_col=0xd33682
 bg_col=0xffffff
 
 bg_alpha=0.2
