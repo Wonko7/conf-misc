@@ -69,6 +69,24 @@ if hostname == 'yggdrasill' then
   clock_hand_thickness_h = 7
 
   wlan = 'wlp2s0'
+elseif hostname == 'rocinante' then
+  clock_r=50
+  clock_x=75
+  clock_y=180
+
+  thickness=6
+  gap_thickness=2
+  rad=30
+  toty=clock_y + 120
+  totx=110
+  deltay=70
+  show_seconds=true
+
+  clock_hand_thickness_s = 2
+  clock_hand_thickness_m = 3
+  clock_hand_thickness_h = 4
+
+  wlan = 'wlp4s0'
 else
   clock_r=50
   clock_x=75
