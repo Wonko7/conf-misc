@@ -3,12 +3,14 @@
 xscreensaver-command -watch | while read xs; do
   case "$xs" in
     LOCK*)
-      svc-s6 -1 $s6/notif || killall -s SIGUSR1 dunst
-      svc-s6 -1 $s6/dunst || killall -s SIGUSR1 notif
+      echo "locking & yielding:"
+      s6-svc -1 ~/conf/s6-services/notif || killall -s SIGUSR1 dunst
+      s6-svc -1 ~/conf/s6-services/dunst || killall -s SIGUSR1 notif
       ;;
     UNBLANK*)
-      svc-s6 -2 $s6/notif || killall -s SIGUSR2 dunst
-      svc-s6 -2 $s6/dunst || killall -s SIGUSR2 notif
+      echo "unlocking & seizing:"
+      s6-svc -2 ~/conf/s6-services/notif || killall -s SIGUSR2 dunst
+      s6-svc -2 ~/conf/s6-services/dunst || killall -s SIGUSR2 notif
       ;;
   esac
 done
