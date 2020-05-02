@@ -1,0 +1,10 @@
+[Unit]
+Description=Takes a snapshot of each btrfs subvolume mounted under / after multi-user.target has been reached.
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh /usr/local/bin/auto-snapshot.sh
+
+[Install]
+WantedBy=multi-user.target
