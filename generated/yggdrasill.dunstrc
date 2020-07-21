@@ -95,6 +95,10 @@
     body = "*Apex*"
     background = "#ac322f"
 
+[drone]
+    summary = "@*drone:"
+    background = "#d33682"
+
 # [ignore]
 #     appname = "Spotify"
 #     summary = "*"
