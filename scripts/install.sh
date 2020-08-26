@@ -1,5 +1,6 @@
 HOST=$(hostname)
 
+mkdir -p .config/nvim
 ln -snf ~/conf/vim/vimrc                ~/.vimrc
 ln -snf ~/conf/vim/gvimrc               ~/.gvimrc
 ln -snf ~/conf/vim                      ~/.vim
@@ -11,6 +12,8 @@ ln -snf ~/conf/zsh/zshrc                ~/.zshrc
 
 ln -snf ~/conf/misc/generated/gitconfig ~/.gitconfig
 ln -snf ~/conf/misc/tmux.conf           ~/.tmux.conf
+
+ln -snf ~/conf/misc/user-dirs.dirs      ~/.config/user-dirs.dirs
 
 ln -snf ~/conf/misc/w3m                 ~/.w3m
 ln -snf ~/conf/misc/mostrc              ~/.mostrc
