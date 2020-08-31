@@ -108,3 +108,7 @@ URxvt*color12: S_base0
 URxvt*color13: S_violet
 URxvt*color14: S_base1
 URxvt*color15: S_base3
+
+Xcursor.theme: breeze_cursors
+
+Xcursor.size: 22
