@@ -17,7 +17,8 @@ case $HOST in
   yggdrasill|daban-urnud|rocinante)
     # feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
     # feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
-    feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h53m05s873.png&
+    #feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h53m05s873.png&
+    feh --bg-center ~/docs/wallpapers/jupiter-europa.png&
     sleepy_time=5
     ;;
   *)
