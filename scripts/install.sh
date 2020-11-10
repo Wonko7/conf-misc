@@ -1,6 +1,6 @@
 HOST=$(hostname)
 
-mkdir -p .config/nvim
+mkdir -p ~/.config/nvim
 ln -snf ~/conf/vim/vimrc                ~/.vimrc
 ln -snf ~/conf/vim/gvimrc               ~/.gvimrc
 ln -snf ~/conf/vim                      ~/.vim
@@ -32,6 +32,9 @@ ln -snf ~/conf/misc/xscreensaver        ~/.xscreensaver
 
 ln -snf ~/conf/misc/fonts.conf          ~/.fonts.conf
 
+ln -snf ~/conf/misc/emacs               ~/.emacs.d
+ln -snf ~/conf/misc/doom                ~/.doom.d
+
 # host dependent:
 case $HOST in
   daban-urnud|yggdrasill)
@@ -43,6 +46,16 @@ case $HOST in
     ln -snf ~/conf/misc/generated/gitconfig       ~/.gitconfig
     ;;
 esac
+
+# begin+emacs
+mkdir -p ~/.local/share/applications/
+
+ln -snf ~/conf/misc/emacs/org-protocol.desktop ~/.local/share/applications/org-protocol.desktop
+
+update-desktop-database ~/.local/share/applications/
+kbuildsycoca5
+xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
+# end
 
 echo "also: "
 echo "  don't forget xmodmap -> check if default is good"
