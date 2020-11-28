@@ -32,8 +32,8 @@ ln -snf ~/conf/misc/xscreensaver        ~/.xscreensaver
 
 ln -snf ~/conf/misc/fonts.conf          ~/.fonts.conf
 
-ln -snf ~/conf/misc/emacs               ~/.emacs.d
-ln -snf ~/conf/misc/doom                ~/.doom.d
+ln -snf ~/conf/emacs                    ~/.emacs.d
+ln -snf ~/conf/doom                     ~/.doom.d
 
 # host dependent:
 case $HOST in

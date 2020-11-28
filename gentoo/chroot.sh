@@ -32,11 +32,10 @@ function init {
         read ans
         [ "$ans" != y -a "$ans" != yes ] && die 5
         btrfs subvolume snapshot /mnt/gentoo/_live/$root_name /mnt/gentoo/_live/next || die 5
-        #sleep 0.5
         mount $device /mnt/next -osubvol=_live/next || die 6
-        sed -i /mnt/next/etc/os-release -re "s/^RELEASE_DATE=.*/RELEASE_DATE=\"init: $stamp\"/"
+        sed -i /mnt/next/etc/os-release -re "s/^RELEASE_DATE=.*/RELEASE_DATE=\"init: $stamp\"/" # FIXME create too.
     else
-        mount $device /mnt/next -osubvol=_live/next
+        mount $device /mnt/next -osubvol=_live/next || echo "something is already mounted on next, pretending that's ok"
     fi
 
     mount --types proc /proc /mnt/next/proc
