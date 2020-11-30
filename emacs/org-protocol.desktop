@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=org-protocol
-Exec=emacsclient %u
+Exec=emacsclient -s DANCE_COMMANDER %u
 Type=Application
 Terminal=false
 Categories=System;
