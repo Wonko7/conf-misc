@@ -37,3 +37,4 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 
 <Multi_key> <d> <c> : "℃"
 <Multi_key> <d> <n> : "℉"
+<Multi_key> <d> <d> : "°"
