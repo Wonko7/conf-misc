@@ -15,11 +15,7 @@ case $HOST in
     sleepy_time=4
     ;;
   yggdrasill|daban-urnud|rocinante)
-    # feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
-    # feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h34m19s903.png&
-    #feh --bg-scale ~/pics/spideyverse-vlcsnap-2019-03-23-17h53m05s873.png&
-    #feh --bg-fill ~/docs/wallpapers/jupiter-europa.png&
-    feh --bg-fill ~/docs/wallpapers/spacex2/Space-X-falcon-heavy-space-rocket-Quad-HD-wallpapers-2.jpg&
+    feh --bg-fill /data/docs/pics/wallpapers/spacex2/Space-X-falcon-heavy-space-rocket-Quad-HD-wallpapers-2.jpg&
     ;;
   *)
     logger -s -p user.error "xsession-user: unknown $HOST no background!";;

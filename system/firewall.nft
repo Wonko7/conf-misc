@@ -14,7 +14,7 @@ table ip firewall {
 		ip protocol icmp mark set $valid accept
 
 		# local net
-		ip saddr {192.168.0.0/24, 192.168.1.0/24, 10.42.0.0/24} mark set $local accept
+		ip saddr {192.168.0.0/24, 192.168.1.0/24, 10.42.0.0/24,  10.69.0.0/24} mark set $local accept
 
 		accept
 	}
