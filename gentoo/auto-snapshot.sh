@@ -4,7 +4,7 @@ MAX=10
 prefix=AUTOSNAP
 
 echo () {
-        logger -t $prefix $*
+  logger -t $prefix $*
 }
 
 cd /mnt/gentoo
