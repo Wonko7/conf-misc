@@ -31,5 +31,4 @@ for sub_vol in @home @work @data @root; do
     btrfs subvolume delete -c $old_snapshot
     echo Deleted $old_snapshot
   done
-
 done
