@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.43 for wjc on Mon Jul  8 14:24:11 2019.
+# Written by xscreensaver-demo 5.44 for wjc on Sun Jan  3 01:35:41 2021.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	3:00:00
@@ -280,6 +280,9 @@ programs:								      \
 - GL: 				handsy -root				    \n\
 - GL: 				deepstars -root				    \n\
 - GL: 				gravitywell -root			    \n\
+-				scooter -root				    \n\
+- GL: 				etruscanvenus -root			    \n\
+- GL: 				gibson -root				    \n\
 
 
 pointerPollTime:    9:00:00
@@ -291,3 +294,4 @@ procInterrupts:	True
 xinputExtensionDev: False
 overlayStderr:	True
 authWarningSlack:   20
+
