@@ -95,8 +95,8 @@
     body = "*Apex*"
     background = "#ac322f"
 
-[drone]
-    summary = "@*drone:"
+[RDV]
+    summary = "RDV:*"
     background = "#d33682"
 
 # [ignore]
