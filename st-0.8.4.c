@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char font[]  = "Fira Mono for Powerline:pixelsize=35:antialias=true:autohint=true";
+static char *font = "Fira Mono for Powerline:pixelsize=35:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -18,6 +18,8 @@ static int borderpx = 2;
  */
 static char *shell = "/bin/sh";
 char *utmp = NULL;
+/* scroll program: to enable use a string like "scroll" */
+char *scroll = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
 /* identification sequence returned in DA and DECID */
@@ -32,7 +34,6 @@ static float chscale = 1.0;
  *
  * More advanced example: " `'\"()[]{}"
  */
-//wchar_t *worddelimiters = L" ";
 wchar_t *worddelimiters = L" `'\"`()[]{};.,-|";
 
 /* selection timeouts (in milliseconds) */
@@ -42,10 +43,18 @@ static unsigned int tripleclicktimeout = 600;
 /* alt screens */
 int allowaltscreen = 1;
 
-/* frames per second st should at maximum draw to the screen */
-static unsigned int xfps = 120;
-static unsigned int actionfps = 30;
+/* allow certain non-interactive (insecure) window operations such as:
+   setting the clipboard text */
+int allowwindowops = 0;
 
+/*
+ * draw latency range in ms - from new content/keypress/etc until drawing.
+ * within this range, st draws when content stops arriving (idle). mostly it's
+ * near minlatency, but it waits longer for slow updates to avoid partial draw.
+ * low minlatency will tear/flicker more, as it can "detect" idle too early.
+ */
+static double minlatency = 8;
+static double maxlatency = 33;
 /*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
@@ -84,7 +93,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
-const char *colorname[] = {
+static const char *colorname[] = {
 //	/* 8 normal colors */
 //	"black",
 //	"red3",
@@ -126,7 +135,7 @@ const char *colorname[] = {
 	"#6c71c4",  /* 13: brmagenta*/
 	"#93a1a1",  /* 14: brcyan   */
 	"#fdf6e3",  /* 15: brwhite  */
-
+	[255] = 0,
 };
 
 
@@ -140,8 +149,8 @@ const char *colorname[] = {
 //unsigned int defaultrcs = 257;
 unsigned int defaultfg = 15;
 unsigned int defaultbg = 8;
-unsigned int defaultcs = 210; // salmon
-unsigned int defaultrcs = 9;
+static unsigned int defaultcs = 210; // salmon
+static unsigned int defaultrcs = 9;
 
 /*
  * Default shape of cursor
@@ -205,6 +214,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ ControlMask,          XK_V,           clippaste,      {.i =  0} },
+	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
