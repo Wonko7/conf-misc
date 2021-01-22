@@ -69,7 +69,7 @@ if hostname == 'yggdrasill' then
   clock_hand_thickness_h = 7
 
   wlan = 'wlp2s0'
-elseif hostname == 'rocinante' then
+elseif hostname == 'enterprise' || hostname == 'rocinante' then
   clock_r=50
   clock_x=75
   clock_y=180

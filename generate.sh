@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-# so this won't scale
+# FIXME
 # yggdrasill:
 y_border=40
 y_conky_width=250
@@ -12,6 +12,9 @@ d_conky_width=150
 # rocinante:
 r_border=20
 r_conky_width=150
+# enterprise
+e_border=20
+e_conky_width=150
 
 
 for i in $@; do
@@ -108,6 +111,7 @@ if [ ! -z $generate_dunst ]; then
   echo dunst!
   make_dunst daban-urnud $d_conky_width $d_border 13
   make_dunst rocinante   $r_conky_width $r_border 13
+  make_dunst enterprise  $e_conky_width $e_border 13
   make_dunst yggdrasill  $y_conky_width $y_border 20
 fi
 

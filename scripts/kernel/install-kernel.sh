@@ -34,7 +34,7 @@ fm_file=$(ls -1 /var/cache/distfiles/linux-firmware-* | sort | tail -n 1)
 
 # FIXME nostromo!
 case $HOST in
-  rocinante)
+  enterprise|rocinante)
     firmware='FIXME'
     ;;
   nostromo)

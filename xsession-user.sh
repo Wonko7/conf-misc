@@ -14,7 +14,7 @@ case $HOST in
     feh --bg-scale ~/pics/dualspidey/t3.png&
     sleepy_time=4
     ;;
-  yggdrasill|daban-urnud|rocinante)
+  enterprise|yggdrasill|daban-urnud|rocinante)
     feh --bg-fill /data/docs/pics/wallpapers/spacex2/Space-X-falcon-heavy-space-rocket-Quad-HD-wallpapers-2.jpg&
     ;;
   *)

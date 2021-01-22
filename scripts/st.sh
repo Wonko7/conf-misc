@@ -3,6 +3,10 @@
 HOST=$(hostname)
 
 case $HOST in
+  enterprise|rocinante)
+    small_size=16
+    big_size=16
+    ;;
   yggdrasill)
     small_size=15
     big_size=35
@@ -10,10 +14,6 @@ case $HOST in
   daban-urnud)
     small_size=20
     big_size=20
-    ;;
-  rocinante)
-    small_size=16
-    big_size=16
     ;;
   *)
     echo "unknown $HOST, guessing"
