@@ -80,6 +80,23 @@ if [ ! -z $generate_conky ]; then
     -re s/@VMINILINE/10/g \
     -re s/@WLAN/wlp4s0/g \
     > generated/rocinante.conkyrc
+
+  sed conky/conky.conf \
+    -re s/@WIDTH/$e_conky_width/g \
+    -re s/@GAP_X/$e_border/g \
+    -re s/@TOP_WIDTH/14/g \
+    -re s/@FONT_SIZE/9/g \
+    -re s/@FONT_DATE_SIZE/8/g \
+    -re s/@FONT_DESKTOP_SIZE/9/g \
+    -re s/@V_CLOCK/122/g \
+    -re s/@VDELTA/38/g \
+    -re s/@VDDELTA/28/g \
+    -re s/@VDDDELTA/28/g \
+    -re s/@H_TOP/110/g \
+    -re s/@VMINILINE/10/g \
+    -re s/@WLAN/wlp4s0/g \
+    > generated/enterprise.conkyrc
+
 fi
 
 make_dunst ()
