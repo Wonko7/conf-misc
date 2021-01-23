@@ -94,7 +94,7 @@ if [ ! -z $generate_conky ]; then
     -re s/@VDDDELTA/28/g \
     -re s/@H_TOP/110/g \
     -re s/@VMINILINE/10/g \
-    -re s/@WLAN/wlp4s0/g \
+    -re s/@WLAN/wlp1s0/g \
     > generated/enterprise.conkyrc
 
 fi

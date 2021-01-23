@@ -92,12 +92,12 @@ ${color1}${goto 0}RAM/swap
 ${color2}${goto 0}${voffset 28}${fs_used_perc /}%
 ${color1}${goto 0}Disk
 ${color2}${goto 0}${voffset 38}${execpi 1 ~/conf/misc/conky/conky-sound.sh --all}
-#${color2}${goto 0}${voffset 95}${downspeed wlp4s0} #${color2}${goto 0}${upspeed wlp4s0} # 95 58
-${voffset 28}${color2}${goto 0}${downspeedf wlp4s0}k
-${color2}${goto 0}${upspeedf wlp4s0}k
-${color2}${goto 0}${wireless_link_qual_perc wlp4s0}%
+#${color2}${goto 0}${voffset 95}${downspeed wlp1s0} #${color2}${goto 0}${upspeed wlp1s0} # 95 58
+${voffset 28}${color2}${goto 0}${downspeedf wlp1s0}k
+${color2}${goto 0}${upspeedf wlp1s0}k
+${color2}${goto 0}${wireless_link_qual_perc wlp1s0}%
 # empty line in font small size:
-${color1}${goto 0}${wireless_essid wlp4s0}${color2}${font Fira Mono for Powerline:size=9}\
+${color1}${goto 0}${wireless_essid wlp1s0}${color2}${font Fira Mono for Powerline:size=9}\
 ${voffset 10}
 ${if_match "${desktop_name}"=="1"}${color1}● ${else}${if_match "${desktop_name}"=="11"}${color1}○ ${else}${color2}● ${endif}${endif}\
 ${if_match "${desktop_name}"=="2"}${color1}● ${else}${if_match "${desktop_name}"=="12"}${color1}○ ${else}${color2}● ${endif}${endif}\
