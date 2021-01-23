@@ -60,7 +60,7 @@ push_all () {
   popd > /dev/null
 
   echo conf-root
-  git push --all
+  git push --recurse-submodules=no all
 }
 
 $@
