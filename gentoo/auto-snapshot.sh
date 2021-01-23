@@ -13,7 +13,7 @@ case $HOST in
   nostromo)
     VOLUMES="/mnt/gentoo /mnt/trantor"
     ;;
-  yggdrasill|daban-urnud|rocinante)
+  enterprise|yggdrasill|daban-urnud|rocinante)
     VOLUMES="/mnt/gentoo"
     ;;
   *)
