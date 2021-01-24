@@ -30,4 +30,7 @@ else
   size=$small_size
 fi
 
-(st -f "Fira Mono for Powerline:pixelsize=$size" $@)&
+#(st -f "FiraCode Nerd Font Mono:style=SemiBold,Regular:pixelsize=$size" $@)&
+#(st -f "Hasklug Nerd Font Mono,Hasklig Semibold:style=Semibold:pixelsize=$size" $@)&
+#(st -f "FuraMono Nerd Font:style=regular:pixelsize=$size" $@)&
+(st -f "JetBrainsMono Nerd Font Mono:style=Medium,Regular:pixelsize=$size" $@)&
