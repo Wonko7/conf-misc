@@ -1,0 +1,10 @@
+[Unit]
+Description=init net
+After=multi-user.target
+
+[Service]
+Type=forking
+ExecStart=/bin/sh /usr/local/bin/net.sh start
+
+[Install]
+WantedBy=multi-user.target
