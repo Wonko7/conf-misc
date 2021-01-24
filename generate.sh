@@ -20,15 +20,25 @@ e_conky_width=150
 for i in $@; do
   case $i in
     --git)   generate_git=1;;
+    --picom)   generate_picom=1;;
     --conky) generate_conky=1;;
     --dunst) generate_dunst=1;;
   esac
 done
 
-if [ -z "$generate_dunst$generate_conky$generate_git" ]; then
+if [ -z "$generate_picom$generate_dunst$generate_conky$generate_git" ]; then
+  generate_picom=1
   generate_dunst=1
   generate_conky=1
   generate_git=1
+fi
+
+if [ ! -z $generate_picom ]; then
+  echo picom!
+  sed jonaburg.picom.conf -re s/@RADIUS/15/ > generated/enterprise.picom.conf
+  sed jonaburg.picom.conf -re s/@RADIUS/15/ > generated/rocinante.picom.conf
+  sed jonaburg.picom.conf -re s/@RADIUS/20/ > generated/yggdrasill.picom.conf
+  sed jonaburg.picom.conf -re s/@RADIUS/20/ > generated/daban-urnud.picom.conf
 fi
 
 if [ ! -z $generate_conky ]; then

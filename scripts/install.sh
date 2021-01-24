@@ -18,7 +18,7 @@ ln -snf ~/conf/misc/user-dirs.dirs      ~/.config/user-dirs.dirs
 ln -snf ~/conf/misc/w3m                 ~/.w3m
 ln -snf ~/conf/misc/mostrc              ~/.mostrc
 
-ln -snf ~/conf/misc/jonaburg.picom.conf ~/.config/picom.conf
+ln -snf ~/conf/misc/generated/$HOST.picom.conf ~/.config/picom.conf
 ln -snf ~/conf/misc/vimfx               ~/.vimfx
 
 ln -snf ~/conf/misc/xinitrc             ~/.xinitrc
