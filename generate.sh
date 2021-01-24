@@ -138,7 +138,7 @@ if [ ! -z $generate_dunst ]; then
   echo dunst!
   make_dunst daban-urnud $d_conky_width $d_border 13
   make_dunst rocinante   $r_conky_width $r_border 13
-  make_dunst enterprise  $e_conky_width $e_border 13
+  make_dunst enterprise  $e_conky_width $e_border 10
   make_dunst yggdrasill  $y_conky_width $y_border 20
 fi
 
