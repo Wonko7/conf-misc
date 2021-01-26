@@ -50,4 +50,10 @@ stop ()
   ip -n out li delete wgout0
 }
 
+restart ()
+{
+  stop
+  start
+}
+
 $@
