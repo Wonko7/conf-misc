@@ -7,7 +7,9 @@ start ()
 
   ip -n rawdog link add wgout0 type wireguard
   ip -n rawdog link set wgout0 netns out
-  ip netns exec out wg setconf wgout0 /etc/wireguard/azirevpn-se1.conf
+  #ip netns exec out wg setconf wgout0 /etc/wireguard/azirevpn-se1.conf
+  #ip netns exec out wg setconf wgout0 /etc/wireguard/azirevpn-no1.conf
+  ip netns exec out wg setconf wgout0 /etc/wireguard/azirevpn-nl1.conf
 
   ip -n rawdog link add wg42 type wireguard
   ip -n rawdog link set wg42 netns 1
@@ -34,8 +36,14 @@ start ()
 
   # up up and away: wg out
   ip -n out link set wgout0 up
-  ip -n out addr add 10.10.9.175/19 dev wgout0
+  ip -n out addr add 10.0.23.23/19 dev wgout0
   ip -n out ro add default dev wgout0
+
+  # setup localhost everywhere:
+  for ns in rawdog out; do
+    ip -n $ns addr add dev lo 127.0.0.1/8
+    ip -n $ns link set lo up
+  done
 }
 
 stop ()
