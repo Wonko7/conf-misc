@@ -2,7 +2,7 @@
 
 HOST=`hostname`
 case $HOST in
-    yggdrasill|nostromo)
+    enterprise|yggdrasill|nostromo)
         root_name=@root
         home_name=@home
         device=/dev/mapper/vault
