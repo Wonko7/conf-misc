@@ -20,7 +20,7 @@ e_conky_width=150
 for i in $@; do
   case $i in
     --git)   generate_git=1;;
-    --picom)   generate_picom=1;;
+    --picom) generate_picom=1;;
     --conky) generate_conky=1;;
     --dunst) generate_dunst=1;;
   esac
@@ -98,10 +98,10 @@ if [ ! -z $generate_conky ]; then
     -re s/@FONT_SIZE/9/g \
     -re s/@FONT_DATE_SIZE/8/g \
     -re s/@FONT_DESKTOP_SIZE/9/g \
-    -re s/@V_CLOCK/122/g \
+    -re s/@V_CLOCK/150/g \
     -re s/@VDELTA/38/g \
-    -re s/@VDDELTA/28/g \
-    -re s/@VDDDELTA/28/g \
+    -re s/@VDDELTA/23/g \
+    -re s/@VDDDELTA/33/g \
     -re s/@H_TOP/110/g \
     -re s/@VMINILINE/10/g \
     -re s/@WLAN/wlp1s0/g \

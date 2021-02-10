@@ -83,17 +83,17 @@ conky.config = {
 
 conky.text = [[
 ${font JetBrainsMono Nerd Font Mono:size=8}${execpi 300 ~/conf/misc/conky/conky-date.sh}
-${font}${voffset 122}
+${font}${voffset 150}
 ${color2}${goto 0}${voffset 38}${cpu cpu0}%
 ${color1}${goto 0}CPU
 ${color2}${goto 0}${voffset 38}${memperc}%
 ${color2}${goto 0}${swapperc}%
 ${color1}${goto 0}RAM/swap
-${color2}${goto 0}${voffset 28}${fs_used_perc /}%
+${color2}${goto 0}${voffset 23}${fs_used_perc /}%
 ${color1}${goto 0}Disk
 ${color2}${goto 0}${voffset 38}${execpi 1 ~/conf/misc/conky/conky-sound.sh --all}
 #${color2}${goto 0}${voffset 95}${downspeed wlp1s0} #${color2}${goto 0}${upspeed wlp1s0} # 95 58
-${voffset 28}${color2}${goto 0}${downspeedf wlp1s0}k
+${voffset 33}${color2}${goto 0}${downspeedf wlp1s0}k
 ${color2}${goto 0}${upspeedf wlp1s0}k
 ${color2}${goto 0}${wireless_link_qual_perc wlp1s0}%
 # empty line in font small size:
