@@ -21,12 +21,16 @@ start ()
 
   # isolate physical interfaces:
   ip link set eth0 down
+  ip link set eth1 down
   ip link set wlan0 down
   ip link set eth0 netns rawdog
+  ip link set eth1 netns rawdog
   iw phy phy0 set netns name rawdog
 
   # up up and away: rawdog
   ip netns exec rawdog dhcpcd -b wlan0
+  #ip netns exec rawdog dhcpcd -b eth0
+  ip netns exec rawdog dhcpcd -b eth1
   ip netns exec rawdog wpa_supplicant -B -c/etc/wpa_supplicant/wpa_supplicant-wlan0.conf -iwlan0 # FIXME
 
   # up up and away: wg 1
@@ -50,8 +54,11 @@ stop ()
 {
   killall dhcpcd wpa_supplicant || true
   ip -n rawdog link set eth0 down
+  ip -n rawdog link set eth1 down
   ip -n rawdog link set wlan0 down
+
   ip -n rawdog link set eth0 netns 1
+  ip -n rawdog link set eth1 netns 1
   ip netns exec rawdog iw phy phy0 set netns 1
 
   ip li delete wg42
