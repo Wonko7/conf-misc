@@ -99,16 +99,24 @@ stop ()
   done
   ip -n out li delete wgout0
 
-  if [ "`hostname`" = "enterprise" ]; then
-    echo @@ enterprise wifi driver reload
-    rmmod iwlmvm iwlwifi
-    modprobe iwlwifi
-  fi
+  case `hostname` in
+    enterprise|daban-urnud|rocinante)
+      echo @@ iwlwifi reload
+      rmmod iwlmvm iwlwifi
+      modprobe iwlwifi
+      ;;
+    yggdrasill)
+      echo @@ ath10k reload
+      rmmod ath10k_pci ath10k_core
+      modprobe ath10k_pci
+      ;;
+  esac
 }
 
 restart ()
 {
   stop
+  sleep 5
   start
 }
 
