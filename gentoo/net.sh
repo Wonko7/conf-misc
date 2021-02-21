@@ -1,6 +1,9 @@
 #! /bin/sh
 
 vpn_endpoint=azirevpn-nl1
+lwg_interfaces="wg42 wg69"
+eth_interfaces=$(ip -o li | cut -d: -f2 | grep 'eth')
+#phy_interfaces=$(ip -o li | cut -d: -f2 | egrep '(wlan|eth)')
 
 start ()
 {
@@ -9,36 +12,37 @@ start ()
 
   ip -n rawdog link add wgout0 type wireguard
   ip -n rawdog link set wgout0 netns out
-  #ip netns exec out wg setconf wgout0 /etc/wireguard/azirevpn-se1.conf
-  #ip netns exec out wg setconf wgout0 /etc/wireguard/azirevpn-no1.conf
   ip netns exec out wg setconf wgout0 /etc/wireguard/${vpn_endpoint}.conf
 
-  ip -n rawdog link add wg42 type wireguard
-  ip -n rawdog link set wg42 netns 1
-  wg setconf wg42 /etc/wireguard/wg42.conf
-
-  #ip -n rawdog link add wg69 type wireguard
-  #ip -n rawdog link set wg69 netns 1
-  #wg setconf wg69 /etc/wireguard/wg69.conf
+  for wg in $lwg_interfaces; do
+    ip -n rawdog link add $wg type wireguard
+    ip -n rawdog link set $wg netns 1
+    wg setconf $wg /etc/wireguard/${wg}.conf
+  done
 
   # isolate physical interfaces:
-  ip link set eth0 down
-  ip link set eth1 down
+  for eth in $eth_interfaces; do
+    ip link set $eth down
+    ip link set $eth netns rawdog
+  done
   ip link set wlan0 down
-  ip link set eth0 netns rawdog
-  ip link set eth1 netns rawdog
   iw phy phy0 set netns name rawdog
 
   # up up and away: rawdog
+  ip netns exec rawdog /usr/libexec/iwd&
   ip netns exec rawdog dhcpcd -b wlan0
-  ip netns exec rawdog dhcpcd -b eth0
-  ip netns exec rawdog dhcpcd -b eth1
-  ip netns exec rawdog wpa_supplicant -B -c/etc/wpa_supplicant/wpa_supplicant-wlan0.conf -iwlan0 # FIXME
+  for eth in $eth_interfaces; do
+    ip netns exec rawdog dhcpcd -b $eth
+    echo yes
+  done
+  #ip netns exec rawdog wpa_supplicant -B -c/etc/wpa_supplicant/wpa_supplicant-wlan0.conf -iwlan0
 
-  # up up and away: wg 1
-  ip link set wg42 up
-  ip addr add 10.42.0.6/24 dev wg42
-  ip ro add 10.42.0.0/24 via 10.42.0.1 dev wg42
+  # up up and away: wg42 & wg69
+  for wg in $lwg_interfaces; do
+    #ip a
+    ip link set $wg up
+    sh /etc/wireguard/${wg}.ip.sh
+  done
 
   # up up and away: wgout0
   ip -n out link set wgout0 up
@@ -54,16 +58,18 @@ start ()
 
 stop ()
 {
-  killall dhcpcd wpa_supplicant || true
-  ip -n rawdog link set eth0 down
-  ip -n rawdog link set eth1 down
+  killall dhcpcd || true
+  killall dhcpcd iwd wpa_supplicant || true
+  for eth in $eth_interfaces; do
+    ip -n rawdog link set $eth down
+    ip -n rawdog link set $eth netns 1
+  done
   ip -n rawdog link set wlan0 down
-
-  ip -n rawdog link set eth0 netns 1
-  ip -n rawdog link set eth1 netns 1
   ip netns exec rawdog iw phy phy0 set netns 1
 
-  ip li delete wg42
+  for wg in $lwg_interfaces; do
+    ip li delete $wg
+  done
   ip -n out li delete wgout0
 }
 
@@ -76,13 +82,17 @@ restart ()
 init_azire ()
 {
   cd /etc/wireguard
-  for c in azirevpn-*; do
+  for c in azirevpn-*conf; do
+    dns=$(echo $c | sed -re 's/.*azirevpn-(\w+)\.conf/\1.wg.azirevpn.net/')
     ipconf=$(echo $c | sed -re 's/\.conf/.ip.sh/')
-    sed -i $c -re 's/^(Address|DNS)/#\1/'
-    ip4=$(sed /etc/wireguard/azirevpn-dk1.conf -nre 's;#Address = ([^,]+), (.+)$;\1;p')
-    ip6=$(sed /etc/wireguard/azirevpn-dk1.conf -nre 's;#Address = ([^,]+), (.+)$;\2;p')
+    peer_ip=$(dig +noall +answer $dns | sed -re 's/.*\s([^ ]+)$/\1/')
+    sed -i $c -re 's/^(Address|DNS)/#\1/' -e "s/^(Endpoint = )[^:]+:([0-9]+)/\1$peer_ip:\2/"
+    ip4=$(sed /etc/wireguard/$c -nre 's;#Address = ([^,]+), (.+)$;\1;p')
+    ip6=$(sed /etc/wireguard/$c -nre 's;#Address = ([^,]+), (.+)$;\2;p')
     echo "ip addr add $ip4 dev wgout0" > $ipconf
     echo "ip addr add $ip6 dev wgout0" >> $ipconf
+    echo $peer_ip
+    #cat $ipconf
   done
 }
 
