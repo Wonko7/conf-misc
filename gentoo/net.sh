@@ -9,12 +9,12 @@ start ()
   eth_interfaces=$(ip -o li | cut -d: -f2 | grep 'eth')
   wlan_interfaces=$(ip -o li | cut -d: -f2 | grep 'wlan')
   wphy_interfaces=$(iw phy | sed -nre 's/^Wiphy //p')
-  ip netns add out
   ip netns add rawdog
 
   ip -n rawdog link add wgout0 type wireguard
-  ip -n rawdog link set wgout0 netns out
-  ip netns exec out wg setconf wgout0 /etc/wireguard/${vpn_endpoint}.conf
+  ip -n rawdog link set wgout0 netns 1
+  wg setconf wgout0 /etc/wireguard/${vpn_endpoint}.conf
+  #ip netns exec out wg setconf wgout0 /etc/wireguard/${vpn_endpoint}.conf
 
   for wg in $lwg_interfaces; do
     echo @@ starting $wg
@@ -60,9 +60,9 @@ start ()
   done
 
   # up up and away: wgout0
-  ip -n out link set wgout0 up
-  ip netns exec out sh /etc/wireguard/${vpn_endpoint}.ip.sh
-  ip -n out ro add default dev wgout0
+  ip link set wgout0 up
+  sh /etc/wireguard/${vpn_endpoint}.ip.sh
+  ip route add default dev wgout0
 
   # setup localhost everywhere:
   for ns in rawdog out; do
@@ -94,10 +94,9 @@ stop ()
     ip netns exec rawdog iw phy $phy set netns 1
   done
 
-  for wg in $lwg_interfaces; do
+  for wg in $lwg_interfaces wgout0; do
     ip li delete $wg
   done
-  ip -n out li delete wgout0
 
   if [ "`hostname`" = "enterprise" ]; then
     echo @@ enterprise wifi driver reload
@@ -109,6 +108,7 @@ stop ()
 restart ()
 {
   stop
+  sleep 5
   start
 }
 
