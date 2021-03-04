@@ -1,11 +1,15 @@
 #! /bin/sh
 
-vpn_endpoint=azirevpn-nl1
 lwg_interfaces="wg42 wg69"
 #phy_interfaces=$(ip -o li | cut -d: -f2 | egrep '(wlan|eth)')
 
 start ()
 {
+  vpn_endpoint=azirevpn-$1
+  if [ -z "$1" ]; then
+     vpn_endpoint=azirevpn-nl
+  fi
+
   eth_interfaces=$(ip -o li | cut -d: -f2 | grep 'eth')
   wlan_interfaces=$(ip -o li | cut -d: -f2 | grep 'wlan')
   wphy_interfaces=$(iw phy | sed -nre 's/^Wiphy //p')
@@ -117,7 +121,7 @@ restart ()
 {
   stop
   sleep 5
-  start
+  start $1
 }
 
 init_azire ()
