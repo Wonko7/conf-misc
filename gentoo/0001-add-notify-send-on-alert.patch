@@ -1,0 +1,31 @@
+From 1e616499b7191ca744b6ae2d05b64b3add908280 Mon Sep 17 00:00:00 2001
+From: William <william@undefined.re>
+Date: Mon, 11 Mar 2019 11:50:08 +0100
+Subject: [PATCH] add notify-send on alert
+
+---
+ lib/_emerge/UserQuery.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/lib/_emerge/UserQuery.py b/lib/_emerge/UserQuery.py
+index e20bbc6c3..0dbb3e8e7 100644
+--- a/lib/_emerge/UserQuery.py
++++ b/lib/_emerge/UserQuery.py
+@@ -8,6 +8,7 @@ import sys
+
+ from portage import _unicode_decode
+ from portage.output import bold, create_color_func
++from subprocess import call
+
+
+ class UserQuery(object):
+@@ -50,6 +51,7 @@ class UserQuery(object):
+ 		colours=(colours*len(responses))[:len(responses)]
+ 		responses = [_unicode_decode(x) for x in responses]
+ 		if "--alert" in self.myopts:
++			call(["/usr/bin/notif", "send", "emerge", prompt])
+ 			prompt = '\a' + prompt
+ 		print(bold(prompt), end=' ')
+ 		try:
+--
+2.21.0

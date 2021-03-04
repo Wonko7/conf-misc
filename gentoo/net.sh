@@ -65,7 +65,8 @@ start ()
   ip route add default dev wgout0
 
   # setup localhost everywhere:
-  for ns in rawdog out; do
+  #for ns in rawdog out; do
+  for ns in rawdog; do
     ip -n $ns addr add dev lo 127.0.0.1/8
     ip -n $ns link set lo up
   done
