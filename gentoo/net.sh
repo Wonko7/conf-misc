@@ -14,6 +14,7 @@ start ()
   wlan_interfaces=$(ip -o li | cut -d: -f2 | grep 'wlan')
   wphy_interfaces=$(iw phy | sed -nre 's/^Wiphy //p')
   ip netns add rawdog
+  ip netns add quarantine
 
   ip -n rawdog link add wgout0 type wireguard
   ip -n rawdog link set wgout0 netns 1
@@ -35,6 +36,7 @@ start ()
   done
   for wlan in $wlan_interfaces; do
     echo @@ starting $wlan
+    iw $wlan set power_save off # aaaaactually, might have been laptop_mode. => nope: still being a bitch.
     ip link set $wlan down
   done
   for phy in $wphy_interfaces; do
@@ -70,7 +72,7 @@ start ()
 
   # setup localhost everywhere:
   #for ns in rawdog out; do
-  for ns in rawdog; do
+  for ns in rawdog quarantine; do
     ip -n $ns addr add dev lo 127.0.0.1/8
     ip -n $ns link set lo up
   done
@@ -122,6 +124,24 @@ restart ()
   stop
   sleep 5
   start $1
+}
+
+out ()
+{
+  ip li delete wgout0
+
+  vpn_endpoint=azirevpn-$1
+  if [ -z "$1" ]; then
+     vpn_endpoint=azirevpn-nl
+  fi
+
+  ip -n rawdog link add wgout0 type wireguard
+  ip -n rawdog link set wgout0 netns 1
+  wg setconf wgout0 /etc/wireguard/${vpn_endpoint}.conf
+
+  ip link set wgout0 up
+  sh /etc/wireguard/${vpn_endpoint}.ip.sh
+  ip route add default dev wgout0
 }
 
 init_azire ()
