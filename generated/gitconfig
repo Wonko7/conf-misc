@@ -75,7 +75,7 @@
   branch    = false
 [push]
   recurseSubmodules = on-demand
-  followTags        = true
+  #followTags        = true
 
 [fetch]
   recurseSubmodules = on-demand
