@@ -2,8 +2,7 @@
 
 [user]
   name        = William
-  email       = william@undefined.re
-  signingkey  = william@undefined.re
+  email       = wjcaldwell@besport.com
 
 [color]
   ui = auto
@@ -21,6 +20,7 @@
   ba   = branch -a
   co   = checkout
   cob  = checkout -b
+  cot  = checkout -t
   d    = diff
   dw   = diff --word-diff -w
   dr   = diff --raw
@@ -62,9 +62,9 @@
 
 # enable gpg by default:
 [commit]
-  gpgsign = true
+  #gpgsign = true
 [tag]
-  gpgSign = true
+  #gpgSign = true
 # see push.gpgSign
 
 # submodule stuff:
