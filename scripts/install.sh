@@ -1,6 +1,6 @@
 HOST=$(hostname)
 
-mkdir -p ~/.config/nvim
+mkdir -p ~/.config/{nvim,guix}
 ln -snf ~/conf/vim/vimrc                ~/.vimrc
 ln -snf ~/conf/vim/gvimrc               ~/.gvimrc
 ln -snf ~/conf/vim                      ~/.vim
@@ -34,6 +34,8 @@ ln -snf ~/conf/misc/fonts.conf          ~/.fonts.conf
 
 ln -snf ~/conf/emacs                    ~/.emacs.d
 ln -snf ~/conf/doom                     ~/.doom.d
+
+ln -snf ~/conf/guix/config/guix/channels.scm  ~/.config/guix/channels.scm
 
 # host dependent:
 case $HOST in

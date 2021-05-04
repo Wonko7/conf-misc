@@ -30,8 +30,7 @@ if which s6-svscan > /dev/null 2> /dev/null; then
 else
   (xscreensaver -no-splash&)
   (conky -c ~/conf/misc/generated/$HOST.conkyrc &)
-  (picom --config ~/.compton.conf&)
-  (python3.7 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
+  (picom&)
   (dunst -config ~/conf/misc/generated/$HOST.dunstrc&)
   (notif notify $HOST&)
   (~/conf/misc/scripts/session-lock-actions.sh&)

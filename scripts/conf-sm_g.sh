@@ -7,10 +7,10 @@ init () {
   git remote add trantor nostromo.underage.wang:/trantor/repos/conf/conf-$1
   git remote add hub git@github.com:Wonko7/conf-$1
   git remote add lab git@gitlab.com:wonko7/conf-$1
-  git remote add all nostromo.underage.wang:/trantor/repos/conf/conf-$1
-  git remote set-url --add --push all nostromo.underage.wang:/trantor/repos/conf/conf-$1
-  git remote set-url --add --push all git@gitlab.com:wonko7/conf-$1
-  git remote set-url --add --push all git@github.com:Wonko7/conf-$1
+  #git remote add all nostromo.underage.wang:/trantor/repos/conf/conf-$1
+  #git remote set-url --add --push all nostromo.underage.wang:/trantor/repos/conf/conf-$1
+  #git remote set-url --add --push all git@gitlab.com:wonko7/conf-$1
+  #git remote set-url --add --push all git@github.com:Wonko7/conf-$1
 }
 
 clone () {
