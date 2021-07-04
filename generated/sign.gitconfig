@@ -87,5 +87,5 @@
   renamelimit = 5000
 [grep]
   patternType = perl
-[pull] # merge:
-  rebase = false
+[pull]
+  rebase = true
