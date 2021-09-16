@@ -14,8 +14,14 @@ case $HOST in
     feh --bg-scale ~/pics/dualspidey/t3.png&
     sleepy_time=4
     ;;
-  enterprise|yggdrasill|daban-urnud|rocinante)
+  enterprise)
+    (~/conf/misc/scripts/pscircle-bg.sh)&
+    # FIXME tmp
+    xinput set-prop ETPS/2\ Elantech\ Touchpad "Synaptics Two-Finger Scrolling" 1 1
+    ;;
+  yggdrasill|daban-urnud|rocinante)
     feh --bg-fill /data/docs/pics/wallpapers/spacex2/Space-X-falcon-heavy-space-rocket-Quad-HD-wallpapers-2.jpg&
+    xinput set-prop ETPS/2\ Elantech\ Touchpad "Synaptics Two-Finger Scrolling" 1 1
     ;;
   *)
     logger -s -p user.error "xsession-user: unknown $HOST no background!";;
@@ -38,10 +44,6 @@ else
   (redshift -l $(pass show stuff/location-alpha)&)
   (qlipper&)
 fi
-
-# ... let me explain:
-# conky needs to be restarted otherwise desktop names are all null. Also, if screen is locked before conky is restarted, conky crashes.
-(sleep 2 && killall -s USR1 conky || echo killall conky did not work)&
 
 # sigh:
 sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1

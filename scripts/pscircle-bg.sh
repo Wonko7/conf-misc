@@ -7,21 +7,10 @@ bg_in="/data/docs/pics/wallpapers/nasa-poster-vision-future/1 - 8XMgqaI.png"
 bg_out=/tmp/.${USER}-wallpaper/w.png
 dir=/tmp/.${USER}-wallpaper
 mkdir -p $dir
-#!/usr/bin/env bash
 
-# ffmpeg -i .wall/Crowl.png -s 1366x768 .pscircle.png
 # convert -resize 1366x768 .wall/Crowl.png .pscircle.png
 
-# xfce wall
-# xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s ~/.pscircle.png
-
 TIME_INTERVAL=3 # Seconds
-
-# gsettings set org.gnome.desktop.background picture-uri file:///tmp/output.png
-# xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s ~/.pscircle.png
-# xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVGA-0/workspace0/last-image -s ~/.pscircle.png
-# hsetroot -fill $HOME/.pscircle.png
-
 
 while [ 1 ]; do
     # Replace the next line with any parameters given in the examples.
