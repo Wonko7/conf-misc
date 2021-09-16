@@ -1,6 +1,8 @@
 #! /bin/sh
 
 source ~/conf/zsh/env.zsh
+source ~/conf/zsh/guix.zsh
+
 #source ~/conf/zsh/alias.zsh
 
 echo "export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" > /tmp/dbus-exports.sh

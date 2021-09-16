@@ -34,7 +34,7 @@ grabVideoFrames:    False
 chooseRandomImages: True
 imageDirectory:	/usr/share/wallpapers
 
-mode:		random
+mode:		random-same
 selected:	138
 
 textMode:	file
@@ -283,6 +283,10 @@ programs:								      \
 -				scooter -root				    \n\
 - GL: 				etruscanvenus -root			    \n\
 - GL: 				gibson -root				    \n\
+- GL: 				beats -root				    \n\
+- GL: 				covid19 -root				    \n\
+- GL: 				headroom -root				    \n\
+- GL: 				sphereeversion -root			    \n\
 
 
 pointerPollTime:    9:00:00
