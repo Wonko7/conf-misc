@@ -16,7 +16,6 @@ update_private ()
     echo $sm
     pushd $sm
 
-    git pull || exit 42
     git add .
 
     changes=$(git status --short)
@@ -34,6 +33,7 @@ update_private ()
     if is_answer_affirmative "$answer"; then
       git commit -am "$sm: $HOST: $tag"
     fi
+    git pull || exit 42
 
     popd > /dev/null
   done
