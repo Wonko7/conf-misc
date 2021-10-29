@@ -1,10 +1,16 @@
 #! /bin/sh
 
-lwg_interfaces="wg42 wg69"
+# welcome to guix
+IWD=/gnu/store/g7jag1xzx1942zl1mqrcwbhjvpj23mny-iwd-0.21/libexec/iwd
+#lwg_interfaces="wg42 wg69"
+lwg_interfaces="wg42"
 #phy_interfaces=$(ip -o li | cut -d: -f2 | egrep '(wlan|eth)')
 
 start ()
 {
+  herd stop wpa-supplicant
+  herd stop networking
+
   vpn_endpoint=azirevpn-$1
   if [ -z "$1" ]; then
      vpn_endpoint=azirevpn-nl
@@ -30,9 +36,11 @@ start ()
 
   # isolate physical interfaces:
   for eth in $eth_interfaces; do
+    ip li
     echo @@ starting $eth
     ip link set $eth down
     ip link set $eth netns rawdog
+    ip li
   done
   for wlan in $wlan_interfaces; do
     echo @@ starting $wlan
@@ -44,19 +52,27 @@ start ()
     iw phy $phy set netns name rawdog
   done
 
-  ip netns exec rawdog /usr/libexec/iwd&
+  ## ip netns exec rawdog herd restart networking
   wlan_interfaces=$(ip -n rawdog -o li | cut -d: -f2 | grep 'wlan')
   # FIXME: wlan gets renamed at this point for some reason
   sleep 1
   eth_interfaces=$(ip -n rawdog -o li | cut -d: -f2 | grep 'eth')
   wlan_interfaces=$(ip -n rawdog -o li | cut -d: -f2 | grep 'wlan')
 
+  for wlan in $wlan_interfaces; do
+    echo "warning starting wpa, will break with multiple wlan devices."
+    ip netns exec rawdog wpa_supplicant -B -c/etc/fuck_wpa_supplicant/wpa_supplicant-wlan0.conf -P/var/run/wpa_supplicant.pid -B -s -u -iwlan0
+    echo $?
+  done
+
+  echo "nameserver 9.9.9.9" > /etc/resolv.conf
+
+
   # up up and away: rawdog
   for i in $eth_interfaces $wlan_interfaces; do
     echo @@ starting dhcp on $i
-    ip netns exec rawdog dhcpcd -b $i
+    ip netns exec rawdog dhclient -nw $i
   done
-  #ip netns exec rawdog wpa_supplicant -B -c/etc/wpa_supplicant/wpa_supplicant-wlan0.conf -iwlan0
 
   # up up and away: wg42 & wg69
   for wg in $lwg_interfaces; do
@@ -84,8 +100,7 @@ stop ()
   wlan_interfaces=$(ip -n rawdog -o li | cut -d: -f2 | grep 'wlan')
   wphy_interfaces=$(ip netns exec rawdog iw phy | sed -nre 's/^Wiphy //p')
 
-  killall dhcpcd || true
-  killall dhcpcd iwd wpa_supplicant || true
+  killall dhclient dhcpcd iwd wpa_supplicant || true
   for eth in $eth_interfaces; do
     echo @@ stopping $eth
     ip -n rawdog link set $eth down

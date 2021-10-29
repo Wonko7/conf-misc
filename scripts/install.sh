@@ -1,29 +1,35 @@
 HOST=$(hostname)
 
-mkdir -p ~/.config/nvim
+mkdir -p ~/.config/{nvim,guix,tint2}
+
+ln -snf ~/conf/guix/config/guix/channels.scm  ~/.config/guix/channels.scm
+
 ln -snf ~/conf/vim/vimrc                ~/.vimrc
 ln -snf ~/conf/vim/gvimrc               ~/.gvimrc
 ln -snf ~/conf/vim                      ~/.vim
 ln -snf ~/conf/vim                      ~/.config/nvim
 ln -snf ~/conf/vim/vimrc                ~/.config/nvim/init.vim
-
-ln -snf ~/conf/xmonad                   ~/.xmonad
 ln -snf ~/conf/zsh/zshrc                ~/.zshrc
-
-ln -snf ~/conf/misc/generated/gitconfig ~/.gitconfig
-ln -snf ~/conf/misc/tmux.conf           ~/.tmux.conf
-
-ln -snf ~/conf/misc/user-dirs.dirs      ~/.config/user-dirs.dirs
 
 ln -snf ~/conf/misc/w3m                 ~/.w3m
 ln -snf ~/conf/misc/mostrc              ~/.mostrc
 
+ln -snf ~/conf/emacs                    ~/.emacs.d
+ln -snf ~/conf/doom                     ~/.doom.d
+
+ln -snf ~/conf/misc/generated/gitconfig ~/.gitconfig
+ln -snf ~/conf/misc/tmux.conf           ~/.tmux.conf
+
+ln -snf ~/conf/xmonad                   ~/.xmonad
 ln -snf ~/conf/misc/generated/$HOST.picom.conf ~/.config/picom.conf
+ln -snf ~/conf/misc/tint2rc             ~/.config/tint2/tint2rc
+
 ln -snf ~/conf/misc/vimfx               ~/.vimfx
 
 ln -snf ~/conf/misc/xinitrc             ~/.xinitrc
 ln -snf ~/conf/misc/xsession            ~/.xsession
 ln -snf ~/conf/misc/xsession-user.sh    ~/.xsession-user.sh
+ln -snf ~/conf/misc/user-dirs.dirs      ~/.config/user-dirs.dirs
 
 ln -snf ~/conf/misc/XCompose            ~/.XCompose
 ln -snf ~/conf/misc/Xdefaults           ~/.Xdefaults
@@ -31,9 +37,6 @@ ln -snf ~/conf/misc/Xresources          ~/.Xresources
 ln -snf ~/conf/misc/xscreensaver        ~/.xscreensaver
 
 ln -snf ~/conf/misc/fonts.conf          ~/.fonts.conf
-
-ln -snf ~/conf/emacs                    ~/.emacs.d
-ln -snf ~/conf/doom                     ~/.doom.d
 
 # host dependent:
 case $HOST in

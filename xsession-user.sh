@@ -1,6 +1,8 @@
 #! /bin/sh
 
 source ~/conf/zsh/env.zsh
+source ~/conf/zsh/guix.zsh
+
 #source ~/conf/zsh/alias.zsh
 
 echo "export DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" > /tmp/dbus-exports.sh
@@ -14,8 +16,14 @@ case $HOST in
     feh --bg-scale ~/pics/dualspidey/t3.png&
     sleepy_time=4
     ;;
-  enterprise|yggdrasill|daban-urnud|rocinante)
+  enterprise)
+    (~/conf/misc/scripts/pscircle-bg.sh)&
+    # FIXME tmp
+    xinput set-prop ETPS/2\ Elantech\ Touchpad "Synaptics Two-Finger Scrolling" 1 1
+    ;;
+  yggdrasill|daban-urnud|rocinante)
     feh --bg-fill /data/docs/pics/wallpapers/spacex2/Space-X-falcon-heavy-space-rocket-Quad-HD-wallpapers-2.jpg&
+    xinput set-prop ETPS/2\ Elantech\ Touchpad "Synaptics Two-Finger Scrolling" 1 1
     ;;
   *)
     logger -s -p user.error "xsession-user: unknown $HOST no background!";;
@@ -30,8 +38,7 @@ if which s6-svscan > /dev/null 2> /dev/null; then
 else
   (xscreensaver -no-splash&)
   (conky -c ~/conf/misc/generated/$HOST.conkyrc &)
-  (picom --config ~/.compton.conf&)
-  (python3.7 ~/conf/misc/systemd-lock-handler.py xscreensaver-command --lock&)
+  (picom&)
   (dunst -config ~/conf/misc/generated/$HOST.dunstrc&)
   (notif notify $HOST&)
   (~/conf/misc/scripts/session-lock-actions.sh&)
@@ -39,10 +46,6 @@ else
   (redshift -l $(pass show stuff/location-alpha)&)
   (qlipper&)
 fi
-
-# ... let me explain:
-# conky needs to be restarted otherwise desktop names are all null. Also, if screen is locked before conky is restarted, conky crashes.
-(sleep 2 && killall -s USR1 conky || echo killall conky did not work)&
 
 # sigh:
 sleep 5 && ~/conf/misc/scripts/kbd.sh LOL1
