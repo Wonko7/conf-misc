@@ -1,6 +1,6 @@
 HOST=$(hostname)
 
-mkdir -p ~/.config/{nvim,guix,tint2}
+mkdir -p ~/.config/{nvim,guix,tint2,pantalaimon}
 
 ln -snf ~/conf/guix/config/guix/channels.scm  ~/.config/guix/channels.scm
 
@@ -16,6 +16,8 @@ ln -snf ~/conf/misc/mostrc              ~/.mostrc
 
 ln -snf ~/conf/emacs                    ~/.emacs.d
 ln -snf ~/conf/doom                     ~/.doom.d
+
+ln -snf ~/conf/misc/pantalaimon.conf    ~/.config/pantalaimon/pantalaimon.conf
 
 ln -snf ~/conf/misc/generated/gitconfig ~/.gitconfig
 ln -snf ~/conf/misc/tmux.conf           ~/.tmux.conf
