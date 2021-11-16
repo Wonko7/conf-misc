@@ -16,6 +16,8 @@ include "%L"
 <Multi_key> <h> <e> : "😍"
 <Multi_key> <k> <k> : "💋"
 
+<Multi_key> <h> <o> : "🏡"
+
 <Multi_key> <c> <c> : "🐫"
 
 <Multi_key> <t> <u> : "👍"
@@ -24,6 +26,14 @@ include "%L"
 <Multi_key> <r> <r> : "🤘"
 <Multi_key> <t> <g> : "✔"
 <Multi_key> <t> <n> : "✘"
+
+<Multi_key> <t> <t> : "🌳"
+<Multi_key> <t> <p> : "🌴"
+<Multi_key> <t> <s> : "🌲"
+<Multi_key> <t> <c> : "🎄"
+
+<Multi_key> <f> <r> : "🌹"
+<Multi_key> <f> <t> : "🌷"
 
 <Multi_key> <a> <a> : "👾"
 <Multi_key> <u> <f> <o> : "🛸"
