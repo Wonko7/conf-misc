@@ -1,0 +1,21 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox
+GenericName=Web Browser
+Comment=Access the Internet
+Exec=firefox -P uman %U
+StartupNotify=true
+Terminal=false
+Icon=firefox-browser
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-sch>
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Exec=firefox
+
+[Desktop Action new-private-window]
+Name=New Incognito Window
+Exec=firefox --incognito

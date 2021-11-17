@@ -62,6 +62,10 @@ kbuildsycoca5
 xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol
 # end
 
+# this sets firefox with the correct profile as default browser
+ln -snf ~/conf/misc/firefox.desktop ~/.local/share/applications/firefox.desktop
+xdg-settings set default-web-browser firefox.desktop
+
 echo "also: "
 echo "  don't forget xmodmap -> check if default is good"
 echo "  cd ~/conf/fonts && ./install.sh"
