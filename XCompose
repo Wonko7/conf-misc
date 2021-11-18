@@ -55,6 +55,12 @@ include "%L"
 <Multi_key> <z> <a> <r> <a> : "🐰"
 
 <Multi_key> <z> <p> <o> <o> : "💩"
+<Multi_key> <z> <b> <i> : "🚲"
+
+<Multi_key> <z> <t> <c> : "☭"
+<Multi_key> <z> <t> <h> : "🔨"
+<Multi_key> <z> <t> <s> : "🔧"
+<Multi_key> <z> <t> <w> : "🔧"
 
 <Multi_key> <t> <u> : "👍"
 <Multi_key> <t> <d> : "👎"
