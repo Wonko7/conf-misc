@@ -62,6 +62,8 @@ include "%L"
 <Multi_key> <z> <t> <s> : "🔧"
 <Multi_key> <z> <t> <w> : "🔧"
 
+<Multi_key> <z> <e> <n> : "☯"
+
 <Multi_key> <t> <u> : "👍"
 <Multi_key> <t> <d> : "👎"
 <Multi_key> <f> <c> : "🤞"
@@ -97,3 +99,7 @@ include "%L"
 <Multi_key> <d> <c> : "℃"
 <Multi_key> <d> <n> : "℉"
 <Multi_key> <d> <d> : "°"
+# this is also on <o> <o>
+
+# arrows?
+# 👇
