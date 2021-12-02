@@ -22,12 +22,13 @@ case $HOST in
 esac
 
 # get current desktop nawe, which in my case is a [0-9]+:
-desktop=$(wmctrl -d | sed -nre 's/.*\*.*\s+([0-9]+)$/\1/p')
+# desktop=$(wmctrl -d | sed -nre 's/.*\*.*\s+([0-9]+)$/\1/p')
 
-if [ "$desktop" -lt 10 ]; then
-  size=$big_size
-else
+if [ "$1" = "--small" ]; then
   size=$small_size
+  shift
+else
+  size=$big_size
 fi
 
 #(st -f "FiraCode Nerd Font Mono:style=SemiBold,Regular:pixelsize=$size" $@)&
