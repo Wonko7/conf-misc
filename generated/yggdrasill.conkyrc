@@ -48,7 +48,7 @@ conky.config = {
   use_xft = true,
   -- font = 'Hakslug:size=10',
   -- font = 'Hakslug:size=20',
-  font = 'JetBrainsMono Nerd Font Mono:size=22', -- 22 / 10
+  font = 'JetBrainsMono Nerd Font Mono:size=22',
   xftalpha = 1.0,
   uppercase = false,
 
